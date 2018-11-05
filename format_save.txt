@@ -1,0 +1,8 @@
+﻿Nom du joueur;nom de la map;n° tour;nb d'entreprise;info entreprise;info entreprise;...
+
+Séparateur niv 1 => ;
+Séparateur niv 2 => -
+Séparateur niv 3 => :
+Séparateur niv 4 => _
+Séparateur niv 5 => /
+Séparateur niv 6 => $
