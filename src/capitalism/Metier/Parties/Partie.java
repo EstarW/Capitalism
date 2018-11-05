@@ -118,6 +118,10 @@ public class Partie {
         this.map=save.getMap();
     }
     
+    /**
+     * Procédure de déroulement d'une partie
+     * @return Faux si le jeu s'arrete
+     */
     public boolean jouer(){
         while(jouer){
             if (this.getTour()==0){
