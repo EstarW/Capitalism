@@ -117,7 +117,7 @@ public class Partie {
         this.listeEnt=save.getListeEnt();
         this.map=save.getMap();
     }
-    
+
     /**
      * Procédure de déroulement d'une partie
      * @return Faux si le jeu s'arrete
@@ -127,7 +127,7 @@ public class Partie {
             if (this.getTour()==0){
                 // TODO - creation de la map
                 
-                // TODO - creation des joueurs
+                // TODO - creation des joueurs (le joueur doit etre le premier joueur de la liste atm)
                 
                 this.augmenterTour();
             }
