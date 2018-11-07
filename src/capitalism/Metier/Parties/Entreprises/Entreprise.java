@@ -8,7 +8,7 @@ package capitalism.Metier.Parties.Entreprises;
 import capitalism.Metier.Parties.Usines.Usine;
 import capitalism.Metier.Parties.Contrats.Contrat;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
-import capitalism.Metier.Jeu;
+import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Ressources;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public abstract class Entreprise {
     private String nom;
     private int argent;
     //private Image logo;
-    private Jeu jeu;
+    private Partie partie;
     private HashMap<Ressources,Integer> ressourcesPossedees;
     // TODO - Rajouter les listes d'usines et de contrats
 
@@ -34,9 +34,9 @@ public abstract class Entreprise {
      * @param nom
      * @param jeu
      */
-    public Entreprise(String nom, Jeu jeu) {
+    public Entreprise(String nom, Partie partie) {
         this.argent=0;
-        this.jeu=jeu;
+        this.partie=partie;
         this.nom=nom;
         this.ressourcesPossedees = new HashMap();
     }
@@ -44,10 +44,31 @@ public abstract class Entreprise {
 //------------------------------------------------------------------------------
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getArgent() {
+        return argent;
+    }
+
+    public Partie getPartie() {
+        return partie;
+    }
+
+    public HashMap<Ressources, Integer> getRessourcesPossedees() {
+        return ressourcesPossedees;
+    }
     
     
     
 //------------------------------------------------------------------------------
+    
+    public void jouerTour(){
+        
+    }
+    
     public void dissoudre() {
         throw new UnsupportedOperationException();
     }
