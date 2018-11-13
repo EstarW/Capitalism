@@ -57,7 +57,8 @@ public class Map {
     }
     
     public void setCase(int numLigne, int numColonne, Case c){
-        
+        this.hashMapCases.put(new Coordonnee(numLigne,numColonne), c);
+        this.listeCases.add(c);
     }
     
 //------------------------------------------------------------------------------
