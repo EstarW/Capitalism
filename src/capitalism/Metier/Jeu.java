@@ -62,7 +62,6 @@ public class Jeu {
      */
     public void newGame() {
         String nom=null;
-        //afficher l'écran de création de l'entreprise
         this.setPartie(new Partie(this,nom));
     }
     

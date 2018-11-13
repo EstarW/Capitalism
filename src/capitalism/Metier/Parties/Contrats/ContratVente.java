@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Contrats;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Ressources;
 
 /**
  *
@@ -15,7 +14,7 @@ import capitalism.Metier.Parties.Ressources;
 public class ContratVente extends Contrat {
 
     private int prix;
-    private Ressources ressourceSource;
+    //private Ressources ressourceSource;
     private int qteSource;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -24,7 +23,7 @@ public class ContratVente extends Contrat {
         super(entSource, entDestinataire, duree);
         this.prix=prix;
         this.qteSource=qteSource;
-        this.ressourceSource=ressourceSource;
+        //this.ressourceSource=ressourceSource;
     }
 
 //------------------------------------------------------------------------------
@@ -43,15 +42,6 @@ public class ContratVente extends Contrat {
     public void setPrix(int prix) {
         this.prix = prix;
     }
-
-    public Ressources getRessourceSource() {
-        return ressourceSource;
-    }
-
-    public void setRessourceSource(Ressources ressourceSource) {
-        this.ressourceSource = ressourceSource;
-    }
-
     public int getQteSource() {
         return qteSource;
     }

@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Contrats;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Ressources;
 
 /**
  *
@@ -14,19 +13,19 @@ import capitalism.Metier.Parties.Ressources;
  */
 public class ContratEchange extends Contrat{
     
-    private Ressources ressourceSource;
+    //private Ressources ressourceSource;
     private int qteSource;
-    private Ressources ressourceDest;
+    //private Ressources ressourceDest;
     private int qteDest;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    public ContratEchange(Entreprise entSource, Entreprise entDestinataire, int duree, Ressources ressourceSource, int qteSource, Ressources ressourceDest, int qteDest) {
+    public ContratEchange(Entreprise entSource, Entreprise entDestinataire, int duree, int qteDest) {
         super(entSource, entDestinataire, duree);
         this.qteDest=qteDest;
         this.qteSource=qteSource;
-        this.ressourceDest=ressourceDest;
-        this.ressourceSource=ressourceSource;
+        //this.ressourceDest=ressourceDest;
+        //this.ressourceSource=ressourceSource;
     }
     
 //------------------------------------------------------------------------------
@@ -38,28 +37,12 @@ public class ContratEchange extends Contrat{
         return TypeContrat.Echange;
     }
 
-    public Ressources getRessourceSource() {
-        return ressourceSource;
-    }
-
-    public void setRessourceSource(Ressources ressourceSource) {
-        this.ressourceSource = ressourceSource;
-    }
-
     public int getQteSource() {
         return qteSource;
     }
 
     public void setQteSource(int qteSource) {
         this.qteSource = qteSource;
-    }
-
-    public Ressources getRessourceDest() {
-        return ressourceDest;
-    }
-
-    public void setRessourceDest(Ressources ressourceDest) {
-        this.ressourceDest = ressourceDest;
     }
 
     public int getQteDest() {
