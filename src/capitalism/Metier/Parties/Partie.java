@@ -37,7 +37,7 @@ public class Partie {
         this.nom = nom;
         this.listeEnt = new ArrayList();
         this.tour=0;
-        this.map=null;
+        this.map= new Map(jeu);
         this.jouer=true;
     }
 

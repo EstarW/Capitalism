@@ -5,12 +5,17 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Metier.Jeu;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Carte.Map;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyEvent;
+
 
 /**
  *
@@ -20,53 +25,70 @@ public class ListeCase extends Parent{
     
     private Map map;
     private Case Case;
-    private HashMap<Coordonnee, capitalism.Metier.Parties.Carte.Cases.Case> hashMapCase;
     private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
     private Case[] MapCase;
+    private int ligne;
+    private int colonne;
     
-    public ListeCase(){
-        this.listeCases = new ArrayList<>();
-        this.hashMapCase = new HashMap<>();
+    public ListeCase(Jeu j, Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
 
-        
-        this.hashMapCase = map.getHashMapCases();
-        this.listeCases = map.getListeCases();
+        this.listeCases = listeCase;
+        this.map = m;
+        /*this.hashMapCase = map.getHashMapCases();*/
+
         for(int i=0; i<listeCases.size(); i++)
         {
-            if (map.getListeCases().get(i).getType() == CaseEau)
+            if (listeCases.get(i).getType().equals(CaseEau))
             {
-                MapCase[i] = new CaseEau(200, 150);
+                colonne = listeCases.get(i).getColonne();
+                ligne = listeCases.get(i).getLigne();
+                Case c = new CaseEau(colonne*50, ligne*50);
+                this.getChildren().add(c);
+
             } 
-            if (map.getListeCases().get(i).getType() == CaseVille)
+            if (listeCases.get(i).getType().equals(CaseVille))
             {
-                MapCase[i] = new CaseVille(250, 150);
+                colonne = listeCases.get(i).getColonne();
+                ligne = listeCases.get(i).getLigne();
+                Case c = new CaseVille(colonne*50, ligne*50);
+                this.getChildren().add(c);
+
             }
-            if (map.getListeCases().get(i).getType() == CaseEmplacement)
+            if (listeCases.get(i).getType().equals(CaseEmplacement))
             {
-                MapCase[i] = new CaseEmplacement(300, 150);              
+                colonne = listeCases.get(i).getColonne();
+                ligne = listeCases.get(i).getLigne();
+                Case c = new CaseEmplacement(colonne*50, ligne*50);
+                this.getChildren().add(c);
+
             }
-            if (map.getListeCases().get(i).getType() == CaseTerre)
+            if (listeCases.get(i).getType().equals(CaseTerre))
             {
-                MapCase[i] = new CaseTerre(350, 150);             
+                colonne = listeCases.get(i).getColonne();
+                ligne = listeCases.get(i).getLigne();
+                Case c = new CaseTerre(colonne*50, ligne*50); 
+                this.getChildren().add(c);
+
             }
-            if (map.getListeCases().get(i).getType() == CaseVilleEmplacement)
+            if (listeCases.get(i).getType().equals(CaseVilleEmplacement))
             {
-                MapCase[i] = new CaseVilleEmplacement(450, 150);            
+                colonne = listeCases.get(i).getColonne();
+                ligne = listeCases.get(i).getLigne();
+                Case c = new CaseVilleEmplacement(colonne*50, ligne*50); 
+                this.getChildren().add(c);
+
             }
-            if (map.getListeCases().get(i).getType() == CaseRessource)  
+            if (listeCases.get(i).getType().equals(CaseRessource))  
             {
-                MapCase[i] = new CaseRessource(500, 150);            
+                colonne = listeCases.get(i).getColonne();
+                ligne = listeCases.get(i).getLigne();
+                Case c = new CaseRessource(colonne*50, ligne*50); 
+                this.getChildren().add(c);
+
             }
 
         }
-        
-        
-        
-        
-        for(Case Case: MapCase)
-        {
-            this.getChildren().add(Case);    
-        }
+
     }
 }
     

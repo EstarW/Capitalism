@@ -25,13 +25,11 @@ public class BoutonMenuList extends Parent{
     public BoutonMenuList(){
         
         boutons = new Bouton[]{
-            new Bouton(520, 320, 60, "Menu", MenuJeu),
-            new Bouton(-550, 340, 40, "Contrat", MenuContrat),
-            new Bouton(-450, 340, 40, "Gestion", MenuGestion),
-            new Bouton(-350, 340, 40, "Liste", MenuListe)
+            new Bouton(1100, 725, 60, "Menu", MenuJeu),
+            new Bouton(50, 750, 40, "Contrat", MenuContrat),
+            new Bouton(150, 750, 40, "Gestion", MenuGestion),
+            new Bouton(250, 750, 40, "Liste", MenuListe)
         };
-        
-        this.setTranslateY(320);
 
         for(Bouton bouton: boutons){
             this.getChildren().add(bouton);
