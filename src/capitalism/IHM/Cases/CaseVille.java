@@ -24,7 +24,7 @@ public class CaseVille extends Case{
     public CaseVille(double X, double Y) {
         super(X, Y);
         Rectangle rec = new Rectangle(50,50,Color.LIGHTGREY);
-        rec.setStroke(Color.ANTIQUEWHITE);
+        rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
         rec.setX(X);
         rec.setY(Y);
@@ -33,19 +33,15 @@ public class CaseVille extends Case{
         
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent me){
-                rec.setFill(Color.rgb(0,0,0,0.2));
+                rec.setFill(Color.rgb(0,0,0,0.1));
             }
         });
         this.setOnMouseExited(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent me){
-                rec.setFill(Color.ANTIQUEWHITE);
+                rec.setFill(Color.LIGHTGREY);
             }
         });
-        this.setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                // Afficher le nom de la ville
-            }
-        });
+        
     }
     
     public double getX() {

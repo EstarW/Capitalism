@@ -1,11 +1,8 @@
-                                                                                
-                                                                                
-EEEEEEEEEEEEE                                                                   
-EEEEEEEEEEEEE                                                                   
-EEEEEEEEEEEEE                                                                   
-EEEEEEEE EEEE                                                           EEEEEEEE
-                                                                        EEEEEEEE
-                        VVVVVVVVVV                                              
-                        VVVVVUVVVV                                              
-                        UVVVVVVUVV                                              
-                        VVVVVVVVVV                                              
+             
+             
+EEEEEEEEEEEEE
+EEEEEEEE EEEE
+             
+VVVVVUVVVV
+UVVVVVVUVV
+VVVVVVVVVV

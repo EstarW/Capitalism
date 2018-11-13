@@ -33,7 +33,7 @@ public class CaseEmplacement extends Case {
                     
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent me){
-                rec.setFill(Color.rgb(0,0,0,0.2));
+                rec.setFill(Color.rgb(0,0,0,0.8));
             }
         });
         
