@@ -8,8 +8,9 @@ package capitalism.Metier.Parties.Entreprises;
 import capitalism.Metier.Parties.Usines.Usine;
 import capitalism.Metier.Parties.Contrats.Contrat;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
+import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
-import capitalism.Metier.Parties.Ressources;
+import capitalism.Metier.Parties.Produit;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -24,7 +25,8 @@ public abstract class Entreprise {
     private int argent;
     //private Image logo;
     private Partie partie;
-    private HashMap<Ressources,Integer> ressourcesPossedees;
+    private HashMap<MatierePremiere,Integer> MatieresPremieres;
+    private HashMap<Produit, Integer> Produits;
     // TODO - Rajouter les listes d'usines et de contrats
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -37,8 +39,17 @@ public abstract class Entreprise {
     public Entreprise(String nom, Partie partie) {
         this.argent=0;
         this.partie=partie;
-        this.nom=nom;
-        this.ressourcesPossedees = new HashMap();
+        this.nom=nom;   
+        this.MatieresPremieres = new HashMap();
+        for(MatierePremiere m : MatierePremiere.values()){
+            this.MatieresPremieres.put(m, 0);
+        }
+        this.Produits = new HashMap();
+        for(Produit m : Produit.values()){
+            this.Produits.put(m, 0);
+        }
+        
+        
     }
 
 //------------------------------------------------------------------------------
@@ -57,10 +68,13 @@ public abstract class Entreprise {
         return partie;
     }
 
-    public HashMap<Ressources, Integer> getRessourcesPossedees() {
-        return ressourcesPossedees;
+    public HashMap<Produit, Integer> getProduitsPossedees() {
+        return this.Produits;
     }
     
+    public HashMap<MatierePremiere, Integer> getMatieresPremieresPossedees() {
+        return this.MatieresPremieres;
+    }
     
     
 //------------------------------------------------------------------------------
@@ -85,10 +99,10 @@ public abstract class Entreprise {
      * @param ressourceDemandee
      * @param qteDemandee
      */
-    public void proposerContratVente(Entreprise cible, int prixParTour, Ressources ressourceDemandee, int qteDemandee) {
+    /**public void proposerContratVente(Entreprise cible, int prixParTour, Ressources ressourceDemandee, int qteDemandee) {
             // TODO - implement Entreprise.proposerContratVente
             throw new UnsupportedOperationException();
-    }
+    }**/
 
     /**
      * 
@@ -98,10 +112,10 @@ public abstract class Entreprise {
      * @param ressourceDemandee
      * @param qteDesiree
      */
-    public void proposerContratEchange(Entreprise cible, Ressources ressourceProposee, int qteProposee, Ressources ressourceDemandee, int qteDesiree) {
+    /**public void proposerContratEchange(Entreprise cible, Ressources ressourceProposee, int qteProposee, Ressources ressourceDemandee, int qteDesiree) {
             // TODO - implement Entreprise.proposerContratEchange
             throw new UnsupportedOperationException();
-    }
+    }**/
 
     /**
      * 
@@ -274,18 +288,31 @@ public abstract class Entreprise {
      * 
      * @return 
      */
-    public HashMap<Ressources,Integer> getRessourcesPerduesParContrat() {
+    /**public HashMap<Ressources,Integer> getRessourcesPerduesParContrat() {
         // TODO - implement Entreprise.getRessourcesPerduesParContrat
         throw new UnsupportedOperationException();
-    }
+    }**/
 
     /**
      * 
      * @param ressources
      */
-    public void supprimerRessources(HashMap<Ressources,Integer> ressources) {
+    /**public void supprimerRessources(HashMap<Ressources,Integer> ressources) {
         // TODO - implement Entreprise.supprimerRessources
         throw new UnsupportedOperationException();
+    }**/
+
+    /**
+     * 
+     * @param ressource
+     * @param qte
+     */
+    public void supprimerRessource(Produit ressource, int qte) {
+        this.Produits.replace(ressource, this.Produits.get(ressource)-qte);
+    }
+
+    public void supprimerRessource(MatierePremiere ressource, int qte) {
+        this.MatieresPremieres.replace(ressource, this.MatieresPremieres.get(ressource)-qte);
     }
 
     /**
@@ -293,17 +320,12 @@ public abstract class Entreprise {
      * @param ressource
      * @param qte
      */
-    public void supprimerRessource(Ressources ressource, int qte) {
-        this.ressourcesPossedees.replace(ressource, this.ressourcesPossedees.get(ressource)-qte);
+    public void ajouterRessources(Produit ressource, int qte) {
+        this.Produits.replace(ressource, this.Produits.get(ressource)+qte);
     }
-
-    /**
-     * 
-     * @param ressource
-     * @param qte
-     */
-    public void ajouterRessources(Ressources ressource, int qte) {
-        this.ressourcesPossedees.replace(ressource, this.ressourcesPossedees.get(ressource)+qte);
-    }
+    
+    public void ajouterRessources(MatierePremiere ressource, int qte) {
+        this.MatieresPremieres.replace(ressource, this.MatieresPremieres.get(ressource)+qte);
+    }    
 
 }

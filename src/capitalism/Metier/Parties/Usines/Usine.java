@@ -5,6 +5,7 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 
 /**
@@ -15,7 +16,7 @@ public abstract class Usine {
 
     private String nom;
     private Entreprise proprietaire;
-
+    private CaseEmplacement emplacement;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     /**
@@ -23,9 +24,11 @@ public abstract class Usine {
      * @param nom
      * @param proprietaire
      */
-    public Usine(String nom, Entreprise proprietaire) {
+    public Usine(String nom, Entreprise proprietaire, CaseEmplacement emplacement) {
         this.nom=nom;
         this.proprietaire=proprietaire;
+        this.emplacement = emplacement;
+        emplacement.setUsine(this);
     }
     
 //------------------------------------------------------------------------------
@@ -56,7 +59,6 @@ public abstract class Usine {
      */
     public void changerNom(String nouveauNom) {
             // TODO - implement Usine.changerNom
-            throw new UnsupportedOperationException();
             this.nom = nouveauNom;
     }
 

@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Carte.Cases;
 
 import capitalism.Metier.Parties.Carte.Map;
-import capitalism.Metier.Parties.Ressources;
 
 /**
  *
@@ -14,13 +13,13 @@ import capitalism.Metier.Parties.Ressources;
  */
 public class CaseRessource extends Case {
 
-    private Ressources ressource;
+    //private Ressources ressource;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public CaseRessource(int ligne, int colonne, Map map) {
         super(ligne, colonne, map);
-        this.ressource=null;
+       // this.ressource=null;
     }
 
 //------------------------------------------------------------------------------
@@ -32,13 +31,13 @@ public class CaseRessource extends Case {
         return TypeCase.CaseRessource;
     }
 
-    public Ressources getRessource() {
+    /**public Ressources getRessource() {
         return ressource;
     }
 
     public void setRessource(Ressources ressource) {
         this.ressource = ressource;
-    }
+    }**/
     
 //------------------------------------------------------------------------------
     

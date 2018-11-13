@@ -5,7 +5,9 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
+import capitalism.Metier.Parties.MatierePremiere;
 
 /**
  *
@@ -13,10 +15,12 @@ import capitalism.Metier.Parties.Entreprises.Entreprise;
  */
 public class UsineMatierePremiere extends Usine {
 
+    private MatierePremiere production;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    public UsineMatierePremiere(String nom, Entreprise proprietaire) {
-        super(nom, proprietaire);
+    public UsineMatierePremiere(String nom, Entreprise proprietaire, CaseEmplacement emplacement,MatierePremiere production) {
+        super(nom, proprietaire, emplacement);
+        this.production = production;
     }
 
 //------------------------------------------------------------------------------
@@ -29,6 +33,6 @@ public class UsineMatierePremiere extends Usine {
     
     @Override
     public void produire() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.getProprietaire().ajouterRessources(production, 1);
     }
 }
