@@ -5,6 +5,8 @@
  */
 package capitalism.IHM.Cases;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -20,13 +22,15 @@ public class CaseVilleEmplacement extends Case{
     public CaseVilleEmplacement(double X, double Y) {
         super(X, Y);
         Rectangle rec = new Rectangle(50,50,Color.CYAN);
-        rec.setStroke(Color.rgb(0,0,0, 0.5));
+        rec.setStroke(Color.BLACK);
         rec.setStrokeWidth(1);
         this.X = this.getX();
         this.Y = this.getY();
         rec.setX(X);
         rec.setY(Y);
         this.getChildren().add(rec);
+        
+        
     }
 
     public double getX() {

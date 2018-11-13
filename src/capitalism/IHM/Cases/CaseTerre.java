@@ -32,18 +32,9 @@ public class CaseTerre extends Case{
         this.getChildren().add(rec);
 
                     
-        this.setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                rec.setFill(Color.rgb(0,0,0,0.2));
-            }
-        });
         
-        this.setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                rec.setFill(Color.ANTIQUEWHITE);
-            }      
         
-    });
+        
                 }
     
     

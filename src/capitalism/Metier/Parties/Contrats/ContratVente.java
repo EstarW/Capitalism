@@ -19,7 +19,7 @@ public class ContratVente extends Contrat {
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    public ContratVente(Entreprise entSource, Entreprise entDestinataire, int duree, Ressources ressourceSource, int qteSource, int prix) {
+    public ContratVente(Entreprise entSource, Entreprise entDestinataire, int duree, int qteSource, int prix) {
         super(entSource, entDestinataire, duree);
         this.prix=prix;
         this.qteSource=qteSource;
