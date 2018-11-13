@@ -57,6 +57,7 @@ public abstract class Usine {
     public void changerNom(String nouveauNom) {
             // TODO - implement Usine.changerNom
             throw new UnsupportedOperationException();
+            this.nom = nouveauNom;
     }
 
     public void vendre() {
@@ -72,7 +73,7 @@ public abstract class Usine {
      */
     public void vendreUsine(Entreprise nouveauProprietaire) {
             // TODO - implement Usine.vendreUsine
-            throw new UnsupportedOperationException();
+            this.proprietaire = nouveauProprietaire;
     }
 
 }
