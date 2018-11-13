@@ -10,13 +10,7 @@ import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Carte.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import javafx.event.EventHandler;
 import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 /**
  *
@@ -24,8 +18,6 @@ import javafx.scene.paint.Color;
  */
 public class ListeCase extends Parent{
     
-    private double movex;
-    private double movey;
     private Map map;
     private Case Case;
     private HashMap<Coordonnee, capitalism.Metier.Parties.Carte.Cases.Case> hashMapCase;
@@ -35,16 +27,7 @@ public class ListeCase extends Parent{
     public ListeCase(){
         this.listeCases = new ArrayList<>();
         this.hashMapCase = new HashMap<>();
-        /*ListeCase = new Case[]{
-            new CaseEau(200, 150),
-            new CaseEau(250, 150),
-            new CaseEau(300, 150),
-            new CaseEau(350, 150),
-            new CaseTerre(200, 200),
-            new CaseTerre(250, 200),
-            new CaseTerre(300, 200),
-            new CaseEmplacement(350, 200)
-        };*/
+
         
         this.hashMapCase = map.getHashMapCases();
         this.listeCases = map.getListeCases();
@@ -84,11 +67,6 @@ public class ListeCase extends Parent{
         {
             this.getChildren().add(Case);    
         }
-        
-        /*Iterator it = hashMapCase.entrySet().iterator();
-        while(it.hasNext())
-        {
-        }*/
     }
 }
     
