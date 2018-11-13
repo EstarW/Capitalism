@@ -27,9 +27,6 @@ public class Capitalism extends Application {
     @Override
     public void start(Stage primaryStage) {
         
-        Jeu j = new Jeu();
-        Map map = new Map(j);
-        ParseurMap p = new ParseurMap("test.txt", map);
         StackPane root = new StackPane();   
         Scene scene = new Scene(root, 1200, 800);
         BoutonMenuList bl = new BoutonMenuList();
