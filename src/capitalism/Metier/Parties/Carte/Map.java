@@ -7,6 +7,8 @@ package capitalism.Metier.Parties.Carte;
 
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Jeu;
+import capitalism.Metier.Parties.Carte.Parseur.ParseurMap;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -62,5 +64,8 @@ public class Map {
     }
     
 //------------------------------------------------------------------------------
-    
+    public void chargerFichier(String adresseFichier) throws IOException {
+        ParseurMap parseur = new ParseurMap(adresseFichier,this);
+        parseur.lecture();
+    }
 }

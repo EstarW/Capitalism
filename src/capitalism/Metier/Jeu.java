@@ -83,23 +83,4 @@ public class Jeu {
             // TODO - implement Jeu.stopGame
             throw new UnsupportedOperationException();
     }
-
-    public boolean run(){
-        while(this.enJeu){
-            Type_ActionEcranJeu nav = this.controlleur.affichageEcranJeu();
-            switch(nav){
-                case nouvellePartie:this.newGame();
-                break;
-                case chargerPartie:this.loadGame(this.controlleur.ecranChargerPartie());
-                //break;
-                case options:throw new UnsupportedOperationException();
-                //break;
-                case quitter:this.setEnJeu(false);
-                //break;
-            }
-        }
-        
-        return this.enJeu;
-    }
-
 }

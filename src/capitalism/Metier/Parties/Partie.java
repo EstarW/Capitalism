@@ -117,28 +117,4 @@ public class Partie {
         this.listeEnt=save.getListeEnt();
         this.map=save.getMap();
     }
-
-    /**
-     * Procédure de déroulement d'une partie
-     * @return Faux si le jeu s'arrete
-     */
-    public boolean jouer(){
-        while(jouer){
-            if (this.getTour()==0){
-                // TODO - creation de la map
-                
-                // TODO - creation des joueurs (le joueur doit etre le premier joueur de la liste atm)
-                
-                this.augmenterTour();
-            }
-            //On affiche l'ecran principal
-            //On fait jouer les joueurs l'un après l'autre
-            for(Entreprise e : this.getListeEnt()){
-                //Chaque joueur fait les actions qu'il peut faire puis passe son tour
-            }
-            //On passe le tour pour tout le monde
-            this.augmenterTour();
-        }
-        return jouer;
-    }
 }
