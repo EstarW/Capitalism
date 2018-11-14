@@ -7,7 +7,6 @@
 package capitalism.Controlleurs;
 
 import capitalism.Metier.Jeu;
-import capitalism.Metier.Type_ActionEcranJeu;
 
 /**
  *
@@ -35,20 +34,7 @@ public class Controlleur_Jeu {
     
 
 //------------------------------------------------------------------------------
-    /**
-     * 
-     * @return L'action du joueur
-     */
-    public Type_ActionEcranJeu affichageEcranJeu(){
-        Type_ActionEcranJeu choix = null;
-        //renvoyer le choix du joueur
-        return choix;
-    }
     
-    public String ecranChargerPartie(){
-        String res = null;
-        //renvoyer le nom de la partie à charger
-        return res;
-    }
+    
     
 }
