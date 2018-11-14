@@ -6,7 +6,6 @@
 
 package capitalism.Controlleurs;
 
-import capitalism.Metier.Jeu;
 
 /**
  *
@@ -14,17 +13,16 @@ import capitalism.Metier.Jeu;
  */
 public class Controlleur_Jeu {
 
-    private Jeu modele;
     //private ? vue
     
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Jeu(Jeu _modele){
+    public Controlleur_Jeu(){
         //Initialisation
-        this.modele = _modele;
+        
         //lie le controlleur au modele
-        this.modele.setControlleur(this);
+        
     }
 
 //------------------------------------------------------------------------------

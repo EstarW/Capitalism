@@ -5,16 +5,11 @@
  */
 package capitalism.IHM.Cases;
 
-import capitalism.Metier.Jeu;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
-import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Carte.Map;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import javafx.event.EventHandler;
 import javafx.scene.Parent;
-import javafx.scene.input.KeyEvent;
 
 
 /**
@@ -30,7 +25,7 @@ public class ListeCase extends Parent{
     private int ligne;
     private int colonne;
     
-    public ListeCase(Jeu j, Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
+    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
 
         this.listeCases = listeCase;
         this.map = m;

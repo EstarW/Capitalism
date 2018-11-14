@@ -6,7 +6,6 @@
 
 package capitalism.Metier.Parties;
 
-import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.io.FileNotFoundException;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
  */
 public class Partie {
 
-    private final Jeu jeu;
     private String nom;
     private int tour;
     private Map map;
@@ -32,12 +30,11 @@ public class Partie {
      * @param jeu 
      * @param nom 
      */
-    public Partie(Jeu jeu, String nom) {
-        this.jeu = jeu;
+    public Partie(String nom) {
         this.nom = nom;
         this.listeEnt = new ArrayList();
         this.tour=0;
-        this.map= new Map(jeu);
+        this.map= new Map();
         this.jouer=true;
     }
 
@@ -55,10 +52,6 @@ public class Partie {
 
     public ArrayList<Entreprise> getListeEnt() {
         return listeEnt;
-    }
-
-    public Jeu getJeu() {
-        return jeu;
     }
 
     public String getNom() {

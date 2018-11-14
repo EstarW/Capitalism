@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Carte;
 
 import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Carte.Parseur.ParseurMap;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,14 +17,12 @@ import java.util.HashMap;
  */
 public class Map {
 
-    private Jeu jeu;
     private HashMap<Coordonnee,Case> hashMapCases;
     private ArrayList<Case> listeCases;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    public Map(Jeu jeu) {
-        this.jeu = jeu;
+    public Map() {
         this.hashMapCases = new HashMap();
         this.listeCases = new ArrayList();
     }
@@ -34,14 +31,6 @@ public class Map {
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
     
-    public Jeu getJeu() {
-        return jeu;
-    }
-
-    public void setJeu(Jeu jeu) {
-        this.jeu = jeu;
-    }
-
     public HashMap<Coordonnee, Case> getHashMapCases() {
         return hashMapCases;
     }
