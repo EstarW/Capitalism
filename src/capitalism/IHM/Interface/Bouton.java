@@ -6,6 +6,7 @@
 package capitalism.IHM.Interface;
 
 import capitalism.IHM.*;
+import static capitalism.IHM.Interface.Type.*;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +28,7 @@ public class Bouton extends Parent {
     private float rad;
     private String nom;
     private Type type;
+    private Menu m;
     
     Text libelle;
     
@@ -94,8 +96,27 @@ public class Bouton extends Parent {
     
     
     public void afficherMenu(Type type){
-        /*Menu.AfficherMenu(type);*/
-        System.out.println(type);
+        m = new Menu();
+        if(type == MenuJeu)
+        {
+            m.afficherMenu(type);
+            System.out.println(type);
+        }
+        if(type == MenuListe)
+        {
+            m.afficherMenu(type);
+            System.out.println(type);
+        }
+        if(type == MenuGestion)
+        {
+            m.afficherMenu(type);
+            System.out.println(type);
+        }
+        if(type == MenuContrat)
+        {
+            m.afficherMenu(type);
+            System.out.println(type);
+        }
     }
     
 

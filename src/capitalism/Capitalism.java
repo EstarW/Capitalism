@@ -8,6 +8,7 @@ package capitalism;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
+import capitalism.IHM.Menu;
 import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
