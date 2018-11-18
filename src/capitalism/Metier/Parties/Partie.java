@@ -17,17 +17,15 @@ import java.util.ArrayList;
  */
 public class Partie {
 
-    private String nom;
+    private final String nom;
     private int tour;
     private Map map;
     private ArrayList<Entreprise> listeEnt;
-    private boolean jouer;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
     /**
      * Constructeur pour créer une nouvelle partie
-     * @param jeu 
      * @param nom 
      */
     public Partie(String nom) {
@@ -35,7 +33,6 @@ public class Partie {
         this.listeEnt = new ArrayList();
         this.tour=0;
         this.map= new Map();
-        this.jouer=true;
     }
 
 //------------------------------------------------------------------------------
@@ -56,14 +53,6 @@ public class Partie {
 
     public String getNom() {
         return nom;
-    }
-
-    public boolean isJouer() {
-        return jouer;
-    }
-
-    public void setJouer(boolean jouer) {
-        this.jouer = jouer;
     }
 
 //------------------------------------------------------------------------------
