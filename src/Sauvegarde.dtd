@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT partie (tour,map,entreprise+) >
+<!ATTLIST partie nom CDATA #REQUIRED>
+
+<!ELEMENT entreprise (argent,usine+,contrat+) >
+<!ATTLIST entreprise nom CDATA #REQUIRED>
+
+<!ELEMENT usine (emplacement,production) >
+<!ATTLIST usine nom CDATA #REQUIRED>
+
+<!ELEMENT contrat (source,dest,duree) >
+
+<!ELEMENT tour (#PCDATA) >
+<!ELEMENT map (#PCDATA) >
+<!ELEMENT argent (#PCDATA) >
+<!ELEMENT emplacement (#PCDATA) >
+<!ELEMENT production (#PCDATA) >
+<!ELEMENT source (#PCDATA) >
+<!ELEMENT dest (#PCDATA) >
+<!ELEMENT duree (#PCDATA) >
