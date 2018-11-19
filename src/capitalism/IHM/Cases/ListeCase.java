@@ -38,6 +38,7 @@ public class ListeCase extends Parent{
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
                 Case c = new CaseEau(colonne*50, ligne*50);
+
                 this.getChildren().add(c);
 
             } 
@@ -46,6 +47,7 @@ public class ListeCase extends Parent{
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
                 Case c = new CaseVille(colonne*50, ligne*50);
+
                 this.getChildren().add(c);
 
             }
@@ -54,6 +56,7 @@ public class ListeCase extends Parent{
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
                 Case c = new CaseEmplacement(colonne*50, ligne*50);
+
                 this.getChildren().add(c);
 
             }
@@ -62,6 +65,7 @@ public class ListeCase extends Parent{
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
                 Case c = new CaseTerre(colonne*50, ligne*50); 
+
                 this.getChildren().add(c);
 
             }
@@ -70,6 +74,7 @@ public class ListeCase extends Parent{
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
                 Case c = new CaseVilleEmplacement(colonne*50, ligne*50); 
+
                 this.getChildren().add(c);
 
             }
@@ -78,6 +83,7 @@ public class ListeCase extends Parent{
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
                 Case c = new CaseRessource(colonne*50, ligne*50); 
+
                 this.getChildren().add(c);
 
             }
@@ -85,5 +91,6 @@ public class ListeCase extends Parent{
         }
 
     }
+
 }
     

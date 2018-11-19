@@ -15,8 +15,15 @@ import java.util.ArrayList;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import static javafx.scene.input.KeyCode.*;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -25,31 +32,75 @@ import javafx.stage.Stage;
  */
 public class Capitalism extends Application {
     
-    private double X;
-    private double Y;
+    private double scaleX = 1;
+    private double scaleY = 1;
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         
         
         Map m = new Map();
         m.chargerFichier("Carte.txt");
-        /*System.out.println(j.getPartie().getMap().getListeCases());*/
         ArrayList<Case> listeCase = m.getListeCases();
-        Pane root = new Pane(); 
-        Scene scene = new Scene(root, 1200, 800);
-        BoutonMenuList bl = new BoutonMenuList();
-        
         ListeCase l = new ListeCase(m, listeCase);
-        root.getChildren().add(l);
+        BoutonMenuList bl = new BoutonMenuList();
         Bandeau b = new Bandeau();
-        root.getChildren().add(bl); 
-        root.getChildren().add(b);
+
         
+        Pane root = new StackPane(); 
+        Pane menu = new Pane();
+        Pane map = new Pane();
+        Scene scene = new Scene(root, 1200, 800);
+        
+        map.getChildren().add(l);
+
+        menu.getChildren().add(bl);
+        menu.getChildren().add(b);
+        root.getChildren().add(map);             
+        root.getChildren().add(menu);   
         primaryStage.setTitle("Capitalisme");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
+        
+        scene.setOnMouseClicked(event -> {
+            map.setTranslateX(event.getX());
+            map.setTranslateY(event.getY());
+            event.consume();
+        });
+        
+        
+        scene.setOnMouseDragged(event -> {
+            map.setTranslateX(event.getX());
+            map.setTranslateY(event.getY());
+            event.consume();
+        });
+        
+        scene.setOnKeyPressed(event -> {
+            if(event.getCode().equals(E))
+            {
+                if(scaleX < 3 && scaleY < 3)
+                {
+                    scaleX += 0.2;
+                    scaleY += 0.2;
+                    map.setScaleX(scaleX);
+                    map.setScaleY(scaleY);
+                }
+            }
+            if(event.getCode().equals(A))
+            {
+                if(scaleX > 0.3 && scaleY > 0.3)
+                {
+                    scaleX -= 0.2;
+                    scaleY -= 0.2;
+                    map.setScaleX(scaleX);
+                    map.setScaleY(scaleY);
+                }
+            }
+            
 
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */
