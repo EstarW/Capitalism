@@ -17,8 +17,7 @@ public class Bandeau extends Parent {
     
     public Bandeau(){
         Rectangle r = new Rectangle(1920, 70, Color.rgb(0,0,0,0.7));
-        r.setX(0);
-        r.setY(0);
+        this.setLayoutY(200);
         this.getChildren().add(r);
     }
 }

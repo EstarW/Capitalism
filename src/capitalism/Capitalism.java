@@ -10,18 +10,16 @@ import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import static javafx.scene.input.KeyCode.*;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -34,6 +32,10 @@ public class Capitalism extends Application {
     
     private double scaleX = 1;
     private double scaleY = 1;
+    private double X;
+    private double Y;
+    private double mapX;
+    private double mapY;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -47,31 +49,39 @@ public class Capitalism extends Application {
         Bandeau b = new Bandeau();
 
         
-        Pane root = new StackPane(); 
-        Pane menu = new Pane();
-        Pane map = new Pane();
+        Pane root = new Pane(); 
+        StackPane bandeau = new StackPane();
+        StackPane menu = new StackPane();
+        StackPane map = new StackPane();
+        
+
         Scene scene = new Scene(root, 1200, 800);
+   
+        
         
         map.getChildren().add(l);
 
         menu.getChildren().add(bl);
-        menu.getChildren().add(b);
-        root.getChildren().add(map);             
-        root.getChildren().add(menu);   
+        bandeau.getChildren().add(b);
+        root.getChildren().add(map);  
+        root.getChildren().add(bandeau);
+        root.getChildren().add(menu);  
+        
+        
         primaryStage.setTitle("Capitalisme");
         primaryStage.setScene(scene);
         primaryStage.show();
         
+        
         scene.setOnMouseClicked(event -> {
-            map.setTranslateX(event.getX());
-            map.setTranslateY(event.getY());
-            event.consume();
+            this.mapX = map.getTranslateX();
+            this.mapY = map.getTranslateY();
+            System.out.println(mapX);
         });
         
-        
-        scene.setOnMouseDragged(event -> {
-            map.setTranslateX(event.getX());
-            map.setTranslateY(event.getY());
+        scene.setOnMouseDragged(event -> {   
+            map.setTranslateX(event.getX()-600);
+            map.setTranslateY(event.getY()-400);
             event.consume();
         });
         

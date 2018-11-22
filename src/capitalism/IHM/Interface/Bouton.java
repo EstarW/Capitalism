@@ -7,9 +7,17 @@ package capitalism.IHM.Interface;
 
 import capitalism.IHM.*;
 import static capitalism.IHM.Interface.Type.*;
+import capitalism.IHM.WindowsCode.GererUsine;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import static javafx.scene.input.DataFormat.URL;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.rgb;
 import javafx.scene.shape.Circle;
@@ -27,9 +35,9 @@ public class Bouton extends Parent {
     private float posY;
     private float rad;
     private String nom;
-    private Type type;
-    private Menu m;
-    
+    private Type type; 
+    private Parent root;
+    private GererUsine g;
     Text libelle;
     
     public Bouton(float X, float Y, float R, String nom, Type type){    
@@ -50,11 +58,11 @@ public class Bouton extends Parent {
         libelle.setFill(Color.BLACK);
         libelle.setTranslateX(posX);
         libelle.setTranslateY(posY);*/
-  
+
+        this.setLayoutX(posX);
+        this.setLayoutY(posY+650);
         this.getChildren().add(c);        
-       
-        this.setTranslateX(posX);
-        this.setTranslateY(posY);
+
         
         
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){
@@ -95,9 +103,9 @@ public class Bouton extends Parent {
     }
     
     
-    public void afficherMenu(Type type){
-        m = new Menu();
-        if(type == MenuJeu)
+    public void afficherMenu(Type type) throws IOException{
+       // m = new Menu();
+        /*if(type == MenuJeu)
         {
             m.afficherMenu(type);
             System.out.println(type);
@@ -106,17 +114,18 @@ public class Bouton extends Parent {
         {
             m.afficherMenu(type);
             System.out.println(type);
-        }
+        }*/
         if(type == MenuGestion)
         {
-            m.afficherMenu(type);
+            g = new GererUsine();
+            g.ShowWindow();
             System.out.println(type);
         }
-        if(type == MenuContrat)
+        /*if(type == MenuContrat)
         {
             m.afficherMenu(type);
             System.out.println(type);
-        }
+        }*/
     }
     
 

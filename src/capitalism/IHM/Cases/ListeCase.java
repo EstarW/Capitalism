@@ -10,6 +10,8 @@ import capitalism.Metier.Parties.Carte.Map;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.Parent;
+import static javafx.scene.input.KeyCode.A;
+import static javafx.scene.input.KeyCode.E;
 
 
 /**
@@ -24,11 +26,15 @@ public class ListeCase extends Parent{
     private Case[] MapCase;
     private int ligne;
     private int colonne;
+    private double scaleX;
+    private double scaleY;
     
     public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
 
         this.listeCases = listeCase;
         this.map = m;
+        this.scaleX = 0;
+        this.scaleY = 0;
         /*this.hashMapCase = map.getHashMapCases();*/
 
         for(int i=0; i<listeCases.size(); i++)
@@ -89,6 +95,45 @@ public class ListeCase extends Parent{
             }
 
         }
+        
+        this.setOnMouseClicked(event -> {
+            System.out.println("Click Map");
+            this.setTranslateX(event.getX());
+            this.setTranslateY(event.getY());
+            event.consume();
+        });
+        
+        
+        this.setOnMouseDragged(event -> {
+            this.setTranslateX(event.getX());
+            this.setTranslateY(event.getY());
+            event.consume();
+        });
+        
+        this.setOnKeyPressed(event -> {
+            if(event.getCode().equals(E))
+            {
+                if(scaleX < 3 && scaleY < 3)
+                {
+                    scaleX += 0.2;
+                    scaleY += 0.2;
+                    this.setScaleX(scaleX);
+                    this.setScaleY(scaleY);
+                }
+            }
+            if(event.getCode().equals(A))
+            {
+                if(scaleX > 0.3 && scaleY > 0.3)
+                {
+                    scaleX -= 0.2;
+                    scaleY -= 0.2;
+                    this.setScaleX(scaleX);
+                    this.setScaleY(scaleY);
+                }
+            }
+            
+
+        });
 
     }
 
