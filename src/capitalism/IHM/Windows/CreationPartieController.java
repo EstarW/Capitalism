@@ -51,11 +51,25 @@ public class CreationPartieController implements Initializable {
     }   
     
     
+    public String getPseudo()
+    {
+        return this.textField_pseudo.getCharacters().toString();
+    }
+    
+    
+    public String getEntreprise()
+    {
+        return this.textField_nomEntreprise.getCharacters().toString();
+    }
+    
     @FXML
     private void handleButtonStartGameAction(ActionEvent event) throws IOException, Throwable {
         game = new Game();
         Stage stage = (Stage) bouton_valider.getScene().getWindow();
         stage.close();
+        
+        System.out.println(textField_pseudo.getCharacters().toString());
+        System.out.println(textField_nomEntreprise.getCharacters().toString());
     }
    
     @FXML    
