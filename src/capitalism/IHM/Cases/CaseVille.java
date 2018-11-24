@@ -30,18 +30,6 @@ public class CaseVille extends Case{
         rec.setY(Y);
         this.getChildren().add(rec);
         
-        
-        this.setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                rec.setFill(Color.rgb(0,0,0,0.1));
-            }
-        });
-        this.setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                rec.setFill(Color.LIGHTGREY);
-            }
-        });
-        
     }
     
     public double getX() {

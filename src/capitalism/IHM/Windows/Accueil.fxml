@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="capitalism.IHM.Windows.AccueilController">
    <children>
       <BorderPane layoutX="189.0" layoutY="65.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -24,7 +24,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="bouton_nouvellePartie" mnemonicParsing="false" text="Nouvelle partie">
+                  <Button fx:id="bouton_nouvellePartie" mnemonicParsing="false" text="Nouvelle partie" onAction="#handleButtonNewGameAction">
                      <GridPane.margin>
                         <Insets left="210.0" />
                      </GridPane.margin>
@@ -32,7 +32,7 @@
                         <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="bouton_chargerPartie" mnemonicParsing="false" text="Charger une partie" GridPane.rowIndex="1">
+                  <Button fx:id="bouton_chargerPartie" mnemonicParsing="false" text="Charger une partie" GridPane.rowIndex="1" onAction="#handleButtonLoadGameAction">
                      <GridPane.margin>
                         <Insets left="210.0" />
                      </GridPane.margin>
@@ -40,7 +40,7 @@
                         <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="bouton_option" mnemonicParsing="false" text="Options" GridPane.rowIndex="2">
+                  <Button fx:id="bouton_option" mnemonicParsing="false" text="Options" GridPane.rowIndex="2" onAction="#handleButtonOptionAction">
                      <GridPane.margin>
                         <Insets left="210.0" />
                      </GridPane.margin>
@@ -48,7 +48,7 @@
                         <Insets bottom="10.0" left="70.0" right="70.0" top="10.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="bouton_quitter" mnemonicParsing="false" text="Quitter le jeu" GridPane.rowIndex="3">
+                  <Button fx:id="bouton_quitter" mnemonicParsing="false" text="Quitter le jeu" GridPane.rowIndex="3" onAction="#handleButtonQuitGameAction">
                      <GridPane.margin>
                         <Insets left="205.0" />
                      </GridPane.margin>

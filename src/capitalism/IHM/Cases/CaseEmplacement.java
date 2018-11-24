@@ -31,22 +31,16 @@ public class CaseEmplacement extends Case {
         
                     
                     
-        this.setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                rec.setFill(Color.rgb(0,0,0,0.8));
-            }
+        this.setOnMouseEntered((MouseEvent me) -> {
+            rec.setFill(Color.rgb(0,0,0,0.8));
         });
         
-        this.setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                rec.setFill(Color.GREY);
-            }
+        this.setOnMouseExited((MouseEvent me) -> {
+            rec.setFill(Color.GREY);
         });
         
-        this.setOnMouseClicked(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent me){
-                System.out.println("Ok");
-            }
+        this.setOnMouseClicked((MouseEvent me) -> {
+            System.out.println("Ok");
         });
     }
     

@@ -118,7 +118,6 @@ public class Bouton extends Parent {
         if(type == MenuGestion)
         {
             g = new GererUsine();
-            g.ShowWindow();
             System.out.println(type);
         }
         /*if(type == MenuContrat)

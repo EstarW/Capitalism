@@ -5,10 +5,6 @@
  */
 package capitalism.IHM.Cases;
 
-import javafx.event.EventHandler;
-import static javafx.scene.input.KeyCode.A;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 

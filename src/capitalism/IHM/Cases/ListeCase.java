@@ -96,12 +96,12 @@ public class ListeCase extends Parent{
 
         }
         
-        this.setOnMouseClicked(event -> {
+        /*this.setOnMouseClicked(event -> {
             System.out.println("Click Map");
             this.setTranslateX(event.getX());
             this.setTranslateY(event.getY());
             event.consume();
-        });
+        });*/
         
         
         this.setOnMouseDragged(event -> {
@@ -109,33 +109,6 @@ public class ListeCase extends Parent{
             this.setTranslateY(event.getY());
             event.consume();
         });
-        
-        this.setOnKeyPressed(event -> {
-            if(event.getCode().equals(E))
-            {
-                if(scaleX < 3 && scaleY < 3)
-                {
-                    scaleX += 0.2;
-                    scaleY += 0.2;
-                    this.setScaleX(scaleX);
-                    this.setScaleY(scaleY);
-                }
-            }
-            if(event.getCode().equals(A))
-            {
-                if(scaleX > 0.3 && scaleY > 0.3)
-                {
-                    scaleX -= 0.2;
-                    scaleY -= 0.2;
-                    this.setScaleX(scaleX);
-                    this.setScaleY(scaleY);
-                }
-            }
-            
-
-        });
-
     }
-
 }
     

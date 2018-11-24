@@ -5,8 +5,6 @@
  */
 package capitalism.IHM.Cases;
 
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -31,11 +29,7 @@ public class CaseTerre extends Case{
 
         this.getChildren().add(rec);
 
-                    
-        
-        
-        
-                }
+    }
     
     
     public double getX() {

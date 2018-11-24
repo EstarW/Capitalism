@@ -5,11 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
-import javafx.event.EventHandler;
 import javafx.scene.Parent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 /**
  *
@@ -18,8 +14,7 @@ import javafx.scene.shape.Rectangle;
 public abstract class Case extends Parent {
     
     private double X;
-    private double Y;
-   // private Map map;                                                
+    private double Y;                                              
     
     
     public Case(double X, double Y){
