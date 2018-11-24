@@ -5,13 +5,15 @@
  */
 package capitalism.IHM.Windows;
 
-import capitalism.Game;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -31,7 +33,6 @@ public class AccueilController implements Initializable {
     @FXML
     private Button bouton_quitter;
     
-    private Game game;
 
     /**
      * Initializes the controller class.
@@ -44,7 +45,16 @@ public class AccueilController implements Initializable {
     @FXML
     private void handleButtonNewGameAction(ActionEvent event) throws IOException, Throwable {
         System.out.println("NouvellePartie");
-        game = new Game();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/CreationPartie.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Stage s = new Stage();
+        s.setTitle("Capitalism - Création de partie");
+        s.setResizable(false);
+        s.setScene(scene);
+        s.show(); 
+        
+        
         Stage stage = (Stage) bouton_nouvellePartie.getScene().getWindow();
         stage.close();
     }

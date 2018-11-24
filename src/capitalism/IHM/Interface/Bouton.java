@@ -5,23 +5,14 @@
  */
 package capitalism.IHM.Interface;
 
-import capitalism.IHM.*;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.GererUsine;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import static javafx.scene.input.DataFormat.URL;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import static javafx.scene.paint.Color.rgb;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 /**

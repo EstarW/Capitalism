@@ -24,11 +24,6 @@ public class ListeCase extends Parent{
     private Case[] MapCase;
     private int ligne;
     private int colonne;
-    private double scaleX = 0;
-    private double scaleY = 0;
-    
-    private double X = 0;
-    private double Y = 0;
     
     public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
 

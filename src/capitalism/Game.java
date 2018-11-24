@@ -93,6 +93,11 @@ public class Game {
                     map.setScaleY(scaleY);
                 }
             }
+            
+            if(event.getCode().equals(ESCAPE)) // Temporaire. En attente du menu en jeu.
+            {
+                stage.close();
+            }
         });    
         
         
