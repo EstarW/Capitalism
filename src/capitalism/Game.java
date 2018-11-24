@@ -12,9 +12,11 @@ import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
 import java.io.IOException;
 import java.util.ArrayList;
+import javafx.event.EventHandler;
 
 import javafx.scene.Scene;
 import static javafx.scene.input.KeyCode.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -28,6 +30,9 @@ public class Game {
     
     private double scaleX = 1;
     private double scaleY = 1;
+    
+    private double xOffset = 0;
+    private double yOffset = 0;
     
     public Game() throws IOException
     {
@@ -88,26 +93,23 @@ public class Game {
                     map.setScaleY(scaleY);
                 }
             }
-            if(event.getCode().equals(D))
-            {
-                map.setTranslateX(map.getTranslateX()+20);
+        });    
+        
+        
+            map.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = map.getTranslateX() - event.getScreenX();
+                yOffset = map.getTranslateY() - event.getScreenY();
             }
-            if(event.getCode().equals(S))
-            {
-                 map.setTranslateY(map.getTranslateY()+20);               
-            }
-            if(event.getCode().equals(Z))
-            {
-                map.setTranslateY(map.getTranslateY()-20);               
-            }
-            if(event.getCode().equals(Q))
-            {
-                map.setTranslateX(map.getTranslateX()-20);               
-            }
-
-
+        });  
+            
+            map.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                map.setTranslateX(event.getScreenX() + xOffset);
+                map.setTranslateY(event.getScreenY() + yOffset);
+            }           
         });        
-        
-        
     }
 }

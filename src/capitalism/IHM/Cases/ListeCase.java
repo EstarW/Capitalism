@@ -10,8 +10,6 @@ import capitalism.Metier.Parties.Carte.Map;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.Parent;
-import static javafx.scene.input.KeyCode.A;
-import static javafx.scene.input.KeyCode.E;
 
 
 /**
@@ -26,15 +24,17 @@ public class ListeCase extends Parent{
     private Case[] MapCase;
     private int ligne;
     private int colonne;
-    private double scaleX;
-    private double scaleY;
+    private double scaleX = 0;
+    private double scaleY = 0;
+    
+    private double X = 0;
+    private double Y = 0;
     
     public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
 
         this.listeCases = listeCase;
         this.map = m;
-        this.scaleX = 0;
-        this.scaleY = 0;
+
         /*this.hashMapCase = map.getHashMapCases();*/
 
         for(int i=0; i<listeCases.size(); i++)
@@ -95,20 +95,6 @@ public class ListeCase extends Parent{
             }
 
         }
-        
-        /*this.setOnMouseClicked(event -> {
-            System.out.println("Click Map");
-            this.setTranslateX(event.getX());
-            this.setTranslateY(event.getY());
-            event.consume();
-        });*/
-        
-        
-        this.setOnMouseDragged(event -> {
-            this.setTranslateX(event.getX());
-            this.setTranslateY(event.getY());
-            event.consume();
-        });
     }
 }
     
