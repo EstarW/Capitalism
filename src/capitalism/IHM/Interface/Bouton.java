@@ -7,6 +7,7 @@ package capitalism.IHM.Interface;
 
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.GererUsine;
+import capitalism.IHM.WindowsCode.MenuJeu;
 import java.io.IOException;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
@@ -29,6 +30,7 @@ public class Bouton extends Parent {
     private Type type; 
     private Parent root;
     private GererUsine g;
+    private MenuJeu j;
     Text libelle;
     
     public Bouton(float X, float Y, float R, String nom, Type type){    
@@ -96,12 +98,11 @@ public class Bouton extends Parent {
     
     public void afficherMenu(Type type) throws IOException{
        // m = new Menu();
-        /*if(type == MenuJeu)
+        if(type == MenuJeu)
         {
-            m.afficherMenu(type);
-            System.out.println(type);
+            j = new MenuJeu();
         }
-        if(type == MenuListe)
+        /*if(type == MenuListe)
         {
             m.afficherMenu(type);
             System.out.println(type);
@@ -109,7 +110,6 @@ public class Bouton extends Parent {
         if(type == MenuGestion)
         {
             g = new GererUsine();
-            System.out.println(type);
         }
         /*if(type == MenuContrat)
         {

@@ -8,11 +8,14 @@ package capitalism;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
+import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 
@@ -36,8 +39,7 @@ public class Game {
     private double xOffset = 0;
     private double yOffset = 0;
     
-    private Stage echap;
-    private Scene echapScene;
+    private MenuJeu mj;
     
     public Game() throws IOException
     {
@@ -76,13 +78,6 @@ public class Game {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Menu_echap.fxml").toURI().toURL());
-        echapScene = new Scene(fxmlLoader.load(), 630, 400);
-        echap = new Stage();
-        echap.setTitle("Menu");
-        echap.setResizable(false);
-        echap.setScene(echapScene);
 
 
         scene.setOnKeyPressed(event -> {
@@ -107,10 +102,13 @@ public class Game {
                 }
             }
             
-            if(event.getCode().equals(ESCAPE)) // Temporaire. En attente du menu en jeu.
+            if(event.getCode().equals(ESCAPE)) 
             {
-                echap.show(); 
-                //stage.close();
+                try {
+                    mj = new MenuJeu();
+                } catch (IOException ex) {
+                    Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });    
         
