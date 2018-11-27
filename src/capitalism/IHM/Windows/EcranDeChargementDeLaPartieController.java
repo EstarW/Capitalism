@@ -51,6 +51,8 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     private ImageView imageView_3;
     @FXML
     private Button bouton_effacer_1;
+    @FXML
+    private Button bouton_retour;
     
     private Game game;
 
@@ -62,11 +64,24 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
         // TODO
     }    
     
-    
     @FXML    
     private void handleButtonLoadGameAction(ActionEvent event) throws IOException {
         game = new Game();
         Stage stage = (Stage) bouton_charger_1.getScene().getWindow();
+        stage.close();
+    }
+    
+    @FXML    
+    private void handleButtonGoBackAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Stage s = new Stage();
+        s.setTitle("Capitalism - Accueil");
+        s.setResizable(false);
+        s.setScene(scene);
+        s.show();
+        
+        Stage stage = (Stage) bouton_retour.getScene().getWindow();
         stage.close();
     }
     

@@ -67,6 +67,9 @@ public class AccueilController implements Initializable {
         s.setResizable(false);
         s.setScene(scene);
         s.show(); 
+        
+        Stage stage = (Stage) bouton_nouvellePartie.getScene().getWindow();
+        stage.close();
     }
   
     @FXML    
