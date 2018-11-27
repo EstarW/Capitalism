@@ -5,9 +5,14 @@
  */
 package capitalism.IHM.Cases;
 
+import java.io.File;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 /**
  *
@@ -17,21 +22,30 @@ public class CaseEmplacement extends Case {
     
     private double X;
     private double Y;
+    private int state;
+    private Stage s;
+    private Scene scene;
     
-    
-    public CaseEmplacement(double X, double Y) {
+    public CaseEmplacement(double X, double Y) throws IOException {
         super(X, Y);
         Rectangle rec = new Rectangle(50,50,Color.GREY);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
         rec.setX(X);
         rec.setY(Y);
+        state = 0;
         this.getChildren().add(rec);
         
-                    
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/MenuContextuelInGame.fxml").toURI().toURL());
+        scene = new Scene(fxmlLoader.load(), 630, 400);
+        s = new Stage();
+        s.setTitle("Capitalism - Visualisation d'usine");
+        s.setResizable(false);
+        s.setScene(scene);
+           
                     
         this.setOnMouseEntered((MouseEvent me) -> {
-            rec.setFill(Color.rgb(0,0,0,0.8));
+            rec.setFill(Color.rgb(0,0,0,0.8)); 
         });
         
         this.setOnMouseExited((MouseEvent me) -> {
@@ -39,7 +53,7 @@ public class CaseEmplacement extends Case {
         });
         
         this.setOnMouseClicked((MouseEvent me) -> {
-            System.out.println("Ok");
+            s.show(); 
         });
     }
     

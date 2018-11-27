@@ -88,7 +88,6 @@ public class ListeCase extends Parent{
                 this.getChildren().add(c);
 
             }
-
         }
     }
 }

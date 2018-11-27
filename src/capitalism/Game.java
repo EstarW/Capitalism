@@ -65,6 +65,7 @@ public class Game {
         root.getChildren().add(bandeau);
         root.getChildren().add(menu);  
 
+        map.setTranslateX(map.getTranslateX()-1500);
 
         stage.setTitle("Capitalisme");
         stage.setScene(scene);

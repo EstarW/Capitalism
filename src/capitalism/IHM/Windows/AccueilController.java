@@ -44,7 +44,6 @@ public class AccueilController implements Initializable {
 
     @FXML
     private void handleButtonNewGameAction(ActionEvent event) throws IOException, Throwable {
-        System.out.println("NouvellePartie");
         
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/CreationPartie.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
@@ -60,8 +59,14 @@ public class AccueilController implements Initializable {
     }
    
     @FXML    
-    private void handleButtonLoadGameAction(ActionEvent event) {
-        System.out.println("ChargerPartie");
+    private void handleButtonLoadGameAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/EcranDeChargementDeLaPartie.fxml").toURI().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Stage s = new Stage();
+        s.setTitle("Capitalism - Chargement d'une partie");
+        s.setResizable(false);
+        s.setScene(scene);
+        s.show(); 
     }
   
     @FXML    
