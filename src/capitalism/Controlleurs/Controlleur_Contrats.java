@@ -6,26 +6,25 @@
 
 package capitalism.Controlleurs;
 
-import capitalism.Metier.Parties.Partie;
+import capitalism.Metier.Parties.Contrats.Contrat;
 
 /**
  *
- * @author Damien
+ * @author hedhie
  */
-public class Controlleur_Jeu {
-
-    //private ? vue
-    private Partie model;
+public class Controlleur_Contrats {
     
-//---------- CONSTRUCTEURS -----------------------------------------------------
+    private Contrat model;
+    
+    //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Jeu(Partie _model){
+    public Controlleur_Contrats(Contrat _model){
         //Initialisation
-        this.model =_model;
+        this.model = _model;
         //lie le controlleur au modele
         this.model.setControlleur(this);
     }
-
+    
 //------------------------------------------------------------------------------
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
@@ -33,7 +32,5 @@ public class Controlleur_Jeu {
     
 
 //------------------------------------------------------------------------------
-    
-    
     
 }

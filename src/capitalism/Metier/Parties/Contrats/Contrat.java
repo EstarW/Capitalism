@@ -6,6 +6,7 @@
 package capitalism.Metier.Parties.Contrats;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
+import capitalism.Controlleurs.Controlleur_Contrats;
 
 /**
  *
@@ -16,6 +17,7 @@ public abstract class Contrat {
     private Entreprise entSource;
     private Entreprise entDestinataire;
     private int duree;
+    private Controlleur_Contrats controlleur;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -51,6 +53,10 @@ public abstract class Contrat {
 
     public void setEntDestinataire(Entreprise entDestinataire) {
         this.entDestinataire = entDestinataire;
+    }
+    
+    public void setControlleur(Controlleur_Contrats _controlleur){
+        this.controlleur = _controlleur;
     }
 
     public int getDuree() {

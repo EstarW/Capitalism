@@ -10,6 +10,7 @@ import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import capitalism.Controlleurs.Controlleur_Jeu;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Partie {
     private int tour;
     private Map map;
     private ArrayList<Entreprise> listeEnt;
+    private Controlleur_Jeu controlleur;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
@@ -53,6 +55,10 @@ public class Partie {
 
     public String getNom() {
         return nom;
+    }
+    
+    public void setControlleur(Controlleur_Jeu _controlleur){
+        this.controlleur = _controlleur;
     }
 
 //------------------------------------------------------------------------------

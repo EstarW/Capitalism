@@ -11,6 +11,7 @@ import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Produit;
+import capitalism.Controlleurs.Controlleur_Entreprises;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,6 +28,7 @@ public abstract class Entreprise {
     private Partie partie;
     private HashMap<MatierePremiere,Integer> MatieresPremieres;
     private HashMap<Produit, Integer> Produits;
+    private Controlleur_Entreprises controlleur;
     // TODO - Rajouter les listes d'usines et de contrats
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -66,6 +68,10 @@ public abstract class Entreprise {
 
     public Partie getPartie() {
         return partie;
+    }
+    
+    public void setControlleur(Controlleur_Entreprises _controlleur){
+        this.controlleur = _controlleur;
     }
 
     public HashMap<Produit, Integer> getProduitsPossedees() {
