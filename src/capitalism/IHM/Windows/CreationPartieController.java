@@ -64,12 +64,16 @@ public class CreationPartieController implements Initializable {
     
     @FXML
     private void handleButtonStartGameAction(ActionEvent event) throws IOException, Throwable {
-        game = new Game();
-        Stage stage = (Stage) bouton_valider.getScene().getWindow();
-        stage.close();
-        
-        System.out.println(textField_pseudo.getCharacters().toString());
-        System.out.println(textField_nomEntreprise.getCharacters().toString());
+        if(!this.textField_pseudo.getCharacters().toString().isEmpty() && !this.textField_nomEntreprise.getCharacters().toString().isEmpty())
+        {
+            game = new Game();
+            Stage stage = (Stage) bouton_valider.getScene().getWindow();
+            stage.close();
+        }
+        else
+        {
+            System.out.println("Nope");
+        }        
     }
    
     @FXML    

@@ -98,9 +98,9 @@ public class Bouton extends Parent {
     
     public void afficherMenu(Type type) throws IOException{
        // m = new Menu();
-        if(type == MenuJeu)
+        if(type == PasserTour)
         {
-            j = new MenuJeu();
+            System.out.println("Ok");
         }
         /*if(type == MenuListe)
         {

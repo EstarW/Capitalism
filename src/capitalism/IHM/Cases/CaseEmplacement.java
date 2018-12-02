@@ -5,8 +5,12 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.IHM.WindowsCode.MenuContextuel;
+import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -22,26 +26,24 @@ public class CaseEmplacement extends Case {
     
     private double X;
     private double Y;
-    private int state;
-    private Stage s;
-    private Scene scene;
+    private boolean state;
+    private boolean dialog;
+    private MenuContextuel m;
+    private MenuCreationUsine m2;
+    private Rectangle rec;
+    
     
     public CaseEmplacement(double X, double Y) throws IOException {
         super(X, Y);
-        Rectangle rec = new Rectangle(50,50,Color.GREY);
+        rec = new Rectangle(50,50,Color.GREY);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
         rec.setX(X);
         rec.setY(Y);
-        state = 0;
+        state = false;
+        dialog = false;
         this.getChildren().add(rec);
         
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/MenuContextuelInGame.fxml").toURI().toURL());
-        scene = new Scene(fxmlLoader.load(), 630, 400);
-        s = new Stage();
-        s.setTitle("Capitalism - Visualisation d'usine");
-        s.setResizable(false);
-        s.setScene(scene);
            
                     
         this.setOnMouseEntered((MouseEvent me) -> {
@@ -53,7 +55,21 @@ public class CaseEmplacement extends Case {
         });
         
         this.setOnMouseClicked((MouseEvent me) -> {
-            s.show(); 
+            if(state){
+                try {
+                    m = new MenuContextuel(this);
+                } catch (IOException ex) {
+                    Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else{
+                try {
+                    m2 = new MenuCreationUsine(this);
+                } catch (IOException ex) {
+                    Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         });
     }
     
@@ -65,6 +81,7 @@ public class CaseEmplacement extends Case {
     public double getY() {
         return Y;
     }
+    
 
     public void setX(double X) {
         this.X = X;
@@ -72,6 +89,17 @@ public class CaseEmplacement extends Case {
 
     public void setY(double Y) {
         this.Y = Y;
+    }
+    
+    public boolean getState(){
+        return state;
+    }
+    
+    public void setState(boolean s){
+        state = s;
+        if(state = true){
+            rec.setFill(Color.RED);
+        }
     }
     
     

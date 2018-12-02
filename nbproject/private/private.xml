@@ -3,13 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Metier/Parties/Contrats/Contrat.java</file>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Controlleurs/Controlleur_Contrats.java</file>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Metier/Parties/Partie.java</file>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Metier/Parties/Usines/Usine.java</file>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Controlleurs/Controlleur_Entreprises.java</file>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Controlleurs/Controlleur_Jeu.java</file>
-            <file>file:/C:/Users/hedhie/Desktop/Capitalism/src/capitalism/Controlleurs/Controlleur_Usines.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Partie.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Carte/Cases/Case.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Game.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Controlleurs/Controlleur_Jeu.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/WindowsCode/GererUsine.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Carte/Parseur/Fabrique_Cases.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Cases/ListeCase.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/AccueilController.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/Menu_echap.fxml</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/EcranDeChargementDeLaPartie.fxml</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Carte/Parseur/ParseurMap.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Cases/Case.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/MenuContextuelInGame.fxml</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/WindowsCode/MenuJeu.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Interface/Bandeau.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Interface/Bouton.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Entreprises/Joueur.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Carte/Ville.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Cases/CaseEmplacement.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Carte/Map.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Capitalism.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/CreationPartie.fxml</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/MatierePremiere.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/Accueil.fxml</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/CreationPartieController.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/Menu_echapController.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Usines/Usine.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/MenuContextuelInGameController.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Cases/CaseEau.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Interface/BoutonMenuList.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/Windows/EcranDeChargementDeLaPartieController.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/IHM/WindowsCode/ApercuVille.java</file>
+            <file>file:/C:/Users/Azelat/Documents/GitHub/Capitalism/src/capitalism/Metier/Parties/Carte/Comparateur_Coordonnees.java</file>
         </group>
     </open-files>
 </project-private>

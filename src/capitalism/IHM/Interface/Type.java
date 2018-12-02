@@ -14,5 +14,6 @@ public enum Type {
 MenuJeu,
 MenuGestion,
 MenuListe,
-MenuContrat
+MenuContrat,
+PasserTour
 }

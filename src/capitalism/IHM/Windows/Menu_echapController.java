@@ -10,8 +10,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,17 +17,6 @@ import javafx.stage.Stage;
  * @author Azelat
  */
 public class Menu_echapController implements Initializable {
-
-    @FXML
-    private Button SaveGame;
-    @FXML
-    private Button LoadGame;
-    @FXML
-    private Button Options;
-    @FXML
-    private Button Leave;
-    
-    private boolean closeGame = false;
 
     /**
      * Initializes the controller class.
@@ -40,24 +27,20 @@ public class Menu_echapController implements Initializable {
     }    
 
     @FXML
-    private void handleButtonSaveGameAction(ActionEvent event) {
-        
+    private void handleActionButtonSaveGame(ActionEvent event) {
     }
 
     @FXML
-    private void handleButtonLoadGameAction(ActionEvent event) {
-        
+    private void handleActionButtonLoadGame(ActionEvent event) {
     }
 
     @FXML
-    private void handleButtonOptionsGameAction(ActionEvent event) {
-        
+    private void handleActionButtonOption(ActionEvent event) {
     }
 
     @FXML
-    private void handleButtonLeaveGameAction(ActionEvent event) {
+    private void handleActionButtonQuit(ActionEvent event) {
         System.exit(0);
     }
-
     
 }

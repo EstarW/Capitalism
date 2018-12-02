@@ -26,7 +26,7 @@ public class BoutonMenuList extends Parent{
     public BoutonMenuList(){
         
         boutons = new Bouton[]{
-            new Bouton(1100, 725, 60, "Menu", MenuJeu),
+            new Bouton(1100, 725, 60, "Menu", PasserTour),
             new Bouton(50, 750, 40, "Contrat", MenuContrat),
             new Bouton(150, 750, 40, "Gestion", MenuGestion),
             new Bouton(250, 750, 40, "Liste", MenuListe)

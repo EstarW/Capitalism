@@ -26,7 +26,7 @@ public class MenuJeu extends Parent {
     public MenuJeu() throws IOException
     {
         rootPane = new AnchorPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Menu_echap.fxml").toURI().toURL()); 
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/menu_echap.fxml").toURI().toURL()); 
 
         
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
