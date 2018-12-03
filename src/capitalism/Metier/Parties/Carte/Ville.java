@@ -34,7 +34,17 @@ public class Ville {
             // TODO - implement Ville.getNbEntreprise
             throw new UnsupportedOperationException();
     }
+    
+    public String getNom() {
+        return nom;
+    }
+
+    public int getNbEmplacements() {
+        return nbEmplacements;
+    }
 
 //------------------------------------------------------------------------------
+
+    
     
 }
