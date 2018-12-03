@@ -6,6 +6,7 @@
 package capitalism.IHM.Windows;
 
 import capitalism.Capitalism;
+import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Game;
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +42,8 @@ public class CreationPartieController implements Initializable {
     
     private Game game;
     private Capitalism cap;
+    
+    private Controlleur_CreationPartie controlleur;
 
     /**
      * Initializes the controller class.
@@ -62,6 +65,9 @@ public class CreationPartieController implements Initializable {
         return this.textField_nomEntreprise.getCharacters().toString();
     }
     
+    public void setControlleur(Controlleur_CreationPartie _controlleur){
+        this.controlleur = _controlleur;
+    }
     @FXML
     private void handleButtonStartGameAction(ActionEvent event) throws IOException, Throwable {
         if(!this.textField_pseudo.getCharacters().toString().isEmpty() && !this.textField_nomEntreprise.getCharacters().toString().isEmpty())

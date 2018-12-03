@@ -7,6 +7,7 @@
 package capitalism.Controlleurs;
 
 import capitalism.Metier.Parties.Contrats.Contrat;
+import javafx.scene.layout.StackPane;
 
 /**
  *
@@ -15,12 +16,14 @@ import capitalism.Metier.Parties.Contrats.Contrat;
 public class Controlleur_Contrats {
     
     private Contrat model;
+    private StackPane vue;
     
     //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Contrats(Contrat _model){
+    public Controlleur_Contrats(Contrat _model, StackPane _vue){
         //Initialisation
         this.model = _model;
+        this.vue = _vue;
         //lie le controlleur au modele
         this.model.setControlleur(this);
     }

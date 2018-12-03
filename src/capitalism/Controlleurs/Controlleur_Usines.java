@@ -7,6 +7,7 @@
 package capitalism.Controlleurs;
 
 import capitalism.Metier.Parties.Usines.Usine;
+import javafx.scene.layout.StackPane;
 
 /**
  *
@@ -15,11 +16,13 @@ import capitalism.Metier.Parties.Usines.Usine;
 public class Controlleur_Usines {
     
     private Usine model;
+    private StackPane vue;
     //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Usines(Usine _model){
+    public Controlleur_Usines(Usine _model, StackPane _vue){
         //Initialisation
         this.model = _model;
+        this.vue = _vue;
         //lie le controlleur au modele
         this.model.setControlleur(this);
     }

@@ -15,6 +15,7 @@ import capitalism.IHM.Windows.EcranDeChargementDeLaPartieController;
 import capitalism.IHM.Windows.GererUsineController;
 import capitalism.IHM.Windows.MenuContextuelInGameController;
 import capitalism.IHM.Windows.Menu_echapController;
+import javafx.scene.layout.StackPane;
 
 
 /**
@@ -24,13 +25,15 @@ import capitalism.IHM.Windows.Menu_echapController;
 public class Controlleur_Entreprises {
     
     private Entreprise model;
+    private StackPane vue;
             
     
     //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Entreprises(Entreprise _model){
+    public Controlleur_Entreprises(Entreprise _model, StackPane _vue){
         //Initialisation
         this.model=_model;
+        this.vue = _vue;
         //lie le controlleur au modele
         this.model.setControlleur(this);
     }
