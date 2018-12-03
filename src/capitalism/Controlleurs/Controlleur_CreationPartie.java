@@ -27,6 +27,10 @@ public class Controlleur_CreationPartie {
         this.vue = _vue;
         
         //lie le controlleur au modele
-        this.vue.setControlleur(this);
+        this.model.setControlleur(this);
+    }
+    
+    public void DonnerJoueur(String _nom){
+        this.model.CreerJoueur(_nom);
     }
 }

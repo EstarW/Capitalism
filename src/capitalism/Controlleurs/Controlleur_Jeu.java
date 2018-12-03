@@ -27,7 +27,7 @@ public class Controlleur_Jeu {
         this.vue = _vue;
         
         //lie le controlleur au modele
-        this.model.setControlleur(this);
+        //this.model.setControlleur(this);
     }
 
 //------------------------------------------------------------------------------

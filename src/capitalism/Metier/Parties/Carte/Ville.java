@@ -5,6 +5,8 @@
  */
 package capitalism.Metier.Parties.Carte;
 
+import capitalism.Controlleurs.Controlleur_apercuVille;
+
 /**
  *
  * @author Damien
@@ -13,6 +15,7 @@ public class Ville {
 
     private String nom;
     private int nbEmplacements;
+    private Controlleur_apercuVille controlleur;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -44,6 +47,10 @@ public class Ville {
     }
 
 //------------------------------------------------------------------------------
+
+    public void setControlleur(Controlleur_apercuVille _controlleur) {
+        this.controlleur = _controlleur;
+    }
 
     
     
