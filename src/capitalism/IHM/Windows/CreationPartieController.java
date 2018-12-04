@@ -8,6 +8,7 @@ package capitalism.IHM.Windows;
 import capitalism.Capitalism;
 import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Game;
+import capitalism.Metier.Parties.Partie;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -72,9 +73,17 @@ public class CreationPartieController implements Initializable {
     private void handleButtonStartGameAction(ActionEvent event) throws IOException, Throwable {
         if(!this.textField_pseudo.getCharacters().toString().isEmpty() && !this.textField_nomEntreprise.getCharacters().toString().isEmpty())
         {
-            game = new Game();
-            Stage stage = (Stage) bouton_valider.getScene().getWindow();
-            stage.close();
+            if(textField_pseudo.getCharacters().toString().length() > 16)
+            {
+                System.out.println("Trop long");
+            }
+            else
+            {
+                game = new Game();
+                Stage stage = (Stage) bouton_valider.getScene().getWindow();
+                stage.close();
+                
+            }
         }
         else
         {

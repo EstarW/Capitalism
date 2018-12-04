@@ -5,21 +5,23 @@
  */
 package capitalism.IHM.Interface;
 
+import capitalism.Controlleurs.Controlleur_CreationPartie;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 /**
  *
  * @author Azelat
  */
-public class Bandeau extends Parent {
+public class Info extends Parent {
     
-    public Bandeau(){
-        Rectangle r = new Rectangle(1920, 70, Color.rgb(0,0,0,0.7));
+    
+    public Info(){
+        Label l = new Label("Azelat");
+        l.setScaleX(3);
+        l.setScaleY(3);
+        l.setLayoutX(100);
         this.setLayoutY(200);
-        this.getChildren().add(r);
-
+        this.getChildren().add(l);
     }
 }

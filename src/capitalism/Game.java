@@ -5,19 +5,20 @@
  */
 package capitalism;
 
+import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
+import capitalism.IHM.Interface.Info;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
-import java.io.File;
+import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Scene;
 import static javafx.scene.input.KeyCode.*;
@@ -41,21 +42,28 @@ public class Game {
     
     private MenuJeu mj;
     
+    
     public Game() throws IOException
     {
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();
+        
+        
+        
         ListeCase liste = new ListeCase(m, listeCase);
         BoutonMenuList bl = new BoutonMenuList();
         Bandeau b = new Bandeau();
+        Info info = new Info();
 
 
         Pane root = new Pane(); 
         StackPane bandeau = new StackPane();
         StackPane menu = new StackPane();
         StackPane map = new StackPane();
-
+        StackPane inf = new StackPane();
+        
+        inf.setPickOnBounds(false);
         menu.setPickOnBounds(false);
         bandeau.setPickOnBounds(false);
 
@@ -64,14 +72,17 @@ public class Game {
         Stage stage = new Stage();
 
         map.getChildren().add(liste);
-
         menu.getChildren().add(bl);
         bandeau.getChildren().add(b);
+        inf.getChildren().add(info);
 
+        
         root.getChildren().add(map);
         root.getChildren().add(bandeau);
         root.getChildren().add(menu);  
-
+        root.getChildren().add(inf);
+        
+        
         map.setTranslateX(map.getTranslateX()-1500);
 
         stage.setTitle("Capitalisme");

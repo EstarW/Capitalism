@@ -67,7 +67,10 @@ public class CaseEmplacement extends Case {
                     m2 = new MenuCreationUsine(this);
                 } catch (IOException ex) {
                     Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
             }
 
         });

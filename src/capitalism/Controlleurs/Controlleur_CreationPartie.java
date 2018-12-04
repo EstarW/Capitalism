@@ -31,6 +31,6 @@ public class Controlleur_CreationPartie {
     }
     
     public void DonnerJoueur(String _nom){
-        this.model.CreerJoueur(_nom);
+        //TODO
     }
 }
