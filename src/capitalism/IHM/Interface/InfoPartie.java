@@ -6,6 +6,7 @@
 package capitalism.IHM.Interface;
 
 import capitalism.Controlleurs.Controlleur_CreationPartie;
+import capitalism.Metier.Parties.Partie;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
@@ -13,11 +14,13 @@ import javafx.scene.control.Label;
  *
  * @author Azelat
  */
-public class Info extends Parent {
+public class InfoPartie extends Parent {
+        
+    private Partie p;
     
-    
-    public Info(){
-        Label l = new Label("Azelat");
+    public InfoPartie(Partie p){
+        this.p = p;
+        Label l = new Label(p.getNom());
         l.setScaleX(3);
         l.setScaleY(3);
         l.setLayoutX(100);

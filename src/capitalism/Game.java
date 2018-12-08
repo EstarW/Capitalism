@@ -9,7 +9,8 @@ import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
-import capitalism.IHM.Interface.Info;
+import capitalism.IHM.Interface.InfoPartie;
+import capitalism.IHM.Interface.InfoTour;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
@@ -40,11 +41,18 @@ public class Game {
     private double xOffset = 0;
     private double yOffset = 0;
     
-    private MenuJeu mj;
+    private Pane root;
+    private StackPane inft;
+    private InfoTour infot;
+    
+    private Controlleur_CreationPartie cp;
     
     
-    public Game() throws IOException
+    public Game(Controlleur_CreationPartie cp) throws IOException
     {
+        
+        this.cp = cp;
+        cp.getPartie().augmenterTour();
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();
@@ -52,18 +60,21 @@ public class Game {
         
         
         ListeCase liste = new ListeCase(m, listeCase);
-        BoutonMenuList bl = new BoutonMenuList();
+        BoutonMenuList bl = new BoutonMenuList(cp.getPartie(), this);
         Bandeau b = new Bandeau();
-        Info info = new Info();
+        InfoPartie infop = new InfoPartie(cp.getPartie());
+        infot = new InfoTour(cp.getPartie());
 
 
-        Pane root = new Pane(); 
+        root = new Pane(); 
         StackPane bandeau = new StackPane();
         StackPane menu = new StackPane();
         StackPane map = new StackPane();
-        StackPane inf = new StackPane();
+        StackPane infp = new StackPane();
+        inft = new StackPane();
         
-        inf.setPickOnBounds(false);
+        infp.setPickOnBounds(false);
+        inft.setPickOnBounds(false);
         menu.setPickOnBounds(false);
         bandeau.setPickOnBounds(false);
 
@@ -74,13 +85,15 @@ public class Game {
         map.getChildren().add(liste);
         menu.getChildren().add(bl);
         bandeau.getChildren().add(b);
-        inf.getChildren().add(info);
+        infp.getChildren().add(infop);
+        inft.getChildren().add(infot);
 
         
         root.getChildren().add(map);
         root.getChildren().add(bandeau);
         root.getChildren().add(menu);  
-        root.getChildren().add(inf);
+        root.getChildren().add(infp);
+        root.getChildren().add(inft);
         
         
         map.setTranslateX(map.getTranslateX()-1500);
@@ -116,7 +129,7 @@ public class Game {
             if(event.getCode().equals(ESCAPE)) 
             {
                 try {
-                    mj = new MenuJeu();
+                    MenuJeu mj = new MenuJeu();
                 } catch (IOException ex) {
                     Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -139,5 +152,16 @@ public class Game {
                 map.setTranslateY(event.getScreenY() + yOffset);
             }           
         });        
+    }
+    
+    public void refreshTour(){
+ 
+        inft.getChildren().remove(infot);
+        root.getChildren().remove(inft);
+        
+        infot = new InfoTour(cp.getPartie());
+        
+        inft.getChildren().add(infot);
+        root.getChildren().add(inft);
     }
 }

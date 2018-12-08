@@ -43,6 +43,7 @@ public class CreationPartieController implements Initializable {
     
     private Game game;
     private Capitalism cap;
+    private Partie p;
     
     private Controlleur_CreationPartie controlleur;
 
@@ -79,7 +80,10 @@ public class CreationPartieController implements Initializable {
             }
             else
             {
-                game = new Game();
+                p = new Partie(textField_nomEntreprise.getCharacters().toString());
+                controlleur = new Controlleur_CreationPartie(p, this);
+                controlleur.DonnerJoueur(textField_pseudo.getCharacters().toString());
+                game = new Game(controlleur);
                 Stage stage = (Stage) bouton_valider.getScene().getWindow();
                 stage.close();
                 

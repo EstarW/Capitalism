@@ -8,6 +8,7 @@ package capitalism.IHM.Windows;
 import capitalism.Game;
 import capitalism.IHM.Cases.Case;
 import capitalism.IHM.Cases.ListeCase;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
 import com.sun.jnlp.ApiDialog.DialogResult;
 import java.io.File;
 import java.io.IOException;
@@ -38,6 +39,8 @@ public class CréationUsineController implements Initializable {
     private Button bouton_valider;
     @FXML
     private Button bouton_annuler;
+    
+    private Entreprise ent;
     
     private boolean state = false;
     private boolean dialog = false;
@@ -70,6 +73,8 @@ public class CréationUsineController implements Initializable {
     private void handleButtonActionValider(ActionEvent event) throws IOException, Throwable {
         if(!this.textArea_nom.getCharacters().toString().isEmpty())
         {
+            
+            
             Stage stage = (Stage) textArea_nom.getScene().getWindow();
             stage.close();
             state = true;

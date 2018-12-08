@@ -30,7 +30,11 @@ public class Controlleur_CreationPartie {
         this.model.setControlleur(this);
     }
     
+    public Partie getPartie(){
+        return model;
+    }
+    
     public void DonnerJoueur(String _nom){
-        //TODO
+        
     }
 }
