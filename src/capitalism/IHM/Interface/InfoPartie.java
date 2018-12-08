@@ -9,6 +9,7 @@ import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Metier.Parties.Partie;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -21,6 +22,7 @@ public class InfoPartie extends Parent {
     public InfoPartie(Partie p){
         this.p = p;
         Label l = new Label(p.getNom());
+        l.setTextFill(Color.WHITESMOKE);
         l.setScaleX(3);
         l.setScaleY(3);
         l.setLayoutX(100);
