@@ -5,6 +5,10 @@
  */
 package capitalism.IHM.Cases;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -16,8 +20,10 @@ public class CaseEau extends Case {
     
     private double X;
     private double Y;
+    private Image img;
+    private ImageView imgv;
     
-    public CaseEau(double X, double Y) {
+    public CaseEau(double X, double Y) throws FileNotFoundException {
         super(X, Y);
         Rectangle rec = new Rectangle(50,50,Color.CYAN);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
@@ -26,7 +32,13 @@ public class CaseEau extends Case {
         this.Y = this.getY();
         rec.setX(X);
         rec.setY(Y);
+        FileInputStream inputstream = new FileInputStream("C:\\Users\\Azelat\\Documents\\GitHub\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Mer1.png"); 
+        img = new Image(inputstream); 
+        imgv = new ImageView(img);
+        imgv.setX(X);
+        imgv.setY(Y);
         this.getChildren().add(rec);
+        this.getChildren().add(imgv);
         
 
     }
