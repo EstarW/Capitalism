@@ -7,6 +7,7 @@ package capitalism.Controlleurs;
 
 import capitalism.Game;
 import capitalism.IHM.Windows.CreationPartieController;
+import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -18,6 +19,7 @@ import javafx.scene.layout.StackPane;
 public class Controlleur_CreationPartie {
     private CreationPartieController vue;
     private Partie model;
+    private Joueur j;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
@@ -35,6 +37,10 @@ public class Controlleur_CreationPartie {
     }
     
     public void DonnerJoueur(String _nom){
-        
+        j = new Joueur(_nom, model);
+    }
+    
+    public Joueur getJoueur(){
+        return j;
     }
 }

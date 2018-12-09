@@ -7,18 +7,16 @@ package capitalism.IHM.Interface;
 
 import capitalism.Game;
 import static capitalism.IHM.Interface.Type.*;
-import capitalism.IHM.WindowsCode.GererUsine;
+import capitalism.IHM.WindowsCode.Gestion;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
  *
@@ -33,7 +31,7 @@ public class Bouton extends Parent {
     private String nom;
     private Type type; 
     private Parent root;
-    private GererUsine g;
+    private Gestion g;
     private MenuJeu j;
     private Text libelle;
     private Partie p;
@@ -120,7 +118,7 @@ public class Bouton extends Parent {
         }*/
         if(type == MenuGestion)
         {
-            g = new GererUsine();
+            g = new Gestion();
         }
         /*if(type == MenuContrat)
         {

@@ -28,14 +28,17 @@ public class Menu_echapController implements Initializable {
 
     @FXML
     private void handleActionButtonSaveGame(ActionEvent event) {
+        System.out.println("Sauvegarder");
     }
 
     @FXML
     private void handleActionButtonLoadGame(ActionEvent event) {
+        System.out.println("Charger");
     }
 
     @FXML
     private void handleActionButtonOption(ActionEvent event) {
+        System.out.println("Options");
     }
 
     @FXML
