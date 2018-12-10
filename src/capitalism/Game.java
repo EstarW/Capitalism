@@ -5,7 +5,7 @@
  */
 package capitalism;
 
-import capitalism.Controlleurs.Controlleur_CreationPartie;
+
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
@@ -14,6 +14,7 @@ import capitalism.IHM.Interface.InfoTour;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
+import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,25 +49,28 @@ public class Game {
     private StackPane infp;
     private InfoPartie infop;
     
-    private Controlleur_CreationPartie cp;
+    private Partie p;
+    private Joueur j;
+    
+
     
     
-    public Game(Controlleur_CreationPartie cp) throws IOException
+    public Game(String eName, String pName) throws IOException
     {
-        
-        this.cp = cp;
-        cp.getPartie().augmenterTour();
+        p = new Partie(pName);
+        j = new Joueur(eName, p);
+        p.augmenterTour();
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();
         
         
         
-        ListeCase liste = new ListeCase(m, listeCase, cp.getJoueur());
-        BoutonMenuList bl = new BoutonMenuList(cp.getPartie(), this);
+        ListeCase liste = new ListeCase(m, listeCase, j);
+        BoutonMenuList bl = new BoutonMenuList(p, this);
         Bandeau b = new Bandeau();
-        infop = new InfoPartie(cp.getPartie(), cp.getJoueur());
-        infot = new InfoTour(cp.getPartie());
+        infop = new InfoPartie(p, j);
+        infot = new InfoTour(p);
 
 
         root = new Pane(); 
@@ -162,14 +166,14 @@ public class Game {
         inft.getChildren().remove(infot);
         root.getChildren().remove(inft);
         
-        infot = new InfoTour(cp.getPartie());
+        infot = new InfoTour(p);
         
         inft.getChildren().add(infot);
         root.getChildren().add(inft);
         
         infp.getChildren().remove(infop);
         root.getChildren().remove(infp); 
-        infop = new InfoPartie(cp.getPartie(), cp.getJoueur());
+        infop = new InfoPartie(p, j);
         infp.getChildren().add(infop);
         root.getChildren().add(infp);        
     }

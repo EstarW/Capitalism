@@ -80,10 +80,7 @@ public class CreationPartieController implements Initializable {
             }
             else
             {
-                p = new Partie(textField_nomEntreprise.getCharacters().toString());
-                controlleur = new Controlleur_CreationPartie(p, this);
-                controlleur.DonnerJoueur(textField_pseudo.getCharacters().toString());
-                game = new Game(controlleur);
+                game = new Game(getEntreprise(), getPseudo());
                 Stage stage = (Stage) bouton_valider.getScene().getWindow();
                 stage.close();
                 

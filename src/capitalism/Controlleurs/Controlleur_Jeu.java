@@ -7,7 +7,6 @@
 package capitalism.Controlleurs;
 
 import capitalism.Metier.Parties.Partie;
-import capitalism.IHM.Windows.MenuContextuelInGameController;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Produit;
