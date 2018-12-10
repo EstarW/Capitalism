@@ -10,9 +10,14 @@ import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.Gestion;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Partie;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -33,11 +38,13 @@ public class Bouton extends Parent {
     private Parent root;
     private Gestion g;
     private MenuJeu j;
-    private Text libelle;
+    private Label label;
     private Partie p;
     private Game game;
+    private Image img;
+    private ImageView imgv;
     
-    public Bouton(float X, float Y, float R, String nom, Type type, Game game, Partie p){    
+    public Bouton(float X, float Y, float R, String nom, Type type, Game game, Partie p) throws FileNotFoundException{    
         
         this.p = p;
         this.game = game;
@@ -52,15 +59,20 @@ public class Bouton extends Parent {
         c.setStroke(Color.BLACK);
         c.setStrokeWidth(2);
 
+        if(type == MenuGestion)
+        {
+            FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\picto_usine.png"); 
+            img = new Image(inputstream); 
+            imgv = new ImageView(img);
+            imgv.setLayoutX(X);
+            imgv.setLayoutY(Y);
+            this.getChildren().add(imgv);
+        }
 
-        /*libelle.setContent(nom);
-        libelle.setFill(Color.BLACK);
-        libelle.setTranslateX(posX);
-        libelle.setTranslateY(posY);*/
 
         this.setLayoutX(posX);
         this.setLayoutY(posY+650);
-        this.getChildren().add(c);        
+        this.getChildren().add(c);
 
         
         
@@ -92,13 +104,14 @@ public class Bouton extends Parent {
     public float getRad() {
         return rad;
     }
+    
 
     public String getNom() {
         return nom;
     }
 
-    public Text getLibelle() {
-        return libelle;
+    public Label getLibelle() {
+        return label;
     }
     
     

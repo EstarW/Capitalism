@@ -45,6 +45,9 @@ public class Game {
     private StackPane inft;
     private InfoTour infot;
     
+    private StackPane infp;
+    private InfoPartie infop;
+    
     private Controlleur_CreationPartie cp;
     
     
@@ -62,7 +65,7 @@ public class Game {
         ListeCase liste = new ListeCase(m, listeCase, cp.getJoueur());
         BoutonMenuList bl = new BoutonMenuList(cp.getPartie(), this);
         Bandeau b = new Bandeau();
-        InfoPartie infop = new InfoPartie(cp.getPartie(), cp.getJoueur());
+        infop = new InfoPartie(cp.getPartie(), cp.getJoueur());
         infot = new InfoTour(cp.getPartie());
 
 
@@ -70,7 +73,7 @@ public class Game {
         StackPane bandeau = new StackPane();
         StackPane menu = new StackPane();
         StackPane map = new StackPane();
-        StackPane infp = new StackPane();
+        infp = new StackPane();
         inft = new StackPane();
         
         infp.setPickOnBounds(false);
@@ -163,5 +166,11 @@ public class Game {
         
         inft.getChildren().add(infot);
         root.getChildren().add(inft);
+        
+        infp.getChildren().remove(infop);
+        root.getChildren().remove(infp); 
+        infop = new InfoPartie(cp.getPartie(), cp.getJoueur());
+        infp.getChildren().add(infop);
+        root.getChildren().add(infp);        
     }
 }

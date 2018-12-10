@@ -9,6 +9,7 @@ import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.Metier.Parties.Partie;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,7 @@ public class BoutonMenuList extends Parent{
     private Game game;
 
    
-    public BoutonMenuList(Partie p, Game game){
+    public BoutonMenuList(Partie p, Game game) throws FileNotFoundException{
         
         boutons = new Bouton[]{
             new Bouton(1100, 725, 60, "Menu", PasserTour, game, p),

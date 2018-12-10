@@ -20,6 +20,7 @@ public class InfoPartie extends Parent {
         
     private Partie p;
     private Joueur j;
+    private Label argent;
     
     public InfoPartie(Partie p, Joueur j){
         this.p = p;
@@ -29,16 +30,24 @@ public class InfoPartie extends Parent {
         l.setTextFill(Color.WHITESMOKE);
         l.setScaleX(3);
         l.setScaleY(3);
-        l.setLayoutX(100);
+        l.setLayoutX(150);
         
         Label l2 = new Label("Entreprise: "+p.getNom());
         l2.setTextFill(Color.WHITESMOKE);
         l2.setScaleX(3);
         l2.setScaleY(3);
-        l2.setLayoutX(500);
+        l2.setLayoutX(550);
+        
+        argent = new Label("Argent: "+j.getArgent());
+        argent.setTextFill(Color.WHITESMOKE);
+        argent.setScaleX(3);
+        argent.setScaleY(3);
+        argent.setLayoutX(950);        
   
         this.setLayoutY(200);
         this.getChildren().add(l);
         this.getChildren().add(l2);
+        this.getChildren().add(argent);
     }
+    
 }
