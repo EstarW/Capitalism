@@ -32,7 +32,7 @@ public class CaseEau extends Case {
         this.Y = this.getY();
         rec.setX(X);
         rec.setY(Y);
-        FileInputStream inputstream = new FileInputStream("C:\\Users\\Azelat\\Documents\\GitHub\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Mer1.png"); 
+        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Mer1.png"); 
         img = new Image(inputstream); 
         imgv = new ImageView(img);
         imgv.setX(X);

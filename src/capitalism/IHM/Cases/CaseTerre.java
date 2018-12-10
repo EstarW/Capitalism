@@ -32,7 +32,7 @@ public class CaseTerre extends Case{
         this.Y = this.getY();
         rec.setX(X);
         rec.setY(Y);
-        FileInputStream inputstream = new FileInputStream("C:\\Users\\Azelat\\Documents\\GitHub\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Plaine.png"); 
+        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Plaine.png"); 
         img = new Image(inputstream); 
         imgv = new ImageView(img);
         imgv.setX(X);

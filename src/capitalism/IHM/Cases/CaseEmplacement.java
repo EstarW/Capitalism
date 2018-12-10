@@ -51,14 +51,14 @@ public class CaseEmplacement extends Case {
         dialog = false;
         this.getChildren().add(rec);
         
-        FileInputStream inputstream = new FileInputStream("C:\\Users\\Azelat\\Documents\\GitHub\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
+        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
         img = new Image(inputstream); 
         imgv = new ImageView(img);
         imgv.setX(X);
         imgv.setY(Y);
         this.getChildren().add(imgv);
         
-        FileInputStream inputstream2 = new FileInputStream("C:\\Users\\Azelat\\Documents\\GitHub\\Capitalism\\src\\capitalism\\Resources\\Sprites\\EmplacementUsine.png"); 
+        FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\EmplacementUsine.png"); 
         img2 = new Image(inputstream2); 
         imgv2 = new ImageView(img2);
         imgv2.setX(X);

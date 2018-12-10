@@ -32,7 +32,7 @@ public class CaseVille extends Case{
         rec.setStrokeWidth(1);
         rec.setX(X);
         rec.setY(Y);
-        FileInputStream inputstream = new FileInputStream("C:\\Users\\Azelat\\Documents\\GitHub\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
+        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
         img = new Image(inputstream); 
         imgv = new ImageView(img);
         imgv.setX(X);
