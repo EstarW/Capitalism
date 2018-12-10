@@ -5,7 +5,10 @@
  */
 package capitalism.IHM.Interface;
 
+import capitalism.Controlleurs.Controlleur_CreationPartie;
+import capitalism.Game;
 import static capitalism.IHM.Interface.Type.*;
+import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,15 +24,17 @@ public class BoutonMenuList extends Parent{
     
     private Bouton[] boutons;
     private Type type;
+    private Partie p;
+    private Game game;
 
    
-    public BoutonMenuList(){
+    public BoutonMenuList(Partie p, Game game){
         
         boutons = new Bouton[]{
-            new Bouton(1100, 725, 60, "Menu", PasserTour),
-            new Bouton(50, 750, 40, "Contrat", MenuContrat),
-            new Bouton(150, 750, 40, "Gestion", MenuGestion),
-            new Bouton(250, 750, 40, "Liste", MenuListe)
+            new Bouton(1100, 725, 60, "Menu", PasserTour, game, p),
+            new Bouton(50, 750, 40, "Contrat", MenuContrat, game, p),
+            new Bouton(150, 750, 40, "Gestion", MenuGestion, game, p),
+            new Bouton(250, 750, 40, "Liste", MenuListe, game, p)
         };
 
         

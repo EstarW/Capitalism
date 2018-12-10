@@ -8,11 +8,14 @@ package capitalism.IHM.Cases;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -31,6 +34,10 @@ public class CaseEmplacement extends Case {
     private MenuContextuel m;
     private MenuCreationUsine m2;
     private Rectangle rec;
+    private Image img;
+    private ImageView imgv;
+    private Image img2;
+    private ImageView imgv2;
     
     
     public CaseEmplacement(double X, double Y) throws IOException {
@@ -43,6 +50,20 @@ public class CaseEmplacement extends Case {
         state = false;
         dialog = false;
         this.getChildren().add(rec);
+        
+        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
+        img = new Image(inputstream); 
+        imgv = new ImageView(img);
+        imgv.setX(X);
+        imgv.setY(Y);
+        this.getChildren().add(imgv);
+        
+        FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\EmplacementUsine.png"); 
+        img2 = new Image(inputstream2); 
+        imgv2 = new ImageView(img2);
+        imgv2.setX(X);
+        imgv2.setY(Y);
+        this.getChildren().add(imgv2);
         
            
                     
@@ -67,7 +88,10 @@ public class CaseEmplacement extends Case {
                     m2 = new MenuCreationUsine(this);
                 } catch (IOException ex) {
                     Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
             }
 
         });

@@ -6,6 +6,7 @@
 package capitalism.IHM.Interface;
 
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -19,5 +20,6 @@ public class Bandeau extends Parent {
         Rectangle r = new Rectangle(1920, 70, Color.rgb(0,0,0,0.7));
         this.setLayoutY(200);
         this.getChildren().add(r);
+
     }
 }

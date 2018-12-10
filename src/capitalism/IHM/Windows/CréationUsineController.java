@@ -5,22 +5,18 @@
  */
 package capitalism.IHM.Windows;
 
-import capitalism.Game;
-import capitalism.IHM.Cases.Case;
-import capitalism.IHM.Cases.ListeCase;
-import com.sun.jnlp.ApiDialog.DialogResult;
-import java.io.File;
-import java.io.IOException;
+import capitalism.Metier.Parties.MatierePremiere;
+import capitalism.Metier.Parties.Produit;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
@@ -31,71 +27,93 @@ import javafx.stage.Stage;
 public class CréationUsineController implements Initializable {
 
     @FXML
-    private TextField textArea_nom;
-    @FXML
-    private ComboBox<?> comboBox_production;
+    private TextField textField_nom;
     @FXML
     private Button bouton_valider;
     @FXML
     private Button bouton_annuler;
+    @FXML
+    private ComboBox<Produit> comboBox_produit;
+    @FXML
+    private ComboBox<MatierePremiere> comboBox_matiere;
+    @FXML 
+    private RadioButton button_produit;
+    @FXML
+    private RadioButton button_matiere;
     
-    private boolean state = false;
-    private boolean dialog = false;
-
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.AddMp(MatierePremiere.Bois);
+        this.AddMp(MatierePremiere.Cereales);
+        this.AddMp(MatierePremiere.Metal);
+        this.AddMp(MatierePremiere.Nourriture);
+        
+        this.AddProd(Produit.Acier);
+        this.AddProd(Produit.Cagettes);
+        this.AddProd(Produit.Conserves);
+        this.AddProd(Produit.Meubles);
+        this.AddProd(Produit.PlaqueMetal);
+
     }    
     
-    public Case getCase(){   
-        return null;
+    public void AddProd(Produit p){
+        comboBox_produit.getItems().add(p);       
     }
     
-    public String getProd()
+    public void AddMp(MatierePremiere mp){
+        comboBox_matiere.getItems().add(mp);
+    }    
+    
+    
+    public Produit getProd()
     {
-        return this.comboBox_production.getValue().toString();
+        return this.comboBox_produit.getValue();
+    }
+    
+    public MatierePremiere getMat()
+    {
+        return this.comboBox_matiere.getValue();
     }
     
     
     public String getName()
     {
-        return this.textArea_nom.getCharacters().toString();
+        return this.textField_nom.getCharacters().toString();
     }
     
     @FXML
-    private void handleButtonActionValider(ActionEvent event) throws IOException, Throwable {
-        if(!this.textArea_nom.getCharacters().toString().isEmpty())
+    private void handleValiderActionButton(ActionEvent event) {
+        
+        if(!this.textField_nom.getCharacters().toString().isEmpty() && !(this.comboBox_produit.getValue() == null))
         {
-            Stage stage = (Stage) textArea_nom.getScene().getWindow();
+            /*if(this.comboBox_production.getValue() == prod.Acier || this.comboBox_production.getValue() == prod.Bois)
+            {
+                usine = new UsineMatierePremiere(this.textArea_nom.getCharacters().toString(), j, c, this.comboBox_production.getValue()); 
+                cu = new Controlleur_Usines(usine, this);
+                //cu = new Controlleur_Usines(this.comboBox_production.getValue(), this.textArea_nom.getCharacters().toString());
+            }
+            if(this.comboBox_production.getValue() == prod.Cagettes || this.comboBox_production.getValue() == prod.PlaqueMetal || this.comboBox_production.getValue() == prod.Conserves || this.comboBox_production.getValue() == prod.Meubles){
+                cu = new Controlleur_Usines(usine, this);
+            }*/
+            
+            Stage stage = (Stage) textField_nom.getScene().getWindow();
             stage.close();
-            state = true;
-            dialog = true;
             
         }
         else
         {
             System.out.println("Nope");
-        }        
+        }
     }
-   
-    @FXML    
-    private void handleButtonActionAnnuler(ActionEvent event) throws IOException {       
-        Stage stage = (Stage) textArea_nom.getScene().getWindow();
-        stage.close();
-        state = false;
-        dialog = false;
-    }
-    
-    public boolean getState(){
-        return state;
-    }
-    
-    public boolean getDialog(){
-        return dialog;
+
+    @FXML
+    private void handleAnnulerActionButton(ActionEvent event) {
+        Stage s = (Stage) bouton_annuler.getScene().getWindow();
+        s.close();
     }
     
 }

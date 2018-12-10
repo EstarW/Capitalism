@@ -1,0 +1,23 @@
+-Sprites V1-
+Sprites par superposition
+50x50 pixels PNG
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Animation sur 2 frames (1 et 2)
+Les bâtiments se supersposent grâce au system Top qui se place par dessu le sprite de la case supérieur au bâtiment
+Un bage s'ajoute par dessus les usine de génération de ressource
+L'idée étant De faire comme un calque avec la carte, un avec les villes et un dernier avec les usines(Pile dans cet ordre)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Repérage dans les rivières/routes:
+H - Horizontal
+V - Vertical
++ - Croix
+T - Embranchement en T
+E - Embranchement en T Couché Gauche
+3 -Embranchement en T Couché Droit
+W - Embranchement en T Inversé
+UL - Coin Supérieur Gauche
+UD - Coin Supérieur Droit
+DL - Coin Inférieur Gauche
+DR - Coin Inférieur Droit
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Joanny GORIN 2018

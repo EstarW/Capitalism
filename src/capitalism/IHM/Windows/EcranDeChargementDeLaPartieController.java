@@ -5,7 +5,9 @@
  */
 package capitalism.IHM.Windows;
 
+import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Game;
+import capitalism.Metier.Parties.Partie;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -55,6 +57,9 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     private Button bouton_retour;
     
     private Game game;
+    
+    private Controlleur_CreationPartie controlleur;
+    private Partie p;
 
     /**
      * Initializes the controller class.
@@ -66,7 +71,7 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     
     @FXML    
     private void handleButtonLoadGameAction(ActionEvent event) throws IOException {
-        game = new Game();
+        /*game = new Game(controlleur);*/
         Stage stage = (Stage) bouton_charger_1.getScene().getWindow();
         stage.close();
     }

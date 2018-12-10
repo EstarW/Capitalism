@@ -23,6 +23,6 @@ public class Controlleur_GererUsine {
         this.model = _model;
         this.vue = _vue;
         //lie le controlleur au modele
-        this.model.setControlleur(this);
+        //this.model.setControlleur(this);
     }
 }
