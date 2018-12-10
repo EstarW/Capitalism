@@ -6,12 +6,14 @@
 
 package capitalism.Metier.Parties;
 
-import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import capitalism.Controlleurs.Controlleur_Jeu;
+import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.Usines.Usine;
 
 /**
  *
@@ -23,7 +25,8 @@ public class Partie {
     private int tour;
     private Map map;
     private ArrayList<Entreprise> listeEnt;
-    private Controlleur_CreationPartie controlleur;
+    private Controlleur_Jeu controlleur;
+    private Entreprise joueurCourant;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
@@ -36,6 +39,7 @@ public class Partie {
         this.listeEnt = new ArrayList();
         this.tour=0;
         this.map= new Map();
+        this.joueurCourant = this.listeEnt.get(1);
     }
 
 //------------------------------------------------------------------------------
@@ -58,8 +62,12 @@ public class Partie {
         return nom;
     }
     
-    public void setControlleur(Controlleur_CreationPartie _controlleur){
+    public void setControlleur(Controlleur_Jeu _controlleur){
         this.controlleur = _controlleur;
+    }
+    
+    public Case getCase(Coordonnee cord){
+        return this.map.getCase(cord);
     }
 
     
@@ -106,5 +114,10 @@ public class Partie {
         this.tour=save.getTour();
         this.listeEnt=save.getListeEnt();
         this.map=save.getMap();
+    }
+    
+    public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
+        this.joueurCourant.creerUsineProduit(getCase(cord), prod, nom);
+        
     }
 }

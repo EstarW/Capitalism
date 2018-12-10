@@ -31,11 +31,5 @@ public class Controlleur_Usines {
     
 //------------------------------------------------------------------------------
 
-    public void ConstruireUsine(Produit produit, String nom){
-        //this.model.CreerUsine(produit,nom);
-    }
     
-    public void DissoudreUsine(String _nom){
-        //this.model.DetruireUsine(_nom);
-    }
 }

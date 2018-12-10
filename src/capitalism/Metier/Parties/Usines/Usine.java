@@ -8,6 +8,7 @@ package capitalism.Metier.Parties.Usines;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Controlleurs.Controlleur_Usines;
+import capitalism.Metier.Parties.Carte.Cases.Case;
 
 /**
  *
@@ -17,7 +18,7 @@ public abstract class Usine {
 
     private String nom;
     private Entreprise proprietaire;
-    private CaseEmplacement emplacement;
+    protected Case emplacement;
     private Controlleur_Usines controlleur;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -26,11 +27,11 @@ public abstract class Usine {
      * @param nom
      * @param proprietaire
      */
-    public Usine(String nom, Entreprise proprietaire, CaseEmplacement emplacement) {
+    public Usine(String nom, Entreprise proprietaire, Case c) {
         this.nom=nom;
         this.proprietaire=proprietaire;
-        this.emplacement = emplacement;
-        emplacement.setUsine(this);
+        this.emplacement = c;
+        
     }
     
 //------------------------------------------------------------------------------

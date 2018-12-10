@@ -5,6 +5,7 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Produit;
@@ -15,23 +16,27 @@ import capitalism.Metier.Parties.Produit;
  */
 public class UsineProduit extends Usine {
 
-    private Produit production;
+    private final Produit production;
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
     /**
      *
      * @param nom
      * @param proprietaire
+     * @param production
      */
-    public UsineProduit(String nom, Entreprise proprietaire, CaseEmplacement emplacement,Produit production) {
-        super(nom, proprietaire, emplacement);
+    public UsineProduit(String nom, Entreprise proprietaire, Case c, Produit production) {
+        super(nom, proprietaire, c);
+        this.production = production;
     }
 
 //------------------------------------------------------------------------------
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
     
-    
+    void setEmplacement(CaseEmplacement emplacement){
+        emplacement.setUsine(this);
+    }
     
 //------------------------------------------------------------------------------
     

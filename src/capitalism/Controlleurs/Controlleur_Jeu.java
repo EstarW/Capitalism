@@ -8,6 +8,8 @@ package capitalism.Controlleurs;
 
 import capitalism.Metier.Parties.Partie;
 import capitalism.IHM.Windows.MenuContextuelInGameController;
+import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.Produit;
 import javafx.scene.layout.AnchorPane;
 /**
  *
@@ -27,16 +29,14 @@ public class Controlleur_Jeu {
         this.vue = _vue;
         
         //lie le controlleur au modele
-        //this.model.setControlleur(this);
+        this.model.setControlleur(this);
     }
 
 //------------------------------------------------------------------------------
 
-//---------- GETEUR/SETEUR -----------------------------------------------------
-
-    
-
-//------------------------------------------------------------------------------
+    public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
+        this.model.ConstruireUsineProduit(prod,nom,cord);
+    }
     
     
     

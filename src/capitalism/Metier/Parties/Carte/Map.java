@@ -52,6 +52,10 @@ public class Map {
         this.listeCases.add(c);
     }
     
+    public Case getCase(Coordonnee cord){
+        return this.hashMapCases.get(cord);
+    }
+    
 //------------------------------------------------------------------------------
     public void chargerFichier(String adresseFichier) throws IOException {
         ParseurMap parseur = new ParseurMap(adresseFichier,this);
