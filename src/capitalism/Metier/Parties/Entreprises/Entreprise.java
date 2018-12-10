@@ -13,6 +13,7 @@ import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Produit;
 import capitalism.Controlleurs.Controlleur_Entreprises;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
 import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -219,7 +220,10 @@ public abstract class Entreprise {
     public void creerUsineProduit(Case emplacement, Produit prod, String nom) {
         this.listeUsines.add(new UsineProduit(nom, this, emplacement, prod));
     }
-
+    
+    public void creerUsineRessource(Case emplacement, MatierePremiere prod, String nom) {
+        this.listeUsines.add(new UsineMatierePremiere(nom, this, emplacement, prod));
+    }
     /**
      * 
      * @param usine

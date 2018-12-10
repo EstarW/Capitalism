@@ -5,6 +5,7 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.MatierePremiere;
@@ -18,7 +19,7 @@ public class UsineMatierePremiere extends Usine {
     private MatierePremiere production;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    public UsineMatierePremiere(String nom, Entreprise proprietaire, CaseEmplacement emplacement,MatierePremiere production) {
+    public UsineMatierePremiere(String nom, Entreprise proprietaire, Case emplacement, MatierePremiere production) {
         super(nom, proprietaire, emplacement);
         this.production = production;
     }

@@ -117,7 +117,10 @@ public class Partie {
     }
     
     public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
-        this.joueurCourant.creerUsineProduit(getCase(cord), prod, nom);
-        
+        this.joueurCourant.creerUsineProduit(getCase(cord), prod, nom);  
+    }
+    
+    public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
+        this.joueurCourant.creerUsineRessource(getCase(cord), prod, nom);  
     }
 }

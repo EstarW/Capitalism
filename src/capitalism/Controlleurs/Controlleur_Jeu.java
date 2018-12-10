@@ -9,6 +9,7 @@ package capitalism.Controlleurs;
 import capitalism.Metier.Parties.Partie;
 import capitalism.IHM.Windows.MenuContextuelInGameController;
 import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Produit;
 import javafx.scene.layout.AnchorPane;
 /**
@@ -38,6 +39,8 @@ public class Controlleur_Jeu {
         this.model.ConstruireUsineProduit(prod,nom,cord);
     }
     
-    
+    public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
+        this.model.ConstruireUsineRessource(prod,nom,cord);
+    }
     
 }

@@ -29,7 +29,7 @@ public class Controlleur_CreationPartie {
         this.vue = _vue;
         
         //lie le controlleur au modele
-        this.model.setControlleur(this);
+        //this.model.setControlleur(this);
     }
     
     public Partie getPartie(){
