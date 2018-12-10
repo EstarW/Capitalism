@@ -59,7 +59,7 @@ public class Game {
         
         
         
-        ListeCase liste = new ListeCase(m, listeCase);
+        ListeCase liste = new ListeCase(m, listeCase, cp.getJoueur());
         BoutonMenuList bl = new BoutonMenuList(cp.getPartie(), this);
         Bandeau b = new Bandeau();
         InfoPartie infop = new InfoPartie(cp.getPartie(), cp.getJoueur());

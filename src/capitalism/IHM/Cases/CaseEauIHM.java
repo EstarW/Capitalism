@@ -16,32 +16,35 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Azelat
  */
-public class CaseVille extends Case{
-  
+public class CaseEauIHM extends CaseIHM {
     
     private double X;
     private double Y;
+    private double ligne;
+    private double colonne;
     private Image img;
     private ImageView imgv;
     
-    
-    public CaseVille(double X, double Y) throws FileNotFoundException {
+    public CaseEauIHM(double X, double Y) throws FileNotFoundException {
         super(X, Y);
-        Rectangle rec = new Rectangle(50,50,Color.LIGHTGREY);
+        Rectangle rec = new Rectangle(50,50,Color.CYAN);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
-        rec.setX(X);
-        rec.setY(Y);
-        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
+        this.X = this.getX();
+        this.Y = this.getY();
+        rec.setX(X*50);
+        rec.setY(Y*50);
+        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Mer1.png"); 
         img = new Image(inputstream); 
         imgv = new ImageView(img);
-        imgv.setX(X);
-        imgv.setY(Y);
+        imgv.setX(X*50);
+        imgv.setY(Y*50);
         this.getChildren().add(rec);
         this.getChildren().add(imgv);
         
+
     }
-    
+
     public double getX() {
         return X;
     }
@@ -49,13 +52,24 @@ public class CaseVille extends Case{
     public double getY() {
         return Y;
     }
+    
+    public double getLigne(){
+        return ligne;
+    }
+    
+    public double getColonne(){
+        return colonne;
+    }
 
     public void setX(double X) {
-        this.X = X;
+        this.X = X*50;
     }
 
     public void setY(double Y) {
-        this.Y = Y;
-    }    
+        this.Y = Y*50;
+    }
+    
+    
+    
     
 }

@@ -5,7 +5,7 @@
  */
 package capitalism.IHM.WindowsCode;
 
-import capitalism.IHM.Cases.CaseEmplacement;
+import capitalism.IHM.Cases.CaseEmplacementIHM;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -21,9 +21,9 @@ public class MenuContextuel {
 
     private Scene menuContextuel;
     private Stage s1;
-    private CaseEmplacement c;
+    private CaseEmplacementIHM c;
     
-    public MenuContextuel(CaseEmplacement c) throws IOException, MalformedURLException{
+    public MenuContextuel(CaseEmplacementIHM c) throws IOException, MalformedURLException{
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/MenuContextuelInGame.fxml").toURI().toURL());
         menuContextuel = new Scene(fxmlLoader.load(), 630, 400);
         s1 = new Stage();

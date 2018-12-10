@@ -5,8 +5,16 @@
  */
 package capitalism.IHM.Windows;
 
+import capitalism.Controlleurs.Controlleur_Usines;
+import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
+import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Produit;
+import capitalism.Metier.Parties.Usines.Usine;
+import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
+import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -41,6 +49,13 @@ public class CréationUsineController implements Initializable {
     @FXML
     private RadioButton button_matiere;
     
+    private Usine usine;
+    private Controlleur_Usines cu;
+    private Case c;
+    private boolean check;
+    private Entreprise e;
+    private Joueur j;
+    
 
     /**
      * Initializes the controller class.
@@ -57,8 +72,26 @@ public class CréationUsineController implements Initializable {
         this.AddProd(Produit.Conserves);
         this.AddProd(Produit.Meubles);
         this.AddProd(Produit.PlaqueMetal);
+        
+        check = false;
 
-    }    
+    }   
+    
+    public void setJoueur(Joueur j)
+    {
+        this.j = j;
+    }
+    
+    public void setEntreprise(Entreprise e)
+    {
+        this.e = e;
+    }
+    
+    
+    public void setCase(Case c)
+    {
+        this.c = c;
+    }
     
     public void AddProd(Produit p){
         comboBox_produit.getItems().add(p);       
@@ -85,20 +118,45 @@ public class CréationUsineController implements Initializable {
         return this.textField_nom.getCharacters().toString();
     }
     
+    public boolean matiereCheck()
+    {
+        boolean res = false;
+        if(comboBox_matiere.getValue() != null)
+            res = true;
+        else
+            res = false;
+        return res;
+    }
+    
+    public boolean produitCheck()
+    {
+        boolean res = false;
+        if(comboBox_produit.getValue() != null)
+            res = true;
+        else
+            res = false;
+        return res;
+    }
+    
+    
     @FXML
     private void handleValiderActionButton(ActionEvent event) {
         
-        if(!this.textField_nom.getCharacters().toString().isEmpty() && !(this.comboBox_produit.getValue() == null))
+        if(!this.textField_nom.getCharacters().toString().isEmpty())
         {
-            /*if(this.comboBox_production.getValue() == prod.Acier || this.comboBox_production.getValue() == prod.Bois)
+            if(this.matiereCheck() && !this.produitCheck())
             {
-                usine = new UsineMatierePremiere(this.textArea_nom.getCharacters().toString(), j, c, this.comboBox_production.getValue()); 
+                usine = new UsineMatierePremiere(this.getName(), j, (CaseEmplacement) c, comboBox_matiere.getValue());
                 cu = new Controlleur_Usines(usine, this);
                 //cu = new Controlleur_Usines(this.comboBox_production.getValue(), this.textArea_nom.getCharacters().toString());
+
             }
-            if(this.comboBox_production.getValue() == prod.Cagettes || this.comboBox_production.getValue() == prod.PlaqueMetal || this.comboBox_production.getValue() == prod.Conserves || this.comboBox_production.getValue() == prod.Meubles){
+            else if(this.produitCheck() && !this.matiereCheck())
+            {
+                usine = new UsineProduit(this.getName(), j, (CaseEmplacement) c, comboBox_produit.getValue()); 
                 cu = new Controlleur_Usines(usine, this);
-            }*/
+
+            }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();
             stage.close();

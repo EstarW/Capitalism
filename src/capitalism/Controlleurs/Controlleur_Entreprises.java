@@ -25,12 +25,12 @@ import javafx.scene.layout.StackPane;
 public class Controlleur_Entreprises {
     
     private Entreprise model;
-    private CreationPartieController vue;
+    private StackPane vue;
             
     
     //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Entreprises(Entreprise _model, CreationPartieController _vue){
+    public Controlleur_Entreprises(Entreprise _model, StackPane _vue){
         //Initialisation
         this.model=_model;
         this.vue = _vue;

@@ -7,6 +7,9 @@ package capitalism.IHM.Cases;
 
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
 import capitalism.Metier.Parties.Carte.Map;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
+import capitalism.Metier.Parties.Entreprises.Joueur;
+import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.Parent;
@@ -19,16 +22,18 @@ import javafx.scene.Parent;
 public class ListeCase extends Parent{
     
     private Map map;
-    private Case Case;
+    private CaseIHM Case;
     private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
-    private Case[] MapCase;
+    private CaseIHM[] MapCase;
     private int ligne;
     private int colonne;
+    private Joueur j;
     
-    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase) throws IOException{
+    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Joueur j) throws IOException{
 
         this.listeCases = listeCase;
         this.map = m;
+        this.j = j;
 
         /*this.hashMapCase = map.getHashMapCases();*/
 
@@ -38,7 +43,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                Case c = new CaseEau(colonne*50, ligne*50);
+                CaseIHM c = new CaseEauIHM(colonne, ligne);
 
                 this.getChildren().add(c);
 
@@ -47,7 +52,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                Case c = new CaseVille(colonne*50, ligne*50);
+                CaseIHM c = new CaseVilleIHM(colonne, ligne);
 
                 this.getChildren().add(c);
 
@@ -56,7 +61,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                Case c = new CaseEmplacement(colonne*50, ligne*50);
+                CaseIHM c = new CaseEmplacementIHM(colonne, ligne, this.j, m);
 
                 this.getChildren().add(c);
 
@@ -65,7 +70,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                Case c = new CaseTerre(colonne*50, ligne*50); 
+                CaseIHM c = new CaseTerreIHM(colonne, ligne); 
 
                 this.getChildren().add(c);
 
@@ -74,7 +79,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                Case c = new CaseVilleEmplacement(colonne*50, ligne*50); 
+                CaseIHM c = new CaseVilleEmplacementIHM(colonne, ligne); 
 
                 this.getChildren().add(c);
 
@@ -83,7 +88,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                Case c = new CaseRessource(colonne*50, ligne*50); 
+                CaseIHM c = new CaseRessourceIHM(colonne, ligne); 
 
                 this.getChildren().add(c);
 
