@@ -41,8 +41,6 @@ public class CréationUsineController implements Initializable {
     @FXML
     private RadioButton button_matiere;
     
-    private ToggleGroup group = new ToggleGroup();
-    
 
     /**
      * Initializes the controller class.
@@ -59,10 +57,7 @@ public class CréationUsineController implements Initializable {
         this.AddProd(Produit.Conserves);
         this.AddProd(Produit.Meubles);
         this.AddProd(Produit.PlaqueMetal);
-        
-        button_produit.setToggleGroup(group);
-        button_produit.setSelected(true);
-        button_matiere.setToggleGroup(group);
+
     }    
     
     public void AddProd(Produit p){
