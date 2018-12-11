@@ -39,7 +39,6 @@ public class Partie {
         this.listeEnt = new ArrayList();
         this.tour=0;
         this.map= new Map();
-        this.joueurCourant = this.listeEnt.get(1);
     }
 
 //------------------------------------------------------------------------------
@@ -65,7 +64,10 @@ public class Partie {
     public void setControlleur(Controlleur_Jeu _controlleur){
         this.controlleur = _controlleur;
     }
-    
+   
+    public void setJoueurDefaut(){
+        this.joueurCourant = listeEnt.get(0);
+    }
     public Case getCase(Coordonnee cord){
         return this.map.getCase(cord);
     }
