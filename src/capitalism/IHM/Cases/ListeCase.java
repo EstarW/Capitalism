@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Game;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
@@ -28,10 +29,12 @@ public class ListeCase extends Parent{
     private int ligne;
     private int colonne;
     private Entreprise j;
+    private Game g;
     
-    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Entreprise j) throws IOException{
+    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Entreprise j, Game g) throws IOException{
 
         this.listeCases = listeCase;
+        this.g = g;
         this.map = m;
         this.j = j;
 
@@ -61,7 +64,7 @@ public class ListeCase extends Parent{
             {
                 colonne = listeCases.get(i).getColonne();
                 ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseEmplacementIHM(colonne, ligne, this.j, m);
+                CaseIHM c = new CaseEmplacementIHM(colonne, ligne, this.j, m, this.g);
 
                 this.getChildren().add(c);
 

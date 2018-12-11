@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Game;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import capitalism.Metier.Parties.Carte.Map;
@@ -45,11 +46,13 @@ public class CaseEmplacementIHM extends CaseIHM {
     private Image img2;
     private ImageView imgv2;
     private Entreprise j;
+    private Game g;
     private Map map;
     
-    public CaseEmplacementIHM(double X, double Y, Entreprise j, Map map) throws IOException {
+    public CaseEmplacementIHM(double X, double Y, Entreprise j, Map map, Game g) throws IOException {
         super(X, Y);
         this.j = j;
+        this.g = g;
         this.map = map;
         rec = new Rectangle(50,50,Color.GREY);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
@@ -96,7 +99,7 @@ public class CaseEmplacementIHM extends CaseIHM {
             }
             else{
                 try {
-                    m2 = new MenuCreationUsine(this, j, map);
+                    m2 = new MenuCreationUsine(this, j, map, this.g);
                 } catch (IOException ex) {
                     Logger.getLogger(CaseEmplacementIHM.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InterruptedException ex) {

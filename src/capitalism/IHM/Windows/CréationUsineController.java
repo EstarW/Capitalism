@@ -7,8 +7,10 @@ package capitalism.IHM.Windows;
 
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Controlleurs.Controlleur_Usines;
+import capitalism.Game;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
+import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.MatierePremiere;
@@ -56,7 +58,7 @@ public class CréationUsineController implements Initializable {
     private boolean check;
     private Entreprise e;
     private Joueur j;
-    
+    private Game g;
 
     /**
      * Initializes the controller class.
@@ -119,6 +121,11 @@ public class CréationUsineController implements Initializable {
         return this.textField_nom.getCharacters().toString();
     }
     
+    public void setGame(Game g)
+    {
+        this.g = g;
+    }
+    
     public boolean matiereCheck()
     {
         boolean res = false;
@@ -148,11 +155,12 @@ public class CréationUsineController implements Initializable {
             if(this.matiereCheck() && !this.produitCheck())
             {
                 //Creation de l'usine ressource
+                g.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
-
+                g.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
             }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();

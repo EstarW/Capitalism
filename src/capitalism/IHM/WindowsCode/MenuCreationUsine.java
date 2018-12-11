@@ -6,6 +6,7 @@
 package capitalism.IHM.WindowsCode;
 
 import capitalism.Controlleurs.Controlleur_Usines;
+import capitalism.Game;
 import capitalism.IHM.Cases.CaseIHM;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.IHM.Windows.CréationUsineController;
@@ -43,8 +44,9 @@ public class MenuCreationUsine {
     private Entreprise j;
     private Map m;    
     private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
+    private Game g;
     
-    public MenuCreationUsine(CaseEmplacementIHM c, Entreprise j, Map m) throws MalformedURLException, IOException, InterruptedException{
+    public MenuCreationUsine(CaseEmplacementIHM c, Entreprise j, Map m, Game g) throws MalformedURLException, IOException, InterruptedException{
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/créationUsine.fxml").toURI().toURL());
         menuCreationUsine = new Scene(fxmlLoader.load(), 630, 400);
         s2 = new Stage();
@@ -54,6 +56,7 @@ public class MenuCreationUsine {
         s2.show();
         this.m = m;
         this.c = c;
+        this.g = g;
         
         colonne = this.c.getLigne();
         ligne = this.c.getColonne();
@@ -65,6 +68,7 @@ public class MenuCreationUsine {
         cu = new CréationUsineController();
         cu.setEntreprise(j);
         cu.setCase(ca);
+        cu.setGame(g);
     }
     
     public void setCase()
