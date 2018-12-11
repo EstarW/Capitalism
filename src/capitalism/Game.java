@@ -6,6 +6,7 @@
 package capitalism;
 
 
+import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
@@ -52,6 +53,7 @@ public class Game {
     
     private Partie p;
     private Joueur j;
+    private Controlleur_Jeu controlleur;
     
 
     
@@ -161,6 +163,14 @@ public class Game {
                 map.setTranslateY(event.getScreenY() + yOffset);
             }           
         });        
+    }
+    
+    public void setControlleur(Controlleur_Jeu control){
+        this.controlleur=control;
+    }
+
+    public Partie getP() {
+        return p;
     }
     
     public void refreshTour(){

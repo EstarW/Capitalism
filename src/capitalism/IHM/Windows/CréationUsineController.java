@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Windows;
 
+import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Controlleurs.Controlleur_Usines;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
@@ -50,7 +51,7 @@ public class CréationUsineController implements Initializable {
     private RadioButton button_matiere;
     
     private Usine usine;
-    private Controlleur_Usines cu;
+    private Controlleur_Jeu cu;
     private Case c;
     private boolean check;
     private Entreprise e;
@@ -146,15 +147,11 @@ public class CréationUsineController implements Initializable {
         {
             if(this.matiereCheck() && !this.produitCheck())
             {
-                usine = new UsineMatierePremiere(this.getName(), e, (CaseEmplacement) c, comboBox_matiere.getValue());
-                cu = new Controlleur_Usines(usine, this);
-                //cu = new Controlleur_Usines(this.comboBox_production.getValue(), this.textArea_nom.getCharacters().toString());
-
+                //Creation de l'usine ressource
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
-                usine = new UsineProduit(this.getName(), e, (CaseEmplacement) c, comboBox_produit.getValue()); 
-                cu = new Controlleur_Usines(usine, this);
+                //Creation de l'usine produit
 
             }
             

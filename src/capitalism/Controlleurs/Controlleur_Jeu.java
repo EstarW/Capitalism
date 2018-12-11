@@ -6,6 +6,7 @@
 
 package capitalism.Controlleurs;
 
+import capitalism.Game;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.MatierePremiere;
@@ -18,12 +19,12 @@ import javafx.scene.layout.AnchorPane;
 public class Controlleur_Jeu {
 
     //private ? vue
-    private Partie model;
+    private Game model;
     private AnchorPane vue;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Jeu(Partie _model, AnchorPane _vue){
+    public Controlleur_Jeu(Game _model, AnchorPane _vue){
         //Initialisation
         this.model =_model;
         this.vue = _vue;
@@ -35,11 +36,11 @@ public class Controlleur_Jeu {
 //------------------------------------------------------------------------------
 
     public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
-        this.model.ConstruireUsineProduit(prod,nom,cord);
+        this.model.getP().ConstruireUsineProduit(prod,nom,cord);
     }
     
     public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
-        this.model.ConstruireUsineRessource(prod,nom,cord);
+        this.model.getP().ConstruireUsineRessource(prod,nom,cord);
     }
     
 }
