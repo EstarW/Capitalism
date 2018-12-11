@@ -27,13 +27,13 @@ public class InfoPartie extends Parent {
         this.p = p;
         this.j = j;
 
-        Label l = new Label("Pseudo: "+j.getNom());
+        Label l = new Label("Pseudo: "+p.getNom());
         l.setTextFill(Color.WHITESMOKE);
         l.setScaleX(3);
         l.setScaleY(3);
         l.setLayoutX(150);
         
-        Label l2 = new Label("Entreprise: "+p.getNom());
+        Label l2 = new Label("Entreprise: "+j.getNom());
         l2.setTextFill(Color.WHITESMOKE);
         l2.setScaleX(3);
         l2.setScaleY(3);
