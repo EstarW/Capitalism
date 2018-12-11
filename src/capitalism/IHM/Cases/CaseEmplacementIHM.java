@@ -44,10 +44,10 @@ public class CaseEmplacementIHM extends CaseIHM {
     private ImageView imgv;
     private Image img2;
     private ImageView imgv2;
-    private Joueur j;
+    private Entreprise j;
     private Map map;
     
-    public CaseEmplacementIHM(double X, double Y, Joueur j, Map map) throws IOException {
+    public CaseEmplacementIHM(double X, double Y, Entreprise j, Map map) throws IOException {
         super(X, Y);
         this.j = j;
         this.map = map;

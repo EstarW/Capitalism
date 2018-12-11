@@ -6,6 +6,7 @@
 package capitalism.IHM.Interface;
 
 import capitalism.Controlleurs.Controlleur_CreationPartie;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import javafx.scene.Parent;
@@ -19,10 +20,10 @@ import javafx.scene.paint.Color;
 public class InfoPartie extends Parent {
         
     private Partie p;
-    private Joueur j;
+    private Entreprise j;
     private Label argent;
     
-    public InfoPartie(Partie p, Joueur j){
+    public InfoPartie(Partie p, Entreprise j){
         this.p = p;
         this.j = j;
 

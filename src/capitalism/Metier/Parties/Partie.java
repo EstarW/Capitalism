@@ -72,6 +72,10 @@ public class Partie {
         return this.map.getCase(cord);
     }
 
+    public Entreprise getJoueurCourant() {
+        return joueurCourant;
+    }
+
     
 //------------------------------------------------------------------------------
 

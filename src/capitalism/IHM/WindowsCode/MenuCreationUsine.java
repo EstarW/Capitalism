@@ -40,11 +40,11 @@ public class MenuCreationUsine {
     private CréationUsineController cu;
     private Usine usine;
     private Controlleur_Usines control;
-    private Joueur j;
+    private Entreprise j;
     private Map m;    
     private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
     
-    public MenuCreationUsine(CaseEmplacementIHM c, Joueur j, Map m) throws MalformedURLException, IOException, InterruptedException{
+    public MenuCreationUsine(CaseEmplacementIHM c, Entreprise j, Map m) throws MalformedURLException, IOException, InterruptedException{
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/créationUsine.fxml").toURI().toURL());
         menuCreationUsine = new Scene(fxmlLoader.load(), 630, 400);
         s2 = new Stage();
@@ -63,7 +63,7 @@ public class MenuCreationUsine {
         
         this.j = j;
         cu = new CréationUsineController();
-        cu.setJoueur(j);
+        cu.setEntreprise(j);
         cu.setCase(ca);
     }
     

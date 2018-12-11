@@ -14,6 +14,7 @@ import capitalism.IHM.Interface.InfoTour;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
@@ -58,7 +59,8 @@ public class Game {
     public Game(String eName, String pName) throws IOException
     {
         p = new Partie(pName);
-        j = new Joueur(eName, p);
+        p.ajouteEntreprise(new Joueur(eName,p));
+        p.setJoueurDefaut();
         p.augmenterTour();
         Map m = new Map();
         m.chargerFichier("Carte.txt");
@@ -66,10 +68,10 @@ public class Game {
         
         
         
-        ListeCase liste = new ListeCase(m, listeCase, j);
+        ListeCase liste = new ListeCase(m, listeCase, p.getJoueurCourant());
         BoutonMenuList bl = new BoutonMenuList(p, this);
         Bandeau b = new Bandeau();
-        infop = new InfoPartie(p, j);
+        infop = new InfoPartie(p, p.getJoueurCourant());
         infot = new InfoTour(p);
 
 
@@ -173,7 +175,7 @@ public class Game {
         
         infp.getChildren().remove(infop);
         root.getChildren().remove(infp); 
-        infop = new InfoPartie(p, j);
+        infop = new InfoPartie(p, p.getJoueurCourant());
         infp.getChildren().add(infop);
         root.getChildren().add(infp);        
     }

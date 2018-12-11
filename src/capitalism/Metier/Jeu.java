@@ -25,5 +25,8 @@ public class Jeu {
         this.partie = partie;
     }
     
+    public void supPartie(){
+        this.partie = null;
+    }
     
 }

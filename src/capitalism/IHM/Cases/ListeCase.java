@@ -27,9 +27,9 @@ public class ListeCase extends Parent{
     private CaseIHM[] MapCase;
     private int ligne;
     private int colonne;
-    private Joueur j;
+    private Entreprise j;
     
-    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Joueur j) throws IOException{
+    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Entreprise j) throws IOException{
 
         this.listeCases = listeCase;
         this.map = m;

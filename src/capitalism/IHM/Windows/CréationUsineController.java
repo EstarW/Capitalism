@@ -146,14 +146,14 @@ public class CréationUsineController implements Initializable {
         {
             if(this.matiereCheck() && !this.produitCheck())
             {
-                usine = new UsineMatierePremiere(this.getName(), j, (CaseEmplacement) c, comboBox_matiere.getValue());
+                usine = new UsineMatierePremiere(this.getName(), e, (CaseEmplacement) c, comboBox_matiere.getValue());
                 cu = new Controlleur_Usines(usine, this);
                 //cu = new Controlleur_Usines(this.comboBox_production.getValue(), this.textArea_nom.getCharacters().toString());
 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
-                usine = new UsineProduit(this.getName(), j, (CaseEmplacement) c, comboBox_produit.getValue()); 
+                usine = new UsineProduit(this.getName(), e, (CaseEmplacement) c, comboBox_produit.getValue()); 
                 cu = new Controlleur_Usines(usine, this);
 
             }
