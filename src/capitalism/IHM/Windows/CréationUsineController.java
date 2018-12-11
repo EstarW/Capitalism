@@ -8,6 +8,7 @@ package capitalism.IHM.Windows;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Controlleurs.Controlleur_Usines;
 import capitalism.Game;
+import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Carte.Coordonnee;
@@ -18,6 +19,7 @@ import capitalism.Metier.Parties.Produit;
 import capitalism.Metier.Parties.Usines.Usine;
 import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
 import capitalism.Metier.Parties.Usines.UsineProduit;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -60,6 +62,7 @@ public class CréationUsineController implements Initializable {
     private Joueur j;
     private Game g;
     private CaseEmplacement c2;
+    private CaseEmplacementIHM cIHM;
 
     /**
      * Initializes the controller class.
@@ -128,6 +131,11 @@ public class CréationUsineController implements Initializable {
         this.g = g;
     }
     
+    public void setCaseIHM(CaseEmplacementIHM c)
+    {
+        this.cIHM = c;
+    }        
+    
     public boolean matiereCheck()
     {
         boolean res = false;
@@ -150,23 +158,25 @@ public class CréationUsineController implements Initializable {
     
     
     @FXML
-    private void handleValiderActionButton(ActionEvent event) {
+    private void handleValiderActionButton(ActionEvent event) throws FileNotFoundException {
         
         if(!this.textField_nom.getCharacters().toString().isEmpty())
         {
             if(this.matiereCheck() && !this.produitCheck())
             {
                 //Creation de l'usine ressource
-                g.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
+                g.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
-                g.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
+                g.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
             }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();
+            cIHM.setState(true);
+            
             stage.close();
             
         }
@@ -180,11 +190,6 @@ public class CréationUsineController implements Initializable {
     private void handleAnnulerActionButton(ActionEvent event) {
         Stage s = (Stage) bouton_annuler.getScene().getWindow();
         s.close();
-    }
-    
-    public boolean usineCree()
-    {
-        return c2.estOccupe();
-    }        
+    }     
     
 }

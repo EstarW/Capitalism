@@ -14,6 +14,7 @@ import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -140,10 +141,16 @@ public class CaseEmplacementIHM extends CaseIHM {
         return state;
     }
     
-    public void setState(boolean s){
+    public void setState(boolean s) throws FileNotFoundException{
         state = s;
-        if(state = true){
-            rec.setFill(Color.RED);
+        if(state == true){
+            this.getChildren().remove(imgv2);
+            FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\UsineRouge1.png"); 
+            img2 = new Image(inputstream2); 
+            imgv2 = new ImageView(img2);
+            imgv2.setX(ligne*50);
+            imgv2.setY(colonne*50);
+            this.getChildren().add(imgv2);
         }
     }
     

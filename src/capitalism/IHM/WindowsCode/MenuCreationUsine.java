@@ -69,6 +69,10 @@ public class MenuCreationUsine {
         cu.setEntreprise(j);
         cu.setCase(ca);
         cu.setGame(g);
+        cu.setCaseIHM(c);
+
+        
+        
     }
     
     public void setCase()
