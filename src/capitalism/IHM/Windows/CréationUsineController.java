@@ -59,6 +59,7 @@ public class CréationUsineController implements Initializable {
     private Entreprise e;
     private Joueur j;
     private Game g;
+    private CaseEmplacement c2;
 
     /**
      * Initializes the controller class.
@@ -94,6 +95,7 @@ public class CréationUsineController implements Initializable {
     public void setCase(Case c)
     {
         this.c = c;
+        this.c2 = (CaseEmplacement) c;
     }
     
     public void AddProd(Produit p){
@@ -155,12 +157,13 @@ public class CréationUsineController implements Initializable {
             if(this.matiereCheck() && !this.produitCheck())
             {
                 //Creation de l'usine ressource
-                g.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
+                g.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
+                
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
-                g.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
+                g.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
             }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();
@@ -178,5 +181,10 @@ public class CréationUsineController implements Initializable {
         Stage s = (Stage) bouton_annuler.getScene().getWindow();
         s.close();
     }
+    
+    public boolean usineCree()
+    {
+        return c2.estOccupe();
+    }        
     
 }
