@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
-import capitalism.Metier.Parties.Usines.Usine;
 
 /**
  *
@@ -32,7 +31,7 @@ public class Partie {
 
     /**
      * Constructeur pour créer une nouvelle partie
-     * @param nom 
+     * @param nom
      */
     public Partie(String nom) {
         this.nom = nom;
@@ -76,7 +75,10 @@ public class Partie {
         return joueurCourant;
     }
 
-    
+    public Controlleur_Jeu getControlleur() {
+        return controlleur;
+    }
+
 //------------------------------------------------------------------------------
 
     /**
@@ -111,15 +113,11 @@ public class Partie {
      * @throws FileNotFoundException 
      */
     public void savePartie() throws FileNotFoundException{
-        Sauvegarde save = new Sauvegarde(this.nom);
-        save.save(this);
+        throw new UnsupportedOperationException();
     }
     
     public void chargerPartie(){
-        Sauvegarde save = new Sauvegarde(this.getNom());
-        this.tour=save.getTour();
-        this.listeEnt=save.getListeEnt();
-        this.map=save.getMap();
+        throw new UnsupportedOperationException();
     }
     
     public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
