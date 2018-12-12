@@ -5,7 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import capitalism.Metier.Parties.Carte.Map;

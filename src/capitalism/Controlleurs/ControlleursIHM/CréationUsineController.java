@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism.IHM.Windows;
+package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.Controlleur_Jeu;
-import capitalism.Controlleurs.Controlleur_Usines;
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
@@ -17,8 +16,6 @@ import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Produit;
 import capitalism.Metier.Parties.Usines.Usine;
-import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
-import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +26,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
@@ -101,6 +97,11 @@ public class CréationUsineController implements Initializable {
         this.c2 = (CaseEmplacement) c;
     }
     
+    public Case getCase()
+    {
+        return c;
+    }
+    
     public void AddProd(Produit p){
         comboBox_produit.getItems().add(p);       
     }
@@ -131,10 +132,20 @@ public class CréationUsineController implements Initializable {
         this.g = g;
     }
     
+    public Game getGame()
+    {
+        return g;
+    }
+    
     public void setCaseIHM(CaseEmplacementIHM c)
     {
         this.cIHM = c;
-    }        
+    }  
+    
+    public CaseEmplacementIHM getCaseIHM()
+    {
+        return cIHM;
+    }
     
     public boolean matiereCheck()
     {
@@ -160,22 +171,26 @@ public class CréationUsineController implements Initializable {
     @FXML
     private void handleValiderActionButton(ActionEvent event) throws FileNotFoundException {
         
+        Game game = this.getGame();
+        Case c2 = this.getCase();
+        CaseEmplacementIHM cIHM2 = this.getCaseIHM();
+        
         if(!this.textField_nom.getCharacters().toString().isEmpty())
         {
             if(this.matiereCheck() && !this.produitCheck())
             {
                 //Creation de l'usine ressource
-                g.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
+                game.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
-                g.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c.getLigne(),c.getColonne()));
+                game.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
             }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();
-            cIHM.setState(true);
+            cIHM2.setState(true);
             
             stage.close();
             

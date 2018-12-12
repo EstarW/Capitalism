@@ -6,8 +6,8 @@
 
 package capitalism.Controlleurs;
 
-import capitalism.IHM.Windows.CréationUsineController;
-import capitalism.IHM.Windows.GererUsineController;
+import capitalism.Controlleurs.ControlleursIHM.CréationUsineController;
+import capitalism.Controlleurs.ControlleursIHM.GererUsineController;
 import capitalism.Metier.Parties.Produit;
 import capitalism.Metier.Parties.Usines.Usine;
 

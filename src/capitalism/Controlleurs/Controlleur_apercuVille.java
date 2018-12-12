@@ -5,7 +5,7 @@
  */
 package capitalism.Controlleurs;
 
-import capitalism.IHM.Windows.ApercuVilleController;
+import capitalism.Controlleurs.ControlleursIHM.ApercuVilleController;
 import capitalism.Metier.Parties.Carte.Ville;
 
 

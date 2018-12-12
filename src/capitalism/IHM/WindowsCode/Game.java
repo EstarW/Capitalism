@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism;
+package capitalism.IHM.WindowsCode;
 
 
 import capitalism.Controlleurs.Controlleur_Jeu;

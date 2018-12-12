@@ -6,13 +6,13 @@
 
 package capitalism.Controlleurs;
 
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Produit;
 import javafx.scene.layout.AnchorPane;
-import capitalism.IHM.Windows.EcranDeChargementDeLaPartieController;
+import capitalism.Controlleurs.ControlleursIHM.EcranDeChargementDeLaPartieController;
 /**
  *
  * @author Damien

@@ -5,7 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;

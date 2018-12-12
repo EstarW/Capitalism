@@ -8,13 +8,13 @@ package capitalism.Controlleurs;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
-import capitalism.IHM.Windows.AccueilController;
-import capitalism.IHM.Windows.ApercuVilleController;
-import capitalism.IHM.Windows.CreationPartieController;
-import capitalism.IHM.Windows.EcranDeChargementDeLaPartieController;
-import capitalism.IHM.Windows.GererUsineController;
-import capitalism.IHM.Windows.MenuContextuelInGameController;
-import capitalism.IHM.Windows.Menu_echapController;
+import capitalism.Controlleurs.ControlleursIHM.AccueilController;
+import capitalism.Controlleurs.ControlleursIHM.ApercuVilleController;
+import capitalism.Controlleurs.ControlleursIHM.CreationPartieController;
+import capitalism.Controlleurs.ControlleursIHM.EcranDeChargementDeLaPartieController;
+import capitalism.Controlleurs.ControlleursIHM.GererUsineController;
+import capitalism.Controlleurs.ControlleursIHM.MenuContextuelInGameController;
+import capitalism.Controlleurs.ControlleursIHM.Menu_echapController;
 import javafx.scene.layout.StackPane;
 
 
