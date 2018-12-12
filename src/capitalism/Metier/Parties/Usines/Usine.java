@@ -5,7 +5,6 @@
  */
 package capitalism.Metier.Parties.Usines;
 
-import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Controlleurs.Controlleur_Usines;
 import capitalism.Metier.Parties.Carte.Cases.Case;
@@ -27,6 +26,7 @@ public abstract class Usine {
      * 
      * @param nom
      * @param proprietaire
+     * @param c
      */
     public Usine(String nom, Entreprise proprietaire, Case c) {
         this.nom=nom;
@@ -66,12 +66,7 @@ public abstract class Usine {
      * @param nouveauNom
      */
     public void changerNom(String nouveauNom) {
-            // TODO - implement Usine.changerNom
-            this.nom = nouveauNom;
-    }
-
-    public void vendre() {
-        
+        this.nom = nouveauNom;
     }
 
     public abstract void produire();
@@ -81,8 +76,7 @@ public abstract class Usine {
      * @param nouveauProprietaire
      */
     public void vendreUsine(Entreprise nouveauProprietaire) {
-            // TODO - implement Usine.vendreUsine
-            this.proprietaire = nouveauProprietaire;
+        this.proprietaire = nouveauProprietaire;
     }
 
 }
