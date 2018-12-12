@@ -12,6 +12,7 @@ import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Produit;
 import javafx.scene.layout.AnchorPane;
+import capitalism.IHM.Windows.EcranDeChargementDeLaPartieController;
 /**
  *
  * @author Damien
@@ -20,11 +21,11 @@ public class Controlleur_Jeu {
 
     //private ? vue
     private Game model;
-    private AnchorPane vue;
+    private EcranDeChargementDeLaPartieController vue;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Jeu(Game _model, AnchorPane _vue){
+    public Controlleur_Jeu(Game _model, EcranDeChargementDeLaPartieController _vue){
         //Initialisation
         this.model =_model;
         this.vue = _vue;
