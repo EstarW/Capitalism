@@ -20,6 +20,7 @@ public abstract class Usine {
     private Entreprise proprietaire;
     protected Case emplacement;
     private Controlleur_Usines controlleur;
+    
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     /**
@@ -70,8 +71,7 @@ public abstract class Usine {
     }
 
     public void vendre() {
-            // TODO - implement Usine.vendre
-            throw new UnsupportedOperationException();
+        
     }
 
     public abstract void produire();

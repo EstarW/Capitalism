@@ -27,6 +27,10 @@ public class UsineMatierePremiere extends Usine {
 //------------------------------------------------------------------------------
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
+
+    public MatierePremiere getProduction() {
+        return production;
+    }
     
     
     

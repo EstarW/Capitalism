@@ -83,6 +83,10 @@ public abstract class Entreprise {
     public HashMap<Produit, Integer> getProduitsPossedees() {
         return this.Produits;
     }
+
+    public ArrayList<Usine> getListeUsines() {
+        return listeUsines;
+    }
     
     public HashMap<MatierePremiere, Integer> getMatieresPremieresPossedees() {
         return this.MatieresPremieres;

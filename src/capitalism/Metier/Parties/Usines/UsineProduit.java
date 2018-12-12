@@ -37,6 +37,10 @@ public class UsineProduit extends Usine {
     void setEmplacement(CaseEmplacement emplacement){
         emplacement.setUsine(this);
     }
+
+    public Produit getProduction() {
+        return production;
+    }
     
 //------------------------------------------------------------------------------
     

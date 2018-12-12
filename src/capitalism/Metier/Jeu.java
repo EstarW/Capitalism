@@ -15,6 +15,7 @@ public class Jeu {
     private Partie partie;
 
     public Jeu() {
+        this.partie=null;
     }
     
     public void newGame(String name){
@@ -28,5 +29,10 @@ public class Jeu {
     public void supPartie(){
         this.partie = null;
     }
+
+    public Partie getPartie() {
+        return partie;
+    }
+    
     
 }
