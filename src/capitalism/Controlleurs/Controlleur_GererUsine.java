@@ -5,7 +5,7 @@
  */
 package capitalism.Controlleurs;
 
-import capitalism.IHM.Windows.GererUsineController;
+import capitalism.Controlleurs.ControlleursIHM.GererUsineController;
 import capitalism.Metier.Parties.Usines.Usine;
 
 

@@ -5,7 +5,7 @@
  */
 package capitalism.IHM.Interface;
 
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.Gestion;
 import capitalism.IHM.WindowsCode.MenuJeu;

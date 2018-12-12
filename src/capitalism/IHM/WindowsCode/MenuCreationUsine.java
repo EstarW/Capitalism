@@ -6,10 +6,9 @@
 package capitalism.IHM.WindowsCode;
 
 import capitalism.Controlleurs.Controlleur_Usines;
-import capitalism.Game;
 import capitalism.IHM.Cases.CaseIHM;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
-import capitalism.IHM.Windows.CréationUsineController;
+import capitalism.Controlleurs.ControlleursIHM.CréationUsineController;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.CaseEmplacement;
