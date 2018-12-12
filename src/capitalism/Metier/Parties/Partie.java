@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
+import java.io.IOException;
 
 /**
  *
@@ -32,12 +33,14 @@ public class Partie {
     /**
      * Constructeur pour créer une nouvelle partie
      * @param nom
+     * @throws java.io.IOException
      */
-    public Partie(String nom) {
+    public Partie(String nom) throws IOException {
         this.nom = nom;
         this.listeEnt = new ArrayList();
         this.tour=0;
         this.map= new Map();
+        map.chargerFichier("Carte.txt");
     }
 
 //------------------------------------------------------------------------------
