@@ -79,4 +79,7 @@ public abstract class Usine {
         this.proprietaire = nouveauProprietaire;
     }
 
+    public String toString(){
+        return this.nom;
+    }
 }

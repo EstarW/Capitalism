@@ -5,6 +5,7 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
+import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieCreationUsineController;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
@@ -75,7 +76,7 @@ public class CréationUsineController implements Initializable {
         this.AddProd(Produit.Conserves);
         this.AddProd(Produit.Meubles);
         this.AddProd(Produit.PlaqueMetal);
-        
+
         check = false;
 
     }   
@@ -95,6 +96,7 @@ public class CréationUsineController implements Initializable {
     {
         this.c = c;
         this.c2 = (CaseEmplacement) c;
+        NecessaireDeSurvieCreationUsineController.setCasee(c);
     }
     
     public Case getCase()
@@ -130,6 +132,7 @@ public class CréationUsineController implements Initializable {
     public void setGame(Game g)
     {
         this.g = g;
+        NecessaireDeSurvieCreationUsineController.setGame(g);
     }
     
     public Game getGame()
@@ -140,6 +143,7 @@ public class CréationUsineController implements Initializable {
     public void setCaseIHM(CaseEmplacementIHM c)
     {
         this.cIHM = c;
+        NecessaireDeSurvieCreationUsineController.setCaseIHM(c);
     }  
     
     public CaseEmplacementIHM getCaseIHM()
@@ -171,9 +175,9 @@ public class CréationUsineController implements Initializable {
     @FXML
     private void handleValiderActionButton(ActionEvent event) throws FileNotFoundException {
         
-        Game game = this.getGame();
-        Case c2 = this.getCase();
-        CaseEmplacementIHM cIHM2 = this.getCaseIHM();
+        Game game = NecessaireDeSurvieCreationUsineController.getGame();
+        Case c2 =  NecessaireDeSurvieCreationUsineController.getCaseEmp();
+        CaseEmplacementIHM cIHM2 =  NecessaireDeSurvieCreationUsineController.getCaseIHM();
         
         if(!this.textField_nom.getCharacters().toString().isEmpty())
         {
@@ -181,12 +185,18 @@ public class CréationUsineController implements Initializable {
             {
                 //Creation de l'usine ressource
                 game.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
+                for(Usine u : game.getP().getJoueurCourant().getListeUsines()){
+                    System.out.println(u.toString());
+                }
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
                 game.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
+               for(Usine u : game.getP().getJoueurCourant().getListeUsines()){
+                    System.out.println(u.toString());
+                }
             }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();
