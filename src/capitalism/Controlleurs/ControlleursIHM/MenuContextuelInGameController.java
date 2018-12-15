@@ -5,6 +5,8 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
+import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -24,7 +26,7 @@ public class MenuContextuelInGameController implements Initializable {
     private Label label_entreprise;
     @FXML
     private Label label_production;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -32,5 +34,12 @@ public class MenuContextuelInGameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void setCase(Case c){
+       CaseEmplacement cEmp = (CaseEmplacement) c;
+       this.label_usine.setText(cEmp.getUsine().toString());
+       this.label_entreprise.setText(cEmp.getUsine().getProprietaire().toString());
+       this.label_production.setText(cEmp.getUsine().getProdName());
+    }
     
 }

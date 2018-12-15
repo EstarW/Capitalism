@@ -93,7 +93,7 @@ public class CaseEmplacementIHM extends CaseIHM {
         this.setOnMouseClicked((MouseEvent me) -> {
             if(state){
                 try {
-                    m = new MenuContextuel(this);
+                    m = new MenuContextuel(this, j, map, this.g);
                 } catch (IOException ex) {
                     Logger.getLogger(CaseEmplacementIHM.class.getName()).log(Level.SEVERE, null, ex);
                 }

@@ -43,6 +43,7 @@ public abstract class Usine {
         return nom;
     }
 
+    public abstract String getProdName();
     public void setNom(String nom) {
         this.nom = nom;
     }

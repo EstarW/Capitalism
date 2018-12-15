@@ -41,11 +41,15 @@ public class UsineProduit extends Usine {
     public Produit getProduction() {
         return production;
     }
-    
+    public String getProdName() {
+        return this.production.toString();
+    }
 //------------------------------------------------------------------------------
     
     @Override
     public void produire() {
        this.getProprietaire().ajouterRessources(production, 1);
     }
+    
+    
 }

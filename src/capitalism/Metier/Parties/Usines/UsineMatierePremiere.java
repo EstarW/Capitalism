@@ -40,4 +40,9 @@ public class UsineMatierePremiere extends Usine {
     public void produire() {
        this.getProprietaire().ajouterRessources(production, 1);
     }
+
+    @Override
+    public String getProdName() {
+        return this.production.toString();
+    }
 }
