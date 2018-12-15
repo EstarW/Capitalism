@@ -137,6 +137,9 @@ public class Partie {
             for (Usine u : e.getListeUsines()){
                 u.produire();
             }
+            for (MatierePremiere prem:e.getMatieresPremieresPossedees().keySet()){
+                System.out.println(e.getMatieresPremieresPossedees().get(prem));
+            }
         }
     }
 }

@@ -121,6 +121,7 @@ public class Bouton extends Parent {
         {
             p.getTour();
             p.augmenterTour();
+            p.passerTour();
             System.out.println("Tour: "+p.getTour());
             game.refreshTour();
         }

@@ -185,18 +185,12 @@ public class CréationUsineController implements Initializable {
             {
                 //Creation de l'usine ressource
                 game.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
-                for(Usine u : game.getP().getJoueurCourant().getListeUsines()){
-                    System.out.println(u.toString());
-                }
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
                 game.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
-               for(Usine u : game.getP().getJoueurCourant().getListeUsines()){
-                    System.out.println(u.toString());
-                }
             }
             
             Stage stage = (Stage) textField_nom.getScene().getWindow();
