@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.Usines.Usine;
 import java.io.IOException;
 
 /**
@@ -129,5 +130,13 @@ public class Partie {
     
     public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
         this.joueurCourant.creerUsineRessource(getCase(cord), prod, nom);  
+    }
+    
+    public void passerTour(){
+        for(Entreprise e : this.listeEnt){
+            for (Usine u : e.getListeUsines()){
+                u.produire();
+            }
+        }
     }
 }
