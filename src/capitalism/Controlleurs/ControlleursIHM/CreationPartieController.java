@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism.IHM.Windows;
+package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Capitalism;
 import capitalism.Controlleurs.Controlleur_CreationPartie;
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Partie;
 import java.io.File;
 import java.io.IOException;
@@ -80,10 +80,7 @@ public class CreationPartieController implements Initializable {
             }
             else
             {
-                p = new Partie(textField_nomEntreprise.getCharacters().toString());
-                controlleur = new Controlleur_CreationPartie(p, this);
-                controlleur.DonnerJoueur(textField_pseudo.getCharacters().toString());
-                game = new Game(controlleur);
+                game = new Game(getEntreprise(), getPseudo());
                 Stage stage = (Stage) bouton_valider.getScene().getWindow();
                 stage.close();
                 

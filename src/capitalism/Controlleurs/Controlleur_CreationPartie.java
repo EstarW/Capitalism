@@ -5,8 +5,8 @@
  */
 package capitalism.Controlleurs;
 
-import capitalism.Game;
-import capitalism.IHM.Windows.CreationPartieController;
+import capitalism.IHM.WindowsCode.Game;
+import capitalism.Controlleurs.ControlleursIHM.CreationPartieController;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import javafx.scene.layout.AnchorPane;
@@ -29,7 +29,7 @@ public class Controlleur_CreationPartie {
         this.vue = _vue;
         
         //lie le controlleur au modele
-        this.model.setControlleur(this);
+        //this.model.setControlleur(this);
     }
     
     public Partie getPartie(){

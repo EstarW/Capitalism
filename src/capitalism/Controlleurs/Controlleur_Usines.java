@@ -6,8 +6,8 @@
 
 package capitalism.Controlleurs;
 
-import capitalism.IHM.Windows.CréationUsineController;
-import capitalism.IHM.Windows.GererUsineController;
+import capitalism.Controlleurs.ControlleursIHM.CréationUsineController;
+import capitalism.Controlleurs.ControlleursIHM.GererUsineController;
 import capitalism.Metier.Parties.Produit;
 import capitalism.Metier.Parties.Usines.Usine;
 
@@ -31,11 +31,5 @@ public class Controlleur_Usines {
     
 //------------------------------------------------------------------------------
 
-    public void ConstruireUsine(Produit produit, String nom){
-        //this.model.CreerUsine(produit,nom);
-    }
     
-    public void DissoudreUsine(String _nom){
-        //this.model.DetruireUsine(_nom);
-    }
 }

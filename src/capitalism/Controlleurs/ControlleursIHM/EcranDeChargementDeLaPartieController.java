@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism.IHM.Windows;
+package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.Controlleur_CreationPartie;
-import capitalism.Game;
+import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Partie;
 import java.io.File;
 import java.io.IOException;

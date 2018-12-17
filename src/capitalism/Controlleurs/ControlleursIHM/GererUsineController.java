@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism.IHM.Windows;
+package capitalism.Controlleurs.ControlleursIHM;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,20 +17,26 @@ import javafx.scene.control.Label;
  *
  * @author Azelat
  */
-public class ApercuVilleController implements Initializable {
+public class GererUsineController implements Initializable {
 
     @FXML
-    private Button bouton_aller;
+    private Button bouron_dissoudre;
     @FXML
-    private Label label_placeUsine;
+    private Button bouton_vendre;
     @FXML
-    private Label label_placeDispo;
+    private Button bouton_ameliorer;
     @FXML
-    private Label label_bois;
+    private Button bouton_modifierNom;
     @FXML
-    private Label label_fer;
+    private Button bouton_modifierProd;
     @FXML
     private Label label_nom;
+    @FXML
+    private Label label_prod;
+    @FXML
+    private Label label_materiauxBrut;
+    @FXML
+    private Label label_materiauxRaffines;
 
     /**
      * Initializes the controller class.

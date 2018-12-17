@@ -11,15 +11,19 @@ import javafx.scene.Parent;
  *
  * @author Corentin
  */
-public abstract class Case extends Parent {
+public abstract class CaseIHM extends Parent {
     
     private double X;
-    private double Y;                                              
+    private double Y;    
+    private double ligne;
+    private double colonne;
     
     
-    public Case(double X, double Y){
-        this.X = X;
-        this.Y = Y;
+    public CaseIHM(double X, double Y){
+        this.X = X*50;
+        this.Y = Y*50;
+        this.ligne = X;
+        this.colonne = Y;
        
     }
 
@@ -32,11 +36,19 @@ public abstract class Case extends Parent {
     }
 
     public void setX(double X) {
-        this.X = X;
+        this.X = X*50;
     }
 
     public void setY(double Y) {
-        this.Y = Y;
+        this.Y = Y*50;
+    }
+    
+    public double getLigne(){
+        return ligne;
+    }
+    
+    public double getColonne(){
+        return colonne;
     }
     
     

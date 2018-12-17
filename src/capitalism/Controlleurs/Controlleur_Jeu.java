@@ -6,9 +6,13 @@
 
 package capitalism.Controlleurs;
 
+import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Partie;
-import capitalism.IHM.Windows.MenuContextuelInGameController;
+import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.MatierePremiere;
+import capitalism.Metier.Parties.Produit;
 import javafx.scene.layout.AnchorPane;
+import capitalism.Controlleurs.ControlleursIHM.EcranDeChargementDeLaPartieController;
 /**
  *
  * @author Damien
@@ -16,28 +20,28 @@ import javafx.scene.layout.AnchorPane;
 public class Controlleur_Jeu {
 
     //private ? vue
-    private Partie model;
-    private AnchorPane vue;
+    private Game model;
+    private EcranDeChargementDeLaPartieController vue;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public Controlleur_Jeu(Partie _model, AnchorPane _vue){
+    public Controlleur_Jeu(Game _model, EcranDeChargementDeLaPartieController _vue){
         //Initialisation
         this.model =_model;
         this.vue = _vue;
         
         //lie le controlleur au modele
-        //this.model.setControlleur(this);
+        this.model.setControlleur(this);
     }
 
 //------------------------------------------------------------------------------
 
-//---------- GETEUR/SETEUR -----------------------------------------------------
-
+    public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
+        this.model.getP().ConstruireUsineProduit(prod,nom,cord);
+    }
     
-
-//------------------------------------------------------------------------------
-    
-    
+    public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
+        this.model.getP().ConstruireUsineRessource(prod,nom,cord);
+    }
     
 }

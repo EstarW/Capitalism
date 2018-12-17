@@ -12,8 +12,12 @@ import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Produit;
 import capitalism.Controlleurs.Controlleur_Entreprises;
+import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
+import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -29,6 +33,7 @@ public abstract class Entreprise {
     private HashMap<MatierePremiere,Integer> MatieresPremieres;
     private HashMap<Produit, Integer> Produits;
     private Controlleur_Entreprises controlleur;
+    private ArrayList<Usine> listeUsines;
     // TODO - Rajouter les listes d'usines et de contrats
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -50,6 +55,7 @@ public abstract class Entreprise {
         for(Produit m : Produit.values()){
             this.Produits.put(m, 0);
         }
+        this.listeUsines = new ArrayList();
         
         
     }
@@ -76,6 +82,10 @@ public abstract class Entreprise {
 
     public HashMap<Produit, Integer> getProduitsPossedees() {
         return this.Produits;
+    }
+
+    public ArrayList<Usine> getListeUsines() {
+        return listeUsines;
     }
     
     public HashMap<MatierePremiere, Integer> getMatieresPremieresPossedees() {
@@ -196,11 +206,6 @@ public abstract class Entreprise {
             throw new UnsupportedOperationException();
     }
 
-    public int afficherArgent() {
-            // TODO - implement Entreprise.afficherArgent
-            throw new UnsupportedOperationException();
-    }
-
     /**
      * 
      * @param usine
@@ -213,12 +218,16 @@ public abstract class Entreprise {
     /**
      * 
      * @param emplacement
+     * @param prod
+     * @param nom
      */
-    public void creerUsine(CaseEmplacement emplacement) {
-            // TODO - implement Entreprise.creerUsine
-            throw new UnsupportedOperationException();
+    public void creerUsineProduit(Case emplacement, Produit prod, String nom) {
+        this.listeUsines.add(new UsineProduit(nom, this, emplacement, prod));
     }
-
+    
+    public void creerUsineRessource(Case emplacement, MatierePremiere prod, String nom) {
+        this.listeUsines.add(new UsineMatierePremiere(nom, this, emplacement, prod));
+    }
     /**
      * 
      * @param usine

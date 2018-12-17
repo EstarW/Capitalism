@@ -5,10 +5,6 @@
  */
 package capitalism.IHM.Cases;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -16,33 +12,27 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Azelat
  */
-public class CaseTerre extends Case{
+public class CaseVilleEmplacementIHM extends CaseIHM{
     
     private double X;
     private double Y;
-    private Image img;
-    private ImageView imgv;
+    private double ligne;
+    private double colonne;
     
-    public CaseTerre(double X, double Y) throws FileNotFoundException {
+    public CaseVilleEmplacementIHM(double X, double Y) {
         super(X, Y);
-        Rectangle rec = new Rectangle(50,50,Color.ANTIQUEWHITE);
-        rec.setStroke(Color.rgb(0,0,0, 0.5));
+        Rectangle rec = new Rectangle(50,50,Color.CYAN);
+        rec.setStroke(Color.BLACK);
         rec.setStrokeWidth(1);
         this.X = this.getX();
         this.Y = this.getY();
         rec.setX(X);
         rec.setY(Y);
-        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Plaine.png"); 
-        img = new Image(inputstream); 
-        imgv = new ImageView(img);
-        imgv.setX(X);
-        imgv.setY(Y);
         this.getChildren().add(rec);
-        this.getChildren().add(imgv);
-
+        
+        
     }
-    
-    
+
     public double getX() {
         return X;
     }
@@ -50,13 +40,23 @@ public class CaseTerre extends Case{
     public double getY() {
         return Y;
     }
+    
+    public double getLigne(){
+        return ligne;
+    }
+    
+    public double getColonne(){
+        return colonne;
+    }
 
     public void setX(double X) {
-        this.X = X;
+        this.X = X*50;
     }
 
     public void setY(double Y) {
-        this.Y = Y;
+        this.Y = Y*50;
     }
+    
+    
     
 }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism;
+package capitalism.IHM.WindowsCode;
 
-import capitalism.Controlleurs.Controlleur_CreationPartie;
+
+import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
@@ -14,6 +15,8 @@ import capitalism.IHM.Interface.InfoTour;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
+import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,32 +48,40 @@ public class Game {
     private StackPane inft;
     private InfoTour infot;
     
-    private Controlleur_CreationPartie cp;
+    private StackPane infp;
+    private InfoPartie infop;
+    
+    private Partie p;
+    private Joueur j;
+    private Controlleur_Jeu controlleur;
+    
+
     
     
-    public Game(Controlleur_CreationPartie cp) throws IOException
+    public Game(String eName, String pName) throws IOException
     {
-        
-        this.cp = cp;
-        cp.getPartie().augmenterTour();
+        p = new Partie(pName);
+        p.ajouteEntreprise(new Joueur(eName,p));
+        p.setJoueurDefaut();
+        p.augmenterTour();
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();
         
         
         
-        ListeCase liste = new ListeCase(m, listeCase);
-        BoutonMenuList bl = new BoutonMenuList(cp.getPartie(), this);
+        ListeCase liste = new ListeCase(m, listeCase, p.getJoueurCourant(), this);
+        BoutonMenuList bl = new BoutonMenuList(p, this);
         Bandeau b = new Bandeau();
-        InfoPartie infop = new InfoPartie(cp.getPartie(), cp.getJoueur());
-        infot = new InfoTour(cp.getPartie());
+        infop = new InfoPartie(p, p.getJoueurCourant());
+        infot = new InfoTour(p);
 
 
         root = new Pane(); 
         StackPane bandeau = new StackPane();
         StackPane menu = new StackPane();
         StackPane map = new StackPane();
-        StackPane infp = new StackPane();
+        infp = new StackPane();
         inft = new StackPane();
         
         infp.setPickOnBounds(false);
@@ -154,14 +165,28 @@ public class Game {
         });        
     }
     
+    public void setControlleur(Controlleur_Jeu control){
+        this.controlleur=control;
+    }
+
+    public Partie getP() {
+        return p;
+    }
+    
     public void refreshTour(){
  
         inft.getChildren().remove(infot);
         root.getChildren().remove(inft);
         
-        infot = new InfoTour(cp.getPartie());
+        infot = new InfoTour(p);
         
         inft.getChildren().add(infot);
         root.getChildren().add(inft);
+        
+        infp.getChildren().remove(infop);
+        root.getChildren().remove(infp); 
+        infop = new InfoPartie(p, p.getJoueurCourant());
+        infp.getChildren().add(infop);
+        root.getChildren().add(infp);        
     }
 }
