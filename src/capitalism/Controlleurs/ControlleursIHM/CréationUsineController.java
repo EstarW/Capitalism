@@ -192,7 +192,7 @@ public class CréationUsineController implements Initializable {
                 //Creation de l'usine produit
                 game.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
             }
-            
+            System.out.println("Coord : Ligne : " + c2.getLigne() + " Colonne : " + c2.getColonne());
             Stage stage = (Stage) textField_nom.getScene().getWindow();
             cIHM2.setState(true);
             

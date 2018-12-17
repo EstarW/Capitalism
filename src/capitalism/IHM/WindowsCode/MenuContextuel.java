@@ -8,6 +8,7 @@ package capitalism.IHM.WindowsCode;
 import capitalism.Controlleurs.ControlleursIHM.MenuContextuelInGameController;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import static capitalism.Metier.Parties.Carte.Cases.TypeCase.CaseEmplacement;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
@@ -15,6 +16,7 @@ import capitalism.Metier.Parties.Entreprises.Joueur;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,6 +33,7 @@ public class MenuContextuel {
     private Entreprise joueur;
     private Map map;
     private Game game;
+    private Case ca;
     private MenuContextuelInGameController cu;
     
     public MenuContextuel(CaseEmplacementIHM c, Entreprise j, Map m, Game g) throws IOException, MalformedURLException{
@@ -45,10 +48,32 @@ public class MenuContextuel {
         this.joueur = j;
         this.map = m;
         this.game = g;
+        this.setCase();
         int x= (int)this.c.getLigne();
         int y = (int) this.c.getColonne();
-        Case cas = this.game.getP().getCase(new Coordonnee(x,y));
         cu = new MenuContextuelInGameController();
-        cu.setCase(cas);
+        cu.setCase(ca);
+    }
+    
+    
+        public void setCase()
+    {
+        ArrayList<Case> listeCases = map.getListeCases();
+        double ligne = c.getLigne();
+        double colonne = c.getColonne();
+        for(int i=0; i<listeCases.size(); i++)
+        {
+            if(listeCases.get(i).getType() == CaseEmplacement)
+            {
+                double ligne2 = (double) listeCases.get(i).getLigne();
+                double colonne2 = (double) listeCases.get(i).getColonne();
+                if(ligne == ligne2 && colonne == colonne2)
+                {
+                    ca = listeCases.get(i);
+                    System.out.println(ca.getColonne());
+                }
+            }
+        }
+        
     }
 }
