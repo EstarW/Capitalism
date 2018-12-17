@@ -176,7 +176,6 @@ public class CréationUsineController implements Initializable {
     private void handleValiderActionButton(ActionEvent event) throws FileNotFoundException {
         
         Game game = NecessaireDeSurvieCreationUsineController.getGame();
-        Case c2 =  NecessaireDeSurvieCreationUsineController.getCaseEmp();
         CaseEmplacementIHM cIHM2 =  NecessaireDeSurvieCreationUsineController.getCaseIHM();
         
         if(!this.textField_nom.getCharacters().toString().isEmpty())

@@ -9,6 +9,7 @@ import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
+import capitalism.Metier.Parties.Carte.Coordonnee;
 
 /**
  *
@@ -40,8 +41,16 @@ public class NecessaireDeSurvieCreationUsineController {
         return game;
     }
     
-    public static Case getCaseEmp(){
-        return casee;
+    public static int getCaseLine(){
+        return casee.getLigne();
+    }
+    
+    public static int getCaseCol(){
+        return casee.getColonne();
+    }
+    
+    public static Coordonnee getCaseEmp(){
+        return new Coordonnee(casee.getLigne(), casee.getColonne());
     }
     
     
