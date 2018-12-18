@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Usines;
 
 import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.MatierePremiere;
 
@@ -31,16 +30,13 @@ public class UsineMatierePremiere extends Usine {
     public MatierePremiere getProduction() {
         return production;
     }
-    
-    
+
+    public void setProduction(MatierePremiere production) {
+        this.production = production;
+    }
     
 //------------------------------------------------------------------------------
     
-    @Override
-    public void produire() {
-       this.getProprietaire().ajouterRessources(production, 1);
-    }
-
     @Override
     public String getProdName() {
         return this.production.toString();

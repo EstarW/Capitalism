@@ -22,17 +22,11 @@ public abstract class Usine {
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    /**
-     * 
-     * @param nom
-     * @param proprietaire
-     * @param c
-     */
     public Usine(String nom, Entreprise proprietaire, Case c) {
         this.nom=nom;
         this.proprietaire=proprietaire;
         this.emplacement = c;
-        
+        this.controlleur=null;
     }
     
 //------------------------------------------------------------------------------
@@ -44,6 +38,7 @@ public abstract class Usine {
     }
 
     public abstract String getProdName();
+    
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -59,28 +54,19 @@ public abstract class Usine {
     public void setControlleur(Controlleur_Usines _controlleur){
         this.controlleur = _controlleur;
     }
+
+    public void setEmplacement(Case emplacement) {
+        this.emplacement = emplacement;
+    }
+    
+    public Case getEmplacement() {
+        return emplacement;
+    }
+
+    public Controlleur_Usines getControlleur() {
+        return controlleur;
+    }
     
 //------------------------------------------------------------------------------
     
-    /**
-     * 
-     * @param nouveauNom
-     */
-    public void changerNom(String nouveauNom) {
-        this.nom = nouveauNom;
-    }
-
-    public abstract void produire();
-
-    /**
-     * 
-     * @param nouveauProprietaire
-     */
-    public void vendreUsine(Entreprise nouveauProprietaire) {
-        this.proprietaire = nouveauProprietaire;
-    }
-
-    public String toString(){
-        return this.nom;
-    }
 }

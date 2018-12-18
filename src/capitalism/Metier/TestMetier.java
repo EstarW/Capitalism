@@ -19,14 +19,7 @@ public class TestMetier {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Jeu jeu = new Jeu();
-        jeu.newGame("Test");
-        System.out.println(jeu.getPartie().getNom());
-        jeu.getPartie().ajouteEntreprise(new Joueur("Toto",jeu.getPartie()));
-        jeu.getPartie().setJoueurDefaut();
-        jeu.getPartie().ConstruireUsineProduit(Produit.PC, "UsineTest", new Coordonnee(6,0));
-        System.out.println(jeu.getPartie().getJoueurCourant().getListeUsines().get(0).getNom());
-        System.out.println(jeu.getPartie().getJoueurCourant().getListeUsines().get(0).getProprietaire().getNom());
+        
     }
     
 }

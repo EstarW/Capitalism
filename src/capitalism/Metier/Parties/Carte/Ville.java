@@ -45,13 +45,11 @@ public class Ville {
     public int getNbEmplacements() {
         return nbEmplacements;
     }
-
-//------------------------------------------------------------------------------
-
+    
     public void setControlleur(Controlleur_apercuVille _controlleur) {
         this.controlleur = _controlleur;
     }
 
-    
+//------------------------------------------------------------------------------
     
 }

@@ -57,6 +57,7 @@ public class Map {
     }
     
 //------------------------------------------------------------------------------
+    
     public void chargerFichier(String adresseFichier) throws IOException {
         ParseurMap parseur = new ParseurMap(adresseFichier,this);
         parseur.lecture();

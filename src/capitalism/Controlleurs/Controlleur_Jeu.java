@@ -7,11 +7,6 @@
 package capitalism.Controlleurs;
 
 import capitalism.IHM.WindowsCode.Game;
-import capitalism.Metier.Parties.Partie;
-import capitalism.Metier.Parties.Carte.Coordonnee;
-import capitalism.Metier.Parties.MatierePremiere;
-import capitalism.Metier.Parties.Produit;
-import javafx.scene.layout.AnchorPane;
 import capitalism.Controlleurs.ControlleursIHM.EcranDeChargementDeLaPartieController;
 /**
  *
@@ -25,23 +20,17 @@ public class Controlleur_Jeu {
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
+    //COMMENT TU PEUX AVOIR LE MODELE DANS LA PARTIE IHM ?????????????
+    //LA VUE C'EST PAS UN AUTRE CONTROLLEUR
     public Controlleur_Jeu(Game _model, EcranDeChargementDeLaPartieController _vue){
         //Initialisation
         this.model =_model;
         this.vue = _vue;
-        
+        dedigado;
         //lie le controlleur au modele
         this.model.setControlleur(this);
     }
 
 //------------------------------------------------------------------------------
-
-    public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
-        this.model.getP().ConstruireUsineProduit(prod,nom,cord);
-    }
-    
-    public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
-        this.model.getP().ConstruireUsineRessource(prod,nom,cord);
-    }
     
 }

@@ -6,9 +6,6 @@
 package capitalism.Metier;
 
 import capitalism.Metier.Parties.Partie;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,26 +17,5 @@ public class Jeu {
     public Jeu() {
         this.partie=null;
     }
-    
-    public void newGame(String name){
-        try {
-            this.partie = new Partie(name);
-        } catch (IOException ex) {
-            Logger.getLogger(Jeu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public Jeu(Partie partie) {
-        this.partie = partie;
-    }
-    
-    public void supPartie(){
-        this.partie = null;
-    }
-
-    public Partie getPartie() {
-        return partie;
-    }
-    
     
 }

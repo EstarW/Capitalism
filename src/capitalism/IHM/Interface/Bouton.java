@@ -120,8 +120,10 @@ public class Bouton extends Parent {
         if(type == PasserTour)
         {
             p.getTour();
+            //PASSE PAR UN CONTROLLEUR BORDEL
             p.augmenterTour();
             p.passerTour();
+            //PASSE PAR UN CONTROLLEUR BORDEL
             System.out.println("Tour: "+p.getTour());
             game.refreshTour();
         }

@@ -8,12 +8,10 @@ package capitalism.Metier.Parties;
 
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
-import capitalism.Metier.Parties.Usines.Usine;
 import java.io.IOException;
 
 /**
@@ -41,7 +39,8 @@ public class Partie {
         this.listeEnt = new ArrayList();
         this.tour=0;
         this.map= new Map();
-        map.chargerFichier("Carte.txt");
+        this.controlleur=null;
+        this.joueurCourant=null;
     }
 
 //------------------------------------------------------------------------------
@@ -83,63 +82,18 @@ public class Partie {
         return controlleur;
     }
 
+    public void setTour(int tour) {
+        this.tour = tour;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public void setJoueurCourant(Entreprise joueurCourant) {
+        this.joueurCourant = joueurCourant;
+    }
+    
 //------------------------------------------------------------------------------
-
-    /**
-     * 
-     * @param entreprise
-     */
-    public void removeEntreprise(Entreprise entreprise) {
-        if (this.listeEnt.contains(entreprise)){
-            this.listeEnt.remove(entreprise);
-        }
-    }
     
-    /**
-     * 
-     * @param e 
-     */
-    public void ajouteEntreprise(Entreprise e){
-        if(!this.listeEnt.contains(e)){
-            this.listeEnt.add(e);
-        }
-    }
-
-    /**
-     * 
-     */
-    public void augmenterTour(){
-        this.tour++;
-    }
-    
-    /**
-     * 
-     * @throws FileNotFoundException 
-     */
-    public void savePartie() throws FileNotFoundException{
-        throw new UnsupportedOperationException();
-    }
-    
-    public void chargerPartie(){
-        throw new UnsupportedOperationException();
-    }
-    
-    public void ConstruireUsineProduit(Produit prod, String nom, Coordonnee cord){
-        this.joueurCourant.creerUsineProduit(getCase(cord), prod, nom);  
-    }
-    
-    public void ConstruireUsineRessource(MatierePremiere prod, String nom, Coordonnee cord){
-        this.joueurCourant.creerUsineRessource(getCase(cord), prod, nom);  
-    }
-    
-    public void passerTour(){
-        for(Entreprise e : this.listeEnt){
-            for (Usine u : e.getListeUsines()){
-                u.produire();
-            }
-            for (MatierePremiere prem:e.getMatieresPremieresPossedees().keySet()){
-                System.out.println(e.getMatieresPremieresPossedees().get(prem));
-            }
-        }
-    }
 }

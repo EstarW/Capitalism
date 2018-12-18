@@ -12,10 +12,8 @@ import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
 import capitalism.IHM.Interface.InfoPartie;
 import capitalism.IHM.Interface.InfoTour;
-import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
-import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
@@ -60,10 +58,16 @@ public class Game {
     
     public Game(String eName, String pName) throws IOException
     {
+        
+        //LE CONTROLLEUR C'EST POUR LES CHIENS
         p = new Partie(pName);
+        //LE CONTROLLEUR C'EST POUR LES CHIENS
         p.ajouteEntreprise(new Joueur(eName,p));
+        //LE CONTROLLEUR C'EST POUR LES CHIENS
         p.setJoueurDefaut();
+        //LE CONTROLLEUR C'EST POUR LES CHIENS
         p.augmenterTour();
+        //LE CONTROLLEUR C'EST POUR LES CHIENS
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();

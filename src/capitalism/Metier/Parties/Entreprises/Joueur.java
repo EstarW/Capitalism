@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Entreprises;
 
 import capitalism.Metier.Parties.Partie;
-import java.io.FileNotFoundException;
 
 /**
  *
@@ -16,12 +15,6 @@ public class Joueur extends Entreprise {
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    /**
-     * 
-     * @param nom
-     * @param jeu
-     */
-
     public Joueur(String nom, Partie partie) {
         super(nom, partie);
     }
@@ -34,7 +27,4 @@ public class Joueur extends Entreprise {
     
 //------------------------------------------------------------------------------
     
-    public void sauvegarder() throws FileNotFoundException{
-        this.getPartie().savePartie();
-    }
 }
