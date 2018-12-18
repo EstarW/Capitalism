@@ -56,7 +56,7 @@ public class MenuContextuel {
     }
     
     
-        public void setCase()
+    public void setCase()
     {
         ArrayList<Case> listeCases = map.getListeCases();
         double ligne = c.getLigne();

@@ -121,8 +121,9 @@ public class Bouton extends Parent {
         {
             p.getTour();
             //PASSE PAR UN CONTROLLEUR BORDEL
-            p.augmenterTour();
-            p.passerTour();
+            //FAUDRAIT DEJA QU'IL SOIT BIEN ECRIT MDR !
+            //p.augmenterTour();
+            //p.passerTour();
             //PASSE PAR UN CONTROLLEUR BORDEL
             System.out.println("Tour: "+p.getTour());
             game.refreshTour();

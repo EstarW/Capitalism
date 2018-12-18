@@ -184,18 +184,12 @@ public class CréationUsineController implements Initializable {
             {
                 //Creation de l'usine ressource
                 
-                //ON VA FAIRE AUTREMENT VIRRE MOI CA
-                game.getP().ConstruireUsineRessource(this.getMat(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
-                //ON VA FAIRE AUTREMENT VIRRE MOI CA
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
                 
-                //ON VA FAIRE AUTREMENT VIRRE MOI CA
-                game.getP().ConstruireUsineProduit(this.getProd(), this.getName(), new Coordonnee(c2.getLigne(),c2.getColonne()));
-                //ON VA FAIRE AUTREMENT VIRRE MOI CA
             }
             System.out.println("Coord : Ligne : " + c2.getLigne() + " Colonne : " + c2.getColonne());
             Stage stage = (Stage) textField_nom.getScene().getWindow();

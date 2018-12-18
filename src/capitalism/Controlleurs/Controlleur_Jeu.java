@@ -22,11 +22,12 @@ public class Controlleur_Jeu {
 
     //COMMENT TU PEUX AVOIR LE MODELE DANS LA PARTIE IHM ?????????????
     //LA VUE C'EST PAS UN AUTRE CONTROLLEUR
+    //ET QUI A ECRIT CETTE MERDE PUTAIN ?!!!
     public Controlleur_Jeu(Game _model, EcranDeChargementDeLaPartieController _vue){
         //Initialisation
         this.model =_model;
         this.vue = _vue;
-        dedigado;
+        //dedigado;
         //lie le controlleur au modele
         this.model.setControlleur(this);
     }
