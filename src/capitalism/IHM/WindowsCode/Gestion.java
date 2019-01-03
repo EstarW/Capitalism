@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class Gestion extends Parent {
  
-    private AnchorPane rootPane;
+    private final AnchorPane rootPane;
     
     public Gestion() throws IOException
     {

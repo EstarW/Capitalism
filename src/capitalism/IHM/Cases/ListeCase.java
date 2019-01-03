@@ -9,8 +9,6 @@ import capitalism.IHM.WindowsCode.Game;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Entreprises.Joueur;
-import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.Parent;
@@ -22,14 +20,14 @@ import javafx.scene.Parent;
  */
 public class ListeCase extends Parent{
     
-    private Map map;
+    private final Map map;
     private CaseIHM Case;
-    private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
+    private final ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
     private CaseIHM[] MapCase;
     private int ligne;
     private int colonne;
-    private Entreprise j;
-    private Game g;
+    private final Entreprise j;
+    private final Game g;
     
     public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Entreprise j, Game g) throws IOException{
 

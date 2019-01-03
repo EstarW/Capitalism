@@ -5,17 +5,13 @@
  */
 package capitalism.IHM.WindowsCode;
 
-import capitalism.IHM.Cases.CaseIHM;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Controlleurs.ControlleursIHM.CréationUsineController;
 import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.CaseEmplacement;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Usines.Usine;
-import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -30,18 +26,17 @@ import javafx.stage.Stage;
  */
 public class MenuCreationUsine {
     
-    private double ligne;
-    private double colonne;
-    private Stage s2;
-    private Scene menuCreationUsine;
-    private CaseEmplacementIHM c;
+    private final double ligne;
+    private final double colonne;
+    private final Stage s2;
+    private final Scene menuCreationUsine;
+    private final CaseEmplacementIHM c;
     private Case ca;
-    private CréationUsineController cu;
-    private Usine usine;
-    private Entreprise j;
-    private Map m;    
+    private final CréationUsineController cu;
+    private final Entreprise j;
+    private final Map m;    
     private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
-    private Game g;
+    private final Game g;
     
     public MenuCreationUsine(CaseEmplacementIHM c, Entreprise j, Map m, Game g) throws MalformedURLException, IOException, InterruptedException{
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/créationUsine.fxml").toURI().toURL());

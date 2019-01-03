@@ -6,20 +6,21 @@
 package capitalism.IHM.WindowsCode;
 
 
+import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
 import capitalism.IHM.Interface.InfoPartie;
 import capitalism.IHM.Interface.InfoTour;
+import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
-import capitalism.Metier.Parties.Entreprises.Joueur;
+import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.EventHandler;
 
 import javafx.scene.Scene;
 import static javafx.scene.input.KeyCode.*;
@@ -41,37 +42,40 @@ public class Game {
     private double xOffset = 0;
     private double yOffset = 0;
     
-    private Pane root;
-    private StackPane inft;
+    private final Pane root;
+    private final StackPane inft;
     private InfoTour infot;
     
-    private StackPane infp;
+    private final StackPane infp;
     private InfoPartie infop;
     
-    private Partie p;
-    private Joueur j;
+    private final Jeu jeu;
+    private final Controlleur_Jeu control;
     
 
     
     
     public Game(String eName, String pName) throws IOException
     {
+        jeu = new Jeu();
+        control = new Controlleur_Jeu(jeu);
+        control.setView(this);
+        control.nouvellePartie(pName);
+        control.getModele().getPartie().setJoueurDefaut();
+        control.getModele().getPartie().setTour(1);
         
-        /*p = new Partie();
-        p.ajouteEntreprise(new Joueur(eName,p));
-        p.setJoueurDefaut();
-        p.augmenterTour();*/
+        
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();
         
         
         
-        ListeCase liste = new ListeCase(m, listeCase, p.getJoueurCourant(), this);
-        BoutonMenuList bl = new BoutonMenuList(p, this);
+        ListeCase liste = new ListeCase(m, listeCase, control.getModele().getPartie().getJoueurCourant(), this);
+        BoutonMenuList bl = new BoutonMenuList(control.getModele().getPartie(), this);
         Bandeau b = new Bandeau();
-        infop = new InfoPartie(p, p.getJoueurCourant());
-        infot = new InfoTour(p);
+        infop = new InfoPartie(control.getModele().getPartie(), control.getModele().getPartie().getJoueurCourant());
+        infot = new InfoTour(control.getModele().getPartie());
 
 
         root = new Pane(); 
@@ -145,41 +149,45 @@ public class Game {
         });    
         
         
-            map.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+            map.setOnMousePressed((MouseEvent event) -> {
                 xOffset = map.getTranslateX() - event.getScreenX();
                 yOffset = map.getTranslateY() - event.getScreenY();
-            }
         });  
             
-            map.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+            map.setOnMouseDragged((MouseEvent event) -> {
                 map.setTranslateX(event.getScreenX() + xOffset);
                 map.setTranslateY(event.getScreenY() + yOffset);
-            }           
         });        
     }
     
 
+    
+    public Controlleur_Jeu getControl(){
+        return control;
+    }
+    
     public Partie getP() {
-        return p;
+        return control.getModele().getPartie();
+    }
+    
+    public Entreprise getJCourant(){
+        return control.getModele().getPartie().getJoueurCourant();
     }
     
     public void refreshTour(){
  
+        control.getModele().getPartie().setTour(control.getModele().getPartie().getTour() + 1);
         inft.getChildren().remove(infot);
         root.getChildren().remove(inft);
         
-        infot = new InfoTour(p);
+        infot = new InfoTour(control.getModele().getPartie());
         
         inft.getChildren().add(infot);
         root.getChildren().add(inft);
         
         infp.getChildren().remove(infop);
         root.getChildren().remove(infp); 
-        infop = new InfoPartie(p, p.getJoueurCourant());
+        infop = new InfoPartie(control.getModele().getPartie(), control.getModele().getPartie().getJoueurCourant());
         infp.getChildren().add(infop);
         root.getChildren().add(infp);        
     }

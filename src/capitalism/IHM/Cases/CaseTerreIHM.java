@@ -22,8 +22,8 @@ public class CaseTerreIHM extends CaseIHM{
     private double Y;
     private double ligne;
     private double colonne;
-    private Image img;
-    private ImageView imgv;
+    private final Image img;
+    private final ImageView imgv;
     
     public CaseTerreIHM(double X, double Y) throws FileNotFoundException {
         super(X, Y);

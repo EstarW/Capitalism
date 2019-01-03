@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 public class GererUsine extends Parent{
     
     @FXML
-    private AnchorPane rootPane;
+    private final AnchorPane rootPane;
     
     public GererUsine() throws IOException
     {

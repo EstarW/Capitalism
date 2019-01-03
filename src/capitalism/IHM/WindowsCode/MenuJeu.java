@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 public class MenuJeu extends Parent {
 
     @FXML
-    private AnchorPane rootPane;
+    private final AnchorPane rootPane;
     
     public MenuJeu() throws IOException
     {
