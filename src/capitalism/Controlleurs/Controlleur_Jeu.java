@@ -46,6 +46,8 @@ public class Controlleur_Jeu {
 
 //------------------------------------------------------------------------------
 
-    
+    public void nouvellePartie(String pseudo){
+        modele.nouvellePartie(pseudo);
+    }
 
 }
