@@ -20,7 +20,7 @@ public class Controlleur_Jeu {
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    Controlleur_Jeu(Jeu _modele){
+    public Controlleur_Jeu(Jeu _modele){
         this.modele=_modele;
     }
 

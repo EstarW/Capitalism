@@ -5,6 +5,7 @@
  */
 package capitalism;
 
+import capitalism.Metier.Jeu;
 import java.io.File;
 import java.io.IOException;
 
@@ -27,12 +28,9 @@ public class Capitalism extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
+    
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL()); 
-
-        
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        
         primaryStage.setTitle("Capitalism - Accueil");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);

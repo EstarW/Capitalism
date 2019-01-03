@@ -26,11 +26,11 @@ public class InfoPartie extends Parent {
         this.p = p;
         this.j = j;
 
-        Label l = new Label("Pseudo: "+p.getNom());
+       /* Label l = new Label("Pseudo: "+p.getNom());
         l.setTextFill(Color.WHITESMOKE);
         l.setScaleX(3);
         l.setScaleY(3);
-        l.setLayoutX(150);
+        l.setLayoutX(150);*/
         
         Label l2 = new Label("Entreprise: "+j.getNom());
         l2.setTextFill(Color.WHITESMOKE);
@@ -45,7 +45,7 @@ public class InfoPartie extends Parent {
         argent.setLayoutX(950);        
   
         this.setLayoutY(200);
-        this.getChildren().add(l);
+        //this.getChildren().add(l);
         this.getChildren().add(l2);
         this.getChildren().add(argent);
     }
