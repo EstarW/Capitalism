@@ -65,8 +65,7 @@ public class Game {
         control.getModele().getPartie().setTour(1);
         
         
-        Map m = new Map();
-        m.chargerFichier("Carte.txt");
+        Map m = jeu.getPartie().getMap();
         ArrayList<Case> listeCase = m.getListeCases();
         
         
