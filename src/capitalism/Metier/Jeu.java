@@ -1,6 +1,7 @@
 package capitalism.Metier;
 
 import capitalism.Metier.Parties.Partie;
+import java.io.IOException;
 
 /**
  *
@@ -25,9 +26,10 @@ public class Jeu {
     
 //------------------------------------------------------------------------------
 
-    public void nouvellePartie(String pseudo){
+    public void nouvellePartie(String pseudo) throws IOException{
         this.partie = new Partie();
         this.partie.newPlayer(pseudo);
+        this.partie.getMap().chargerFichier("Carte.txt");
     }
     
 }

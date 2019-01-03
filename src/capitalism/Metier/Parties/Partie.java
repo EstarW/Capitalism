@@ -26,7 +26,7 @@ public class Partie {
     public Partie(){
         this.listeEnt = new ArrayList();
         this.tour=0;
-        this.map= new Map();
+        this.map= new Map(this);
         this.joueurCourant=null;
     }
 

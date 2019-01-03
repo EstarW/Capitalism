@@ -14,9 +14,9 @@ import capitalism.Metier.Parties.Carte.Map;
  */
 public abstract class Case {
     
-    private int ligne;                                                          //ligne de la case
-    private int colonne;                                                        //colonne de la case 
-    private Map map;                                                            //Map du jeu
+    private final int ligne;                                                          //ligne de la case
+    private final int colonne;                                                        //colonne de la case 
+    private final Map map;                                                            //Map du jeu
     
     
 //---------- CONSTRUCTEURS -----------------------------------------------------

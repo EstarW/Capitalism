@@ -6,7 +6,9 @@
 package capitalism.Metier.Parties.Carte;
 
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Carte.Parseur.ParseurMap;
+import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,12 +21,16 @@ public class Map {
 
     private HashMap<Coordonnee,Case> hashMapCases;
     private ArrayList<Case> listeCases;
+    private ArrayList<CaseEmplacement> listeCasesE;
+    private Partie partie;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
-    public Map() {
+    public Map(Partie _partie) {
         this.hashMapCases = new HashMap();
         this.listeCases = new ArrayList();
+        this.listeCasesE = new ArrayList();
+        this.partie = _partie;
     }
 
 //------------------------------------------------------------------------------
@@ -54,6 +60,14 @@ public class Map {
     
     public Case getCase(Coordonnee cord){
         return this.hashMapCases.get(cord);
+    }
+
+    public ArrayList<CaseEmplacement> getListeCasesE() {
+        return listeCasesE;
+    }
+    
+    public void setCaseE(CaseEmplacement cE){
+        this.listeCasesE.add(cE);
     }
     
 //------------------------------------------------------------------------------
