@@ -10,7 +10,6 @@ import capitalism.IHM.WindowsCode.Game;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
-import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.MatierePremiere;
@@ -191,7 +190,6 @@ public class CréationUsineController implements Initializable {
             }
             System.out.println("Coord : Ligne : " + c2.getLigne() + " Colonne : " + c2.getColonne());
             Stage stage = (Stage) textField_nom.getScene().getWindow();
-            cIHM2.setState(true);
             
             stage.close();
             

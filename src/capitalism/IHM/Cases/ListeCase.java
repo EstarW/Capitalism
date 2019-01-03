@@ -5,7 +5,6 @@
  */
 package capitalism.IHM.Cases;
 
-import static capitalism.IHM.Cases.TypeCase.CaseVille;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
@@ -28,45 +27,37 @@ public class ListeCase extends Parent{
         
         for(Case c : g.getP().getMap().getListeCases())
         {
-            if (c.getType().equals(CaseEau))
-            {
-                CaseIHM cIHM = new CaseEauIHM(c);
-                listeCases.add(cIHM);
-                this.getChildren().add(cIHM);
-            } 
-            if (c.getType().equals(CaseVille))
-            {
-                CaseIHM cIHM = new CaseVilleIHM(c);
-                listeCases.add(cIHM);
-                this.getChildren().add(cIHM);
-            }
-            if (c.getType().equals(CaseEmplacement))
-            {
-                CaseIHM cIHM = new CaseEmplacementIHM(c);
-                listeCases.add(cIHM);
-                this.getChildren().add(cIHM);
-            }
-            if (c.getType().equals(CaseTerre))
-            {
-                CaseIHM cIHM = new CaseTerreIHM(c); 
-                listeCases.add(cIHM);
-                this.getChildren().add(cIHM);
-            }
-            /*if (c.getType().equals(CaseVilleEmplacement))
-            {
-                CaseIHM cIHM = new CaseVilleEmplacementIHM(c); 
-                listeCases.add(cIHM);
-                this.getChildren().add(cIHM);
-            }*/
-            if (c.getType().equals(CaseRessource))  
-            {
-                CaseIHM cIHM = new CaseRessourceIHM(c); 
-                listeCases.add(cIHM);
-                this.getChildren().add(cIHM);
-            }
+            CaseIHM cIHM = null;
+            switch(c.getType()){
+                case CaseEau:
+                    cIHM = new CaseEauIHM(c);
+                    listeCases.add(cIHM);
+                    this.getChildren().add(cIHM);
+                break;
+                    
+                case CaseVille:
+                    cIHM = new CaseVilleIHM(c);
+                    listeCases.add(cIHM);
+                    this.getChildren().add(cIHM);
+                break;
+                    
+                case CaseEmplacement:
+                    cIHM = new CaseEmplacementIHM(c);
+                    listeCases.add(cIHM);
+                    this.getChildren().add(cIHM);
+                break;
+                
+                case CaseTerre:
+                    cIHM = new CaseTerreIHM(c); 
+                    listeCases.add(cIHM);
+                    this.getChildren().add(cIHM);
+                break;
+                
+                default:
+                    System.out.println("Nope");
+                break;
+            }      
         }
-        
-        //this.getChildren().add(listeCases);
     }
 }
     

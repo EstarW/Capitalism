@@ -5,6 +5,9 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
+import capitalism.IHM.WindowsCode.ChargementPartie;
+import capitalism.IHM.WindowsCode.CreationPartie;
+import capitalism.Metier.Jeu;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +36,8 @@ public class AccueilController implements Initializable {
     @FXML
     private Button bouton_quitter;
     
+    private Jeu j;
+    
 
     /**
      * Initializes the controller class.
@@ -44,15 +49,8 @@ public class AccueilController implements Initializable {
 
     @FXML
     private void handleButtonNewGameAction(ActionEvent event) throws IOException, Throwable {
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/CreationPartie.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        Stage s = new Stage();
-        s.setTitle("Capitalism - Création de partie");
-        s.setResizable(false);
-        s.setScene(scene);
-        s.show(); 
-        
+        Jeu jeu = this.getJeu();
+        CreationPartie c = new CreationPartie(jeu);
         
         Stage stage = (Stage) bouton_nouvellePartie.getScene().getWindow();
         stage.close();
@@ -60,13 +58,8 @@ public class AccueilController implements Initializable {
    
     @FXML    
     private void handleButtonLoadGameAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/EcranDeChargementDeLaPartie.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        Stage s = new Stage();
-        s.setTitle("Capitalism - Chargement d'une partie");
-        s.setResizable(false);
-        s.setScene(scene);
-        s.show(); 
+        Jeu jeu = this.getJeu();
+        ChargementPartie c = new ChargementPartie(jeu);
         
         Stage stage = (Stage) bouton_nouvellePartie.getScene().getWindow();
         stage.close();
@@ -79,10 +72,15 @@ public class AccueilController implements Initializable {
     
     @FXML    
     private void handleButtonQuitGameAction(ActionEvent event) {
-        System.out.println("Quitter le jeu");
         System.exit(0);
     }
-   
-
+    
+    public void setJeu(Jeu j) {
+        this.j = j;
+    }
+    
+    public Jeu getJeu(){
+        return j;
+    }
     
 }

@@ -20,8 +20,8 @@ public abstract class CaseIHM extends Parent {
     
     
     public CaseIHM(Case c){
-        this.X = X*50;
-        this.Y = Y*50;
+        this.X = c.getLigne()*50;
+        this.Y = c.getColonne()*50;
         this.c = c;
        
     }
@@ -32,14 +32,6 @@ public abstract class CaseIHM extends Parent {
 
     public int getY() {
         return Y;
-    }
-
-    public void setX(int X) {
-        this.X = X*50;
-    }
-
-    public void setY(int Y) {
-        this.Y = Y*50;
     }
     
     public int getLigne(){

@@ -5,18 +5,15 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
-import capitalism.Capitalism;
+import capitalism.IHM.WindowsCode.Accueil;
 import capitalism.IHM.WindowsCode.Game;
-import capitalism.Metier.Parties.Partie;
-import java.io.File;
+import capitalism.Metier.Jeu;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -41,8 +38,8 @@ public class CreationPartieController implements Initializable {
     private ImageView imageView_logo;
     
     private Game game;
-    private Capitalism cap;
-    private Partie p;
+    private Jeu j;
+
     
 
     /**
@@ -77,10 +74,10 @@ public class CreationPartieController implements Initializable {
             }
             else
             {
-                game = new Game(getEntreprise(), getPseudo());
+                Jeu jeu = this.getJeu();
+                game = new Game(getEntreprise(), getPseudo(), jeu);
                 Stage stage = (Stage) bouton_valider.getScene().getWindow();
                 stage.close();
-                
             }
         }
         else
@@ -91,16 +88,19 @@ public class CreationPartieController implements Initializable {
    
     @FXML    
     private void handleButtonGoBackAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        Stage s = new Stage();
-        s.setTitle("Capitalism - Accueil");
-        s.setResizable(false);
-        s.setScene(scene);
-        s.show(); 
+        Jeu jeu = this.getJeu();
+        Accueil a = new Accueil(jeu);
         
         Stage stage = (Stage) bouton_retour.getScene().getWindow();
         stage.close();
+    }
+
+    public void setJeu(Jeu j) {
+        this.j = j;
+    }
+    
+    public Jeu getJeu(){
+        return j;
     }
     
 }

@@ -5,7 +5,9 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
+import capitalism.IHM.WindowsCode.Accueil;
 import capitalism.IHM.WindowsCode.Game;
+import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Partie;
 import java.io.File;
 import java.io.IOException;
@@ -58,6 +60,7 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     private Game game;
     
     private Partie p;
+    private Jeu j;
 
     /**
      * Initializes the controller class.
@@ -76,16 +79,18 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     
     @FXML    
     private void handleButtonGoBackAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        Stage s = new Stage();
-        s.setTitle("Capitalism - Accueil");
-        s.setResizable(false);
-        s.setScene(scene);
-        s.show();
+        Jeu jeu = this.getJeu();
+        Accueil a = new Accueil(jeu);
         
         Stage stage = (Stage) bouton_retour.getScene().getWindow();
         stage.close();
     }
     
+    public void setJeu(Jeu j) {
+        this.j = j;
+    }
+    
+    public Jeu getJeu(){
+        return j;
+    }
 }

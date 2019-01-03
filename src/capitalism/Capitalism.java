@@ -5,14 +5,12 @@
  */
 package capitalism;
 
+import capitalism.IHM.WindowsCode.Accueil;
 import capitalism.Metier.Jeu;
-import java.io.File;
 import java.io.IOException;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -21,20 +19,17 @@ import javafx.stage.Stage;
  */
 public class Capitalism extends Application {
     
-    private double scaleX = 1;
-    private double scaleY = 1;
+    private final double scaleX = 1;
+    private final double scaleY = 1;
+    private Accueil a;
+    private Jeu j;
 
 
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-    
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL()); 
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        primaryStage.setTitle("Capitalism - Accueil");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        j = new Jeu();
+        a = new Accueil(j);
     }
     
     /**

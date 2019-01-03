@@ -13,12 +13,9 @@ import capitalism.IHM.Interface.BoutonMenuList;
 import capitalism.IHM.Interface.InfoPartie;
 import capitalism.IHM.Interface.InfoTour;
 import capitalism.Metier.Jeu;
-import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,20 +52,14 @@ public class Game {
 
     
     
-    public Game(String eName, String pName) throws IOException
+    public Game(String eName, String pName, Jeu j) throws IOException
     {
-        jeu = new Jeu();
+        jeu = j;
         control = new Controlleur_Jeu(jeu);
         control.setView(this);
         control.nouvellePartie(pName);
         control.getModele().getPartie().setJoueurDefaut();
         control.getModele().getPartie().setTour(1);
-        
-        
-        Map m = jeu.getPartie().getMap();
-        ArrayList<Case> listeCase = m.getListeCases();
-        
-        
         
         ListeCase liste = new ListeCase(this);
         BoutonMenuList bl = new BoutonMenuList(control.getModele().getPartie(), this);
