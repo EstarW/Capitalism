@@ -9,7 +9,6 @@ import capitalism.Metier.Parties.Usines.Usine;
 import capitalism.Metier.Parties.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Produit;
-import capitalism.Controlleurs.Controlleur_Entreprises;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -25,7 +24,6 @@ public abstract class Entreprise {
     private Partie partie;
     private HashMap<MatierePremiere,Integer> MatieresPremieres;
     private HashMap<Produit, Integer> Produits;
-    private Controlleur_Entreprises controlleur;
     private ArrayList<Usine> listeUsines;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -62,10 +60,6 @@ public abstract class Entreprise {
     public Partie getPartie() {
         return partie;
     }
-    
-    public void setControlleur(Controlleur_Entreprises _controlleur){
-        this.controlleur = _controlleur;
-    }
 
     public HashMap<Produit, Integer> getProduitsPossedees() {
         return this.Produits;
@@ -81,10 +75,6 @@ public abstract class Entreprise {
 
     public void setPartie(Partie partie) {
         this.partie = partie;
-    }
-    
-    public Controlleur_Entreprises getControlleur() {
-        return controlleur;
     }
     
 //------------------------------------------------------------------------------

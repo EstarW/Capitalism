@@ -6,7 +6,6 @@
 package capitalism.Metier.Parties.Usines;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Controlleurs.Controlleur_Usines;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 
 /**
@@ -18,7 +17,6 @@ public abstract class Usine {
     private String nom;
     private Entreprise proprietaire;
     protected Case emplacement;
-    private Controlleur_Usines controlleur;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -26,7 +24,6 @@ public abstract class Usine {
         this.nom=nom;
         this.proprietaire=proprietaire;
         this.emplacement = c;
-        this.controlleur=null;
     }
     
 //------------------------------------------------------------------------------
@@ -50,10 +47,6 @@ public abstract class Usine {
     public void setProprietaire(Entreprise proprietaire) {
         this.proprietaire = proprietaire;
     }
-    
-    public void setControlleur(Controlleur_Usines _controlleur){
-        this.controlleur = _controlleur;
-    }
 
     public void setEmplacement(Case emplacement) {
         this.emplacement = emplacement;
@@ -61,10 +54,6 @@ public abstract class Usine {
     
     public Case getEmplacement() {
         return emplacement;
-    }
-
-    public Controlleur_Usines getControlleur() {
-        return controlleur;
     }
     
 //------------------------------------------------------------------------------

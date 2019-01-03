@@ -9,7 +9,6 @@ package capitalism.Metier.Parties;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.util.ArrayList;
-import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import java.io.IOException;
@@ -24,7 +23,6 @@ public class Partie {
     private int tour;
     private Map map;
     private ArrayList<Entreprise> listeEnt;
-    private Controlleur_Jeu controlleur;
     private Entreprise joueurCourant;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -34,12 +32,11 @@ public class Partie {
      * @param nom
      * @throws java.io.IOException
      */
-    public Partie(String nom) throws IOException {
+    public Partie(String nom){// throws IOException {
         this.nom = nom;
         this.listeEnt = new ArrayList();
         this.tour=0;
         this.map= new Map();
-        this.controlleur=null;
         this.joueurCourant=null;
     }
 
@@ -62,10 +59,6 @@ public class Partie {
     public String getNom() {
         return nom;
     }
-    
-    public void setControlleur(Controlleur_Jeu _controlleur){
-        this.controlleur = _controlleur;
-    }
    
     public void setJoueurDefaut(){
         this.joueurCourant = listeEnt.get(0);
@@ -76,10 +69,6 @@ public class Partie {
 
     public Entreprise getJoueurCourant() {
         return joueurCourant;
-    }
-
-    public Controlleur_Jeu getControlleur() {
-        return controlleur;
     }
 
     public void setTour(int tour) {

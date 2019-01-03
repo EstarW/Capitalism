@@ -14,8 +14,24 @@ import capitalism.Metier.Parties.Partie;
 public class Jeu {
     private Partie partie;
 
+//---------- CONSTRUCTEURS -----------------------------------------------------
+    
     public Jeu() {
         this.partie=null;
+    }
+    
+//------------------------------------------------------------------------------
+    
+//---------- GETEUR/SETEUR -----------------------------------------------------
+    
+    public Partie getPartie() {
+        return partie;
+    }
+    
+//------------------------------------------------------------------------------
+
+    public void nouvellePartie(String pseudo, String nomEntreprise){
+        
     }
     
 }
