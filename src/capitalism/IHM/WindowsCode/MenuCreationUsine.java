@@ -5,7 +5,6 @@
  */
 package capitalism.IHM.WindowsCode;
 
-import capitalism.Controlleurs.Controlleur_Usines;
 import capitalism.IHM.Cases.CaseIHM;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Controlleurs.ControlleursIHM.CréationUsineController;
@@ -39,7 +38,6 @@ public class MenuCreationUsine {
     private Case ca;
     private CréationUsineController cu;
     private Usine usine;
-    private Controlleur_Usines control;
     private Entreprise j;
     private Map m;    
     private ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;

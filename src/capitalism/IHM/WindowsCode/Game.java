@@ -6,7 +6,6 @@
 package capitalism.IHM.WindowsCode;
 
 
-import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
 import capitalism.IHM.Interface.BoutonMenuList;
@@ -51,7 +50,6 @@ public class Game {
     
     private Partie p;
     private Joueur j;
-    private Controlleur_Jeu controlleur;
     
 
     
@@ -59,15 +57,10 @@ public class Game {
     public Game(String eName, String pName) throws IOException
     {
         
-        //LE CONTROLLEUR C'EST POUR LES CHIENS
-        p = new Partie(pName);
-        //LE CONTROLLEUR C'EST POUR LES CHIENS
+        /*p = new Partie();
         p.ajouteEntreprise(new Joueur(eName,p));
-        //LE CONTROLLEUR C'EST POUR LES CHIENS
         p.setJoueurDefaut();
-        //LE CONTROLLEUR C'EST POUR LES CHIENS
-        p.augmenterTour();
-        //LE CONTROLLEUR C'EST POUR LES CHIENS
+        p.augmenterTour();*/
         Map m = new Map();
         m.chargerFichier("Carte.txt");
         ArrayList<Case> listeCase = m.getListeCases();
@@ -169,9 +162,6 @@ public class Game {
         });        
     }
     
-    public void setControlleur(Controlleur_Jeu control){
-        this.controlleur=control;
-    }
 
     public Partie getP() {
         return p;

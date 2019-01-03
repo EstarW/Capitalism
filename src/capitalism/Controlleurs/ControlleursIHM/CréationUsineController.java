@@ -6,7 +6,6 @@
 package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieCreationUsineController;
-import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
@@ -52,7 +51,6 @@ public class CréationUsineController implements Initializable {
     private RadioButton button_matiere;
     
     private Usine usine;
-    private Controlleur_Jeu cu;
     private Case c;
     private boolean check;
     private Entreprise e;

@@ -5,7 +5,6 @@
  */
 package capitalism.IHM.Interface;
 
-import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.IHM.WindowsCode.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.Metier.Parties.Partie;

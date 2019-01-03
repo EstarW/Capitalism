@@ -5,7 +5,6 @@
  */
 package capitalism.IHM.Interface;
 
-import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;

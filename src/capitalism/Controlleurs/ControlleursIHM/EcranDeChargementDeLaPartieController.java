@@ -5,7 +5,6 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
-import capitalism.Controlleurs.Controlleur_CreationPartie;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Partie;
 import java.io.File;
@@ -58,7 +57,6 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     
     private Game game;
     
-    private Controlleur_CreationPartie controlleur;
     private Partie p;
 
     /**
