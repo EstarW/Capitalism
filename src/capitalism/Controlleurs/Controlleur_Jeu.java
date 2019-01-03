@@ -8,6 +8,7 @@ package capitalism.Controlleurs;
 
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Jeu;
+import java.io.IOException;
 
 /**
  *
@@ -46,7 +47,7 @@ public class Controlleur_Jeu {
 
 //------------------------------------------------------------------------------
 
-    public void nouvellePartie(String pseudo){
+    public void nouvellePartie(String pseudo) throws IOException{
         modele.nouvellePartie(pseudo);
     }
 
