@@ -59,10 +59,10 @@ public class ParseurMap {
             //creation de la case
             Case nouvelleCase = null;
             switch(c) {
-                case 'E' : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseEau, numLigne, numColonne,this.map);
+                case 'E' : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseEau, numLigne, numColonne,this.map); break;
+                case 'U' : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseEmplacement, numLigne, numColonne,this.map); 
                 this.map.setCaseE((CaseEmplacement) nouvelleCase);
                 break;
-                case 'U' : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseEmplacement, numLigne, numColonne,this.map); break;
                 //case 'R' : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseRessource, numLigne, numColonne,this.map); break;
                 case 'V' : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseVille, numLigne, numColonne,this.map); break;
                 default : nouvelleCase = Fabrique_Cases.construireCase(TypeCase.CaseTerre, numLigne, numColonne,this.map); break;
