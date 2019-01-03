@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Metier.Parties.Carte.Cases.CaseRessource;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -14,45 +15,14 @@ import javafx.scene.shape.Rectangle;
  */
 public class CaseRessourceIHM extends CaseIHM{
     
-    private double X;
-    private double Y;
-    private double ligne;
-    private double colonne;
-    
-    public CaseRessourceIHM(double X, double Y) {
-        super(X, Y);
+    public CaseRessourceIHM(CaseRessource c) {
+        super(c);
         Rectangle rec = new Rectangle(50,50,Color.CORNFLOWERBLUE);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
-        this.X = this.getX();
-        this.Y = this.getY();
-        rec.setX(X*50);
-        rec.setY(Y*50);
+        rec.setX(this.getX()*50);
+        rec.setY(this.getY()*50);
         this.getChildren().add(rec);
-    }
-
-    public double getX() {
-        return X;
-    }
-
-    public double getY() {
-        return Y;
-    }
-    
-    public double getLigne(){
-        return ligne;
-    }
-    
-    public double getColonne(){
-        return colonne;
-    }
-
-    public void setX(double X) {
-        this.X = X*50;
-    }
-
-    public void setY(double Y) {
-        this.Y = Y*50;
     }
     
 }

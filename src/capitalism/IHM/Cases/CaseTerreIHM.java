@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Metier.Parties.Carte.Cases.CaseTerre;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javafx.scene.image.Image;
@@ -18,55 +19,24 @@ import javafx.scene.shape.Rectangle;
  */
 public class CaseTerreIHM extends CaseIHM{
     
-    private double X;
-    private double Y;
-    private double ligne;
-    private double colonne;
     private final Image img;
     private final ImageView imgv;
     
-    public CaseTerreIHM(double X, double Y) throws FileNotFoundException {
-        super(X, Y);
+    public CaseTerreIHM(CaseTerre c) throws FileNotFoundException {
+        super(c);
         Rectangle rec = new Rectangle(50,50,Color.ANTIQUEWHITE);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
-        this.X = this.getX();
-        this.Y = this.getY();
-        rec.setX(X*50);
-        rec.setY(Y*50);
+        rec.setX(this.getX()*50);
+        rec.setY(this.getY()*50);
         FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Plaine.png"); 
         img = new Image(inputstream); 
         imgv = new ImageView(img);
-        imgv.setX(X*50);
-        imgv.setY(Y*50);
+        imgv.setX(this.getX()*50);
+        imgv.setY(this.getY()*50);
         this.getChildren().add(rec);
         this.getChildren().add(imgv);
 
-    }
-    
-    
-    public double getX() {
-        return X;
-    }
-
-    public double getY() {
-        return Y;
-    }
-    
-    public double getLigne(){
-        return ligne;
-    }
-    
-    public double getColonne(){
-        return colonne;
-    }
-
-    public void setX(double X) {
-        this.X = X*50;
-    }
-
-    public void setY(double Y) {
-        this.Y = Y*50;
     }
     
 }
