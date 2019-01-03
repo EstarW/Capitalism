@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Metier.Parties.Carte.Cases.Case;
 import javafx.scene.Parent;
 
 /**
@@ -13,42 +14,40 @@ import javafx.scene.Parent;
  */
 public abstract class CaseIHM extends Parent {
     
-    private double X;
-    private double Y;    
-    private double ligne;
-    private double colonne;
+    private int X;
+    private int Y;
+    private Case c;
     
     
-    public CaseIHM(double X, double Y){
+    public CaseIHM(Case c){
         this.X = X*50;
         this.Y = Y*50;
-        this.ligne = X;
-        this.colonne = Y;
+        this.c = c;
        
     }
 
-    public double getX() {
+    public int getX() {
         return X;
     }
 
-    public double getY() {
+    public int getY() {
         return Y;
     }
 
-    public void setX(double X) {
+    public void setX(int X) {
         this.X = X*50;
     }
 
-    public void setY(double Y) {
+    public void setY(int Y) {
         this.Y = Y*50;
     }
     
-    public double getLigne(){
-        return ligne;
+    public int getLigne(){
+        return c.getLigne();
     }
     
-    public double getColonne(){
-        return colonne;
+    public int getColonne(){
+        return c.getColonne();
     }
     
     
