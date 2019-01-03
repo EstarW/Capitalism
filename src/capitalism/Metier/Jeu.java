@@ -26,7 +26,8 @@ public class Jeu {
 //------------------------------------------------------------------------------
 
     public void nouvellePartie(String pseudo){
-        this.partie=
+        this.partie = new Partie();
+        this.partie.newPlayer(pseudo);
     }
     
 }

@@ -5,6 +5,7 @@ import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.util.ArrayList;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.Entreprises.Joueur;
 
 /**
  *
@@ -44,10 +45,6 @@ public class Partie {
     public ArrayList<Entreprise> getListeEnt() {
         return listeEnt;
     }
-
-    public String getNom() {
-        return nom;
-    }
    
     public void setJoueurDefaut(){
         this.joueurCourant = listeEnt.get(0);
@@ -74,4 +71,7 @@ public class Partie {
     
 //------------------------------------------------------------------------------
     
+    public void newPlayer(String nom){
+        this.listeEnt.add(new Joueur(nom, this));
+    }
 }
