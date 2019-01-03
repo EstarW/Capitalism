@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEau;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +23,7 @@ public class CaseEauIHM extends CaseIHM {
     private final Image img;
     private final ImageView imgv;
     
-    public CaseEauIHM(CaseEau c) throws FileNotFoundException {
+    public CaseEauIHM(Case c) throws FileNotFoundException {
         super(c);
         Rectangle rec = new Rectangle(50,50,Color.CYAN);
         rec.setStroke(Color.rgb(0,0,0, 0.5));

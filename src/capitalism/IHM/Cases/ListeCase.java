@@ -5,10 +5,10 @@
  */
 package capitalism.IHM.Cases;
 
+import static capitalism.IHM.Cases.TypeCase.CaseVille;
 import capitalism.IHM.WindowsCode.Game;
+import capitalism.Metier.Parties.Carte.Cases.Case;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.*;
-import capitalism.Metier.Parties.Carte.Map;
-import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.Parent;
@@ -20,81 +20,53 @@ import javafx.scene.Parent;
  */
 public class ListeCase extends Parent{
     
-    private final Map map;
-    private CaseIHM Case;
-    private final ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCases;
-    private CaseIHM[] MapCase;
-    private int ligne;
-    private int colonne;
-    private final Entreprise j;
-    private final Game g;
+    private final ArrayList<CaseIHM> listeCases;
     
-    public ListeCase(Map m, ArrayList<capitalism.Metier.Parties.Carte.Cases.Case> listeCase, Entreprise j, Game g) throws IOException{
+    public ListeCase(Game g) throws IOException{
 
-        this.listeCases = listeCase;
-        this.g = g;
-        this.map = m;
-        this.j = j;
-
-        /*this.hashMapCase = map.getHashMapCases();*/
-
-        for(int i=0; i<listeCases.size(); i++)
+        listeCases = new ArrayList<>();
+        
+        for(Case c : g.getP().getMap().getListeCases())
         {
-            if (listeCases.get(i).getType().equals(CaseEau))
+            if (c.getType().equals(CaseEau))
             {
-                colonne = listeCases.get(i).getColonne();
-                ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseEauIHM(colonne, ligne);
-
-                this.getChildren().add(c);
-
+                CaseIHM cIHM = new CaseEauIHM(c);
+                listeCases.add(cIHM);
+                this.getChildren().add(cIHM);
             } 
-            if (listeCases.get(i).getType().equals(CaseVille))
+            if (c.getType().equals(CaseVille))
             {
-                colonne = listeCases.get(i).getColonne();
-                ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseVilleIHM(colonne, ligne);
-
-                this.getChildren().add(c);
-
+                CaseIHM cIHM = new CaseVilleIHM(c);
+                listeCases.add(cIHM);
+                this.getChildren().add(cIHM);
             }
-            if (listeCases.get(i).getType().equals(CaseEmplacement))
+            if (c.getType().equals(CaseEmplacement))
             {
-                colonne = listeCases.get(i).getColonne();
-                ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseEmplacementIHM(colonne, ligne, this.j, m, this.g);
-
-                this.getChildren().add(c);
-
+                CaseIHM cIHM = new CaseEmplacementIHM(c);
+                listeCases.add(cIHM);
+                this.getChildren().add(cIHM);
             }
-            if (listeCases.get(i).getType().equals(CaseTerre))
+            if (c.getType().equals(CaseTerre))
             {
-                colonne = listeCases.get(i).getColonne();
-                ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseTerreIHM(colonne, ligne); 
-
-                this.getChildren().add(c);
-
+                CaseIHM cIHM = new CaseTerreIHM(c); 
+                listeCases.add(cIHM);
+                this.getChildren().add(cIHM);
             }
-            if (listeCases.get(i).getType().equals(CaseVilleEmplacement))
+            /*if (c.getType().equals(CaseVilleEmplacement))
             {
-                colonne = listeCases.get(i).getColonne();
-                ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseVilleEmplacementIHM(colonne, ligne); 
-
-                this.getChildren().add(c);
-
-            }
-            if (listeCases.get(i).getType().equals(CaseRessource))  
+                CaseIHM cIHM = new CaseVilleEmplacementIHM(c); 
+                listeCases.add(cIHM);
+                this.getChildren().add(cIHM);
+            }*/
+            if (c.getType().equals(CaseRessource))  
             {
-                colonne = listeCases.get(i).getColonne();
-                ligne = listeCases.get(i).getLigne();
-                CaseIHM c = new CaseRessourceIHM(colonne, ligne); 
-
-                this.getChildren().add(c);
-
+                CaseIHM cIHM = new CaseRessourceIHM(c); 
+                listeCases.add(cIHM);
+                this.getChildren().add(cIHM);
             }
         }
+        
+        //this.getChildren().add(listeCases);
     }
 }
     

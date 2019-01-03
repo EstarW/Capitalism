@@ -7,6 +7,7 @@ package capitalism.IHM.Cases;
 
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
+import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,7 +34,7 @@ public class CaseEmplacementIHM extends CaseIHM {
     private Image img2;
     private ImageView imgv2;
     
-    public CaseEmplacementIHM(CaseEmplacement c) throws IOException {
+    public CaseEmplacementIHM(Case c) throws IOException {
         super(c);
         rec = new Rectangle(50,50,Color.GREY);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
@@ -66,7 +67,7 @@ public class CaseEmplacementIHM extends CaseIHM {
             rec.setFill(Color.GREY);
         });
         
-        this.setOnMouseClicked((MouseEvent me) -> {
+        /*this.setOnMouseClicked((MouseEvent me) -> {
             if(state){
                 try {
                     m = new MenuContextuel(this, j, map, this.g);
@@ -85,7 +86,7 @@ public class CaseEmplacementIHM extends CaseIHM {
 
             }
 
-        });
+        });*/
     }
     
 }

@@ -70,7 +70,7 @@ public class Game {
         
         
         
-        ListeCase liste = new ListeCase(m, listeCase, control.getModele().getPartie().getJoueurCourant(), this);
+        ListeCase liste = new ListeCase(this);
         BoutonMenuList bl = new BoutonMenuList(control.getModele().getPartie(), this);
         Bandeau b = new Bandeau();
         infop = new InfoPartie(control.getModele().getPartie(), control.getModele().getPartie().getJoueurCourant());
