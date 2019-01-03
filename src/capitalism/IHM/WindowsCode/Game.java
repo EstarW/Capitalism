@@ -16,13 +16,11 @@ import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.EventHandler;
 
 import javafx.scene.Scene;
 import static javafx.scene.input.KeyCode.*;
@@ -44,15 +42,15 @@ public class Game {
     private double xOffset = 0;
     private double yOffset = 0;
     
-    private Pane root;
-    private StackPane inft;
+    private final Pane root;
+    private final StackPane inft;
     private InfoTour infot;
     
-    private StackPane infp;
+    private final StackPane infp;
     private InfoPartie infop;
     
-    private Jeu jeu;
-    private Controlleur_Jeu control;
+    private final Jeu jeu;
+    private final Controlleur_Jeu control;
     
 
     
@@ -151,20 +149,14 @@ public class Game {
         });    
         
         
-            map.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+            map.setOnMousePressed((MouseEvent event) -> {
                 xOffset = map.getTranslateX() - event.getScreenX();
                 yOffset = map.getTranslateY() - event.getScreenY();
-            }
         });  
             
-            map.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+            map.setOnMouseDragged((MouseEvent event) -> {
                 map.setTranslateX(event.getScreenX() + xOffset);
                 map.setTranslateY(event.getScreenY() + yOffset);
-            }           
         });        
     }
     

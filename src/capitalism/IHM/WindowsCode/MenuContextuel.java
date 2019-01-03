@@ -9,10 +9,8 @@ import capitalism.Controlleurs.ControlleursIHM.MenuContextuelInGameController;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.CaseEmplacement;
-import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Entreprises.Joueur;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -27,14 +25,14 @@ import javafx.stage.Stage;
  */
 public class MenuContextuel {
 
-    private Scene menuContextuel;
-    private Stage s1;
-    private CaseEmplacementIHM c;
-    private Entreprise joueur;
-    private Map map;
-    private Game game;
+    private final Scene menuContextuel;
+    private final Stage s1;
+    private final CaseEmplacementIHM c;
+    private final Entreprise joueur;
+    private final Map map;
+    private final Game game;
     private Case ca;
-    private MenuContextuelInGameController cu;
+    private final MenuContextuelInGameController cu;
     
     public MenuContextuel(CaseEmplacementIHM c, Entreprise j, Map m, Game g) throws IOException, MalformedURLException{
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/MenuContextuelInGame.fxml").toURI().toURL());
