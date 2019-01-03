@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package capitalism.Metier;
 
 import capitalism.Metier.Parties.Partie;
@@ -30,8 +25,8 @@ public class Jeu {
     
 //------------------------------------------------------------------------------
 
-    public void nouvellePartie(String pseudo, String nomEntreprise){
-        
+    public void nouvellePartie(String pseudo){
+        this.partie=
     }
     
 }
