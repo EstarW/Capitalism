@@ -9,15 +9,12 @@ import capitalism.IHM.WindowsCode.Accueil;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Partie;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
@@ -60,7 +57,7 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     private Game game;
     
     private Partie p;
-    private Jeu j;
+    private static Jeu j;
 
     /**
      * Initializes the controller class.
@@ -79,8 +76,7 @@ public class EcranDeChargementDeLaPartieController implements Initializable {
     
     @FXML    
     private void handleButtonGoBackAction(ActionEvent event) throws IOException {
-        Jeu jeu = this.getJeu();
-        Accueil a = new Accueil(jeu);
+        Accueil a = new Accueil(j);
         
         Stage stage = (Stage) bouton_retour.getScene().getWindow();
         stage.close();

@@ -38,7 +38,7 @@ public class CreationPartieController implements Initializable {
     private ImageView imageView_logo;
     
     private Game game;
-    private Jeu j;
+    private static Jeu j;
 
     
 
@@ -75,7 +75,7 @@ public class CreationPartieController implements Initializable {
             else
             {
                 Jeu jeu = this.getJeu();
-                game = new Game(getEntreprise(), getPseudo(), jeu);
+                game = new Game(getEntreprise(), getPseudo(), j);
                 Stage stage = (Stage) bouton_valider.getScene().getWindow();
                 stage.close();
             }

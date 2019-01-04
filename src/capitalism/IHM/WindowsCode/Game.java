@@ -100,7 +100,7 @@ public class Game {
         
         map.setTranslateX(map.getTranslateX()-1500);
 
-        stage.setTitle("Capitalisme");
+        stage.setTitle("Capitalisme - "+eName);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

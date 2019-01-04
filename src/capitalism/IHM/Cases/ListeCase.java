@@ -19,12 +19,11 @@ import javafx.scene.Parent;
  */
 public class ListeCase extends Parent{
     
-    private final ArrayList<CaseIHM> listeCases;
+    private ArrayList<CaseIHM> listeCases;
     
     public ListeCase(Game g) throws IOException{
 
         listeCases = new ArrayList<>();
-        
         for(Case c : g.getP().getMap().getListeCases())
         {
             CaseIHM cIHM = null;
@@ -32,31 +31,34 @@ public class ListeCase extends Parent{
                 case CaseEau:
                     cIHM = new CaseEauIHM(c);
                     listeCases.add(cIHM);
-                    this.getChildren().add(cIHM);
                 break;
                     
                 case CaseVille:
                     cIHM = new CaseVilleIHM(c);
                     listeCases.add(cIHM);
-                    this.getChildren().add(cIHM);
                 break;
                     
                 case CaseEmplacement:
                     cIHM = new CaseEmplacementIHM(c);
                     listeCases.add(cIHM);
-                    this.getChildren().add(cIHM);
                 break;
                 
                 case CaseTerre:
                     cIHM = new CaseTerreIHM(c); 
                     listeCases.add(cIHM);
-                    this.getChildren().add(cIHM);
                 break;
                 
                 default:
                     System.out.println("Nope");
                 break;
-            }      
+            }
+        }
+        
+        System.out.println(listeCases);
+        
+        for(CaseIHM cIHM : listeCases){
+            System.out.println("Case: "+cIHM.getX()+" : "+cIHM.getY());
+            this.getChildren().add(cIHM);
         }
     }
 }
