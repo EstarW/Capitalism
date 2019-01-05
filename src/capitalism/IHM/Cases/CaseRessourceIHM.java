@@ -6,7 +6,6 @@
 package capitalism.IHM.Cases;
 
 import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Parties.Carte.Cases.CaseRessource;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 

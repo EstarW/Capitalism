@@ -53,15 +53,11 @@ public class ListeCase extends Parent{
                 break;
             }
         }
-        
-        System.out.println(listeCases);
-        
-        for(CaseIHM cIHM : listeCases){
-            System.out.println("Case: "+cIHM.getX()+" : "+cIHM.getY());
-            this.getChildren().add(cIHM);
-        }
-        
-        // POURQUOI ELLE APPARAIT PAS ALORS CETTE PUTE !!!!!!!!!dsnjuifhbzefgzedgazeuicvgesddgzecgzdfgzdefugyize
+        this.getChildren().addAll(listeCases);
+    }
+    
+    public ArrayList<CaseIHM> getList(){
+        return listeCases;
     }
 }
     

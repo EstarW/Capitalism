@@ -45,6 +45,7 @@ public class Game {
     
     private final StackPane infp;
     private InfoPartie infop;
+    private StackPane map;
     
     private final Jeu jeu;
     private final Controlleur_Jeu control;
@@ -71,7 +72,7 @@ public class Game {
         root = new Pane(); 
         StackPane bandeau = new StackPane();
         StackPane menu = new StackPane();
-        StackPane map = new StackPane();
+        map = new StackPane();
         infp = new StackPane();
         inft = new StackPane();
         
@@ -96,8 +97,7 @@ public class Game {
         root.getChildren().add(menu);  
         root.getChildren().add(infp);
         root.getChildren().add(inft);
-        
-        
+
         map.setTranslateX(map.getTranslateX()-1500);
 
         stage.setTitle("Capitalisme - "+eName);
@@ -163,6 +163,7 @@ public class Game {
     public Entreprise getJCourant(){
         return control.getModele().getPartie().getJoueurCourant();
     }
+    
     
     public void refreshTour(){
  

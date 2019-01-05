@@ -6,7 +6,6 @@
 package capitalism.IHM.Cases;
 
 import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Parties.Carte.Cases.CaseTerre;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javafx.scene.image.Image;

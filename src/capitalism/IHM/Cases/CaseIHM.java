@@ -20,8 +20,8 @@ public abstract class CaseIHM extends Parent {
     
     
     public CaseIHM(Case c){
-        this.X = c.getLigne();
-        this.Y = c.getColonne();
+        this.X = c.getColonne();
+        this.Y = c.getLigne();
         this.c = c;     
     }
 
