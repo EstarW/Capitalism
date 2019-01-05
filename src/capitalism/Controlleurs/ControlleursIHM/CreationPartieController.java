@@ -88,8 +88,7 @@ public class CreationPartieController implements Initializable {
    
     @FXML    
     private void handleButtonGoBackAction(ActionEvent event) throws IOException {
-        Jeu jeu = this.getJeu();
-        Accueil a = new Accueil(jeu);
+        Accueil a = new Accueil(j);
         
         Stage stage = (Stage) bouton_retour.getScene().getWindow();
         stage.close();

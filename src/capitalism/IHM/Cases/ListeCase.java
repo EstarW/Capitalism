@@ -60,6 +60,8 @@ public class ListeCase extends Parent{
             System.out.println("Case: "+cIHM.getX()+" : "+cIHM.getY());
             this.getChildren().add(cIHM);
         }
+        
+        // POURQUOI ELLE APPARAIT PAS ALORS CETTE PUTE !!!!!!!!!dsnjuifhbzefgzedgazeuicvgesddgzecgzdfgzdefugyize
     }
 }
     
