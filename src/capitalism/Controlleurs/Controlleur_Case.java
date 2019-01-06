@@ -2,6 +2,8 @@ package capitalism.Controlleurs;
 
 import capitalism.IHM.Cases.CaseIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
+import capitalism.Metier.Parties.Usines.Usine;
 
 /**
  *
@@ -17,6 +19,10 @@ public class Controlleur_Case {
     public Controlleur_Case(CaseIHM _view, Case _modele){
         this.modele = _modele;
         this.view = _view;
+    }
+
+    public Controlleur_Case(Case c, CaseIHM aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 //------------------------------------------------------------------------------
@@ -41,8 +47,11 @@ public class Controlleur_Case {
 
 //------------------------------------------------------------------------------
 
-    public void construireUsine(){
-        
+    public void construireUsine(Usine u){
+        CaseEmplacement aled = (CaseEmplacement) this.modele;
+        if(!aled.estOccupe()){
+            aled.construireUsine(u);
+        }
     }
     
 }

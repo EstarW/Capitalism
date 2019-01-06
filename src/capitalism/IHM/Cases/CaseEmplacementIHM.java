@@ -8,6 +8,10 @@ package capitalism.IHM.Cases;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.MatierePremiere;
+import capitalism.Metier.Parties.Produit;
+import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
+import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.io.FileInputStream;
 import java.io.IOException;
 import javafx.scene.image.Image;
@@ -63,6 +67,8 @@ public class CaseEmplacementIHM extends CaseIHM {
             rec.setFill(Color.GREY);
         });
         
+        
+        
         /*this.setOnMouseClicked((MouseEvent me) -> {
             if(state){
                 try {
@@ -85,4 +91,14 @@ public class CaseEmplacementIHM extends CaseIHM {
         });*/
     }
     
+    
+    public void construireUsineProduit(Produit p, String nom){
+        UsineProduit up = new UsineProduit(nom,this.getC().getMap().getPartie().getJoueurCourant(),this.getC(),p);
+        this.getCc().construireUsine(up);
+    }   
+    
+    public void construireUsineMatierePremiere(MatierePremiere p, String nom){
+        UsineMatierePremiere up = new UsineMatierePremiere(nom,this.getC().getMap().getPartie().getJoueurCourant(),this.getC(),p);
+        this.getCc().construireUsine(up);
+    }
 }

@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Controlleurs.Controlleur_Case;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import javafx.scene.Parent;
 
@@ -17,9 +18,10 @@ public abstract class CaseIHM extends Parent {
     private int X;
     private int Y;
     private Case c;
-    
+    private Controlleur_Case cc;
     
     public CaseIHM(Case c){
+        this.cc = new Controlleur_Case(c,this);
         this.X = c.getColonne();
         this.Y = c.getLigne();
         this.c = c;     
@@ -44,4 +46,14 @@ public abstract class CaseIHM extends Parent {
     public Case getCase(){
         return c;
     }
+
+    public Case getC() {
+        return c;
+    }
+
+    public Controlleur_Case getCc() {
+        return cc;
+    }
+    
+    
 }

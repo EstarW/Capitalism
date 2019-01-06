@@ -69,6 +69,11 @@ public class Map {
     public void setCaseE(CaseEmplacement cE){
         this.listeCasesE.add(cE);
     }
+
+    public Partie getPartie() {
+        return partie;
+    }
+    
     
 //------------------------------------------------------------------------------
     
