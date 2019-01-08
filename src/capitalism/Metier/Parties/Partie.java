@@ -5,6 +5,7 @@ import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.util.ArrayList;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.Entreprises.IA.IA;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 
 /**
@@ -16,6 +17,7 @@ public class Partie {
     private int tour;
     private Map map;
     private ArrayList<Entreprise> listeEnt;
+    private ArrayList<IA> listeIA;
     private Entreprise joueurCourant;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -25,6 +27,7 @@ public class Partie {
      */
     public Partie(){
         this.listeEnt = new ArrayList();
+        this.listeIA = new ArrayList();
         this.tour=0;
         this.map= new Map(this);
         this.joueurCourant=null;
@@ -73,5 +76,9 @@ public class Partie {
     
     public void newPlayer(String nom){
         this.listeEnt.add(new Joueur(nom, this));
+    }
+    
+    public void addIA(){
+        
     }
 }

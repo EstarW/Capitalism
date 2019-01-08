@@ -19,17 +19,17 @@ import java.util.HashMap;
  */
 public abstract class Entreprise {
 
-    private String nom;
-    private int argent;
-    private Partie partie;
-    private HashMap<MatierePremiere,Integer> MatieresPremieres;
-    private HashMap<Produit, Integer> Produits;
-    private ArrayList<Usine> listeUsines;
+    protected String nom;
+    protected int argent;
+    protected Partie partie;
+    protected HashMap<MatierePremiere,Integer> MatieresPremieres;
+    protected HashMap<Produit, Integer> Produits;
+    protected ArrayList<Usine> listeUsines;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public Entreprise(String nom, Partie partie) {
-        this.argent=0;
+        this.argent=100000;
         this.partie=partie;
         this.nom=nom;   
         this.MatieresPremieres = new HashMap();
