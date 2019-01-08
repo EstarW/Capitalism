@@ -5,9 +5,10 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.MatierePremiere;
 
 /**
  *
@@ -40,5 +41,15 @@ public class UsineMatierePremiere extends Usine {
     @Override
     public String getProdName() {
         return this.production.toString();
+    }
+
+    @Override
+    public TypeUsine type() {
+        return TypeUsine.MatierePremiere;
+    }
+
+    @Override
+    public void produire() {
+        this.proprietaire.getMatieresPremieresPossedees().replace(production, this.proprietaire.getMatieresPremieresPossedees().get(production)+1);
     }
 }

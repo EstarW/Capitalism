@@ -166,8 +166,7 @@ public class Game {
     
     
     public void refreshTour(){
- 
-        control.getModele().getPartie().setTour(control.getModele().getPartie().getTour() + 1);
+        control.newTurn();
         inft.getChildren().remove(infot);
         root.getChildren().remove(inft);
         

@@ -18,11 +18,15 @@ public class Controlleur_Case {
 
     public Controlleur_Case(CaseIHM _view, Case _modele){
         this.modele = _modele;
+        this.modele.setControlleur(this);
         this.view = _view;
     }
 
-    public Controlleur_Case(Case c, CaseIHM aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Controlleur_Case(Case _modele, CaseIHM _view) {
+        this.modele = _modele;
+        this.view = _view;
+                this.modele.setControlleur(this);
+
     }
 
 //------------------------------------------------------------------------------

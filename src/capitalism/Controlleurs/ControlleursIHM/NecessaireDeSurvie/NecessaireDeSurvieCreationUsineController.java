@@ -16,8 +16,6 @@ import capitalism.Metier.Parties.Carte.Coordonnee;
  * @author Beelzed
  */
 public class NecessaireDeSurvieCreationUsineController {
-    private static Game game;
-    private static Case casee;
     private static CaseEmplacementIHM caseIHM;
 
     public static CaseEmplacementIHM getCaseIHM() {
@@ -28,30 +26,6 @@ public class NecessaireDeSurvieCreationUsineController {
         NecessaireDeSurvieCreationUsineController.caseIHM = caseIHM;
     }
     
-    
-    public static void setGame(Game g){
-        game = g;
-    }
-    
-    public static void setCasee(Case c){
-        casee = c;
-    }
-    
-    public static Game getGame(){
-        return game;
-    }
-    
-    public static int getCaseLine(){
-        return casee.getLigne();
-    }
-    
-    public static int getCaseCol(){
-        return casee.getColonne();
-    }
-    
-    public static Coordonnee getCaseEmp(){
-        return new Coordonnee(casee.getLigne(), casee.getColonne());
-    }
     
     
 }

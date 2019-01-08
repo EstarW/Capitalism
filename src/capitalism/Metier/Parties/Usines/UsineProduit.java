@@ -5,9 +5,10 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.Produit;
 
 /**
  *
@@ -36,5 +37,15 @@ public class UsineProduit extends Usine {
         return this.production.toString();
     }
 //------------------------------------------------------------------------------
+
+    @Override
+    public TypeUsine type() {
+        return TypeUsine.Produit;
+    }
+
+    @Override
+    public void produire() {
+        //Cestchiant
+    }
     
 }

@@ -6,6 +6,8 @@
 package capitalism.Metier.Parties.Entreprises;
 
 import capitalism.Metier.Parties.Partie;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 
 /**
  *
@@ -26,5 +28,5 @@ public class Joueur extends Entreprise {
     
     
 //------------------------------------------------------------------------------
-    
+
 }

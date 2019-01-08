@@ -6,7 +6,7 @@
 package capitalism.Metier.Parties.Carte.Cases;
 
 import capitalism.Metier.Parties.Carte.Map;
-import capitalism.Metier.Parties.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Usines.Usine;
 
 /**
@@ -52,6 +52,8 @@ public class CaseEmplacement extends Case {
     }
     
     public void construireUsine(Usine u){
+        this.usine= u;
+        this.usine.setEmplacement(this);
         
     }
 }

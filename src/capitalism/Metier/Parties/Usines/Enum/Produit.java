@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package capitalism.Metier.Parties;
+package capitalism.Metier.Parties.Usines.Enum;
 
 /**
  *
  * @author Beelzed
  */
-public enum MatierePremiere {
-    Bois,
-    Metal,
-    Cereales,
-    Nourriture,
+public enum Produit {
+    Acier,
+    PlaqueMetal,
+    Cagettes,
+    Meubles,
+    Conserves,
+    PC,
+    Medicaments,
 }

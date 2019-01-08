@@ -7,7 +7,7 @@ package capitalism.Metier;
 
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Entreprises.Joueur;
-import capitalism.Metier.Parties.Produit;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 
 /**
  *

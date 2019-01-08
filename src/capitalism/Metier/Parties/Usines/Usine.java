@@ -5,6 +5,7 @@
  */
 package capitalism.Metier.Parties.Usines;
 
+import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 
@@ -14,8 +15,8 @@ import capitalism.Metier.Parties.Carte.Cases.Case;
  */
 public abstract class Usine {
 
-    private String nom;
-    private Entreprise proprietaire;
+    protected String nom;
+    protected Entreprise proprietaire;
     protected Case emplacement;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -24,6 +25,7 @@ public abstract class Usine {
         this.nom=nom;
         this.proprietaire=proprietaire;
         this.emplacement = c;
+        this.proprietaire.addUsine(this);
     }
     
 //------------------------------------------------------------------------------
@@ -58,4 +60,8 @@ public abstract class Usine {
     
 //------------------------------------------------------------------------------
     
+    
+    public abstract TypeUsine type();
+    
+    public abstract void produire();
 }

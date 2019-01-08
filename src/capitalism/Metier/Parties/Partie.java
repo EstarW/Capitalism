@@ -7,6 +7,8 @@ import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
 import capitalism.Metier.Parties.Entreprises.IA.IA;
 import capitalism.Metier.Parties.Entreprises.Joueur;
+import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
+import capitalism.Metier.Parties.Usines.Usine;
 
 /**
  *
@@ -79,6 +81,21 @@ public class Partie {
     }
     
     public void addIA(){
-        
+        IA ent = new IA("Salut",this);
+        this.listeEnt.add(ent);
+        this.listeIA.add(ent);
+    }
+
+    public void passerTour() {
+        for(IA ia : this.listeIA ){
+            ia.joue();
+        }
+        for(Entreprise en : this.listeEnt){
+            for(Usine u : en.getListeUsines()){
+                u.produire();
+            }
+        }
+        this.joueurCourant.afficheRessources();
+        this.tour++;
     }
 }

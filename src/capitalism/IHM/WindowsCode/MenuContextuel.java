@@ -8,6 +8,7 @@ package capitalism.IHM.WindowsCode;
 import capitalism.Controlleurs.ControlleursIHM.MenuContextuelInGameController;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import static capitalism.Metier.Parties.Carte.Cases.TypeCase.CaseEmplacement;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
@@ -30,11 +31,10 @@ public class MenuContextuel {
     private final CaseEmplacementIHM c;
     private final Entreprise joueur;
     private final Map map;
-    private final Game game;
     private Case ca;
     private final MenuContextuelInGameController cu;
     
-    public MenuContextuel(CaseEmplacementIHM c, Entreprise j, Map m, Game g) throws IOException, MalformedURLException{
+    public MenuContextuel(CaseEmplacementIHM c, Entreprise j, Map m) throws IOException, MalformedURLException{
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/MenuContextuelInGame.fxml").toURI().toURL());
         menuContextuel = new Scene(fxmlLoader.load(), 630, 400);
         s1 = new Stage();
@@ -45,33 +45,10 @@ public class MenuContextuel {
         this.c = c;
         this.joueur = j;
         this.map = m;
-        this.game = g;
-        this.setCase();
-        int x= (int)this.c.getLigne();
-        int y = (int) this.c.getColonne();
         cu = new MenuContextuelInGameController();
-        cu.setCase(ca);
+        cu.setCase(c);
     }
     
+   
     
-    public void setCase()
-    {
-        ArrayList<Case> listeCases = map.getListeCases();
-        double ligne = c.getLigne();
-        double colonne = c.getColonne();
-        for(int i=0; i<listeCases.size(); i++)
-        {
-            if(listeCases.get(i).getType() == CaseEmplacement)
-            {
-                double ligne2 = (double) listeCases.get(i).getLigne();
-                double colonne2 = (double) listeCases.get(i).getColonne();
-                if(ligne == ligne2 && colonne == colonne2)
-                {
-                    ca = listeCases.get(i);
-                    System.out.println(ca.getColonne());
-                }
-            }
-        }
-        
-    }
 }

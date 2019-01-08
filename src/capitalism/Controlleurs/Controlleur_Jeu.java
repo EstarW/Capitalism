@@ -50,5 +50,10 @@ public class Controlleur_Jeu {
     public void nouvellePartie(String pseudo) throws IOException{
         modele.nouvellePartie(pseudo);
     }
+    
+    public void newTurn(){
+        this.modele.getPartie().passerTour();
+        
+    }
 
 }

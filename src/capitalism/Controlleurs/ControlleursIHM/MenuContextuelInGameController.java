@@ -5,6 +5,9 @@
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
+import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieMenuContextuelController;
+import capitalism.IHM.Cases.CaseEmplacementIHM;
+import capitalism.IHM.Cases.CaseIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import java.net.URL;
@@ -33,13 +36,19 @@ public class MenuContextuelInGameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        NecessaireDeSurvieMenuContextuelController.setNomEntreprise(this.label_entreprise);
+        NecessaireDeSurvieMenuContextuelController.setNomUsine(this.label_usine);
+        NecessaireDeSurvieMenuContextuelController.setNomProduction(this.label_production);
+
     }    
     
-    public void setCase(Case c){
-       CaseEmplacement cEmp = (CaseEmplacement) c;
-       this.label_usine.setText(cEmp.getUsine().toString());
-       this.label_entreprise.setText(cEmp.getUsine().getProprietaire().toString());
-       this.label_production.setText(cEmp.getUsine().getProdName());
+    public void setCase(CaseEmplacementIHM c){
+       CaseEmplacement cEmp = (CaseEmplacement) c.getCc().getModele();
+       System.out.println("occupation : "+  cEmp.estOccupe());
+        NecessaireDeSurvieMenuContextuelController.getNomEntreprise().setText(cEmp.getUsine().getProprietaire().getNom());
+        NecessaireDeSurvieMenuContextuelController.getNomUsine().setText(cEmp.getUsine().getNom());
+        NecessaireDeSurvieMenuContextuelController.getNomProduction().setText(cEmp.getUsine().getProdName());
     }
     
 }

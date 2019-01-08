@@ -6,9 +6,9 @@
 package capitalism.Metier.Parties.Entreprises;
 
 import capitalism.Metier.Parties.Usines.Usine;
-import capitalism.Metier.Parties.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
-import capitalism.Metier.Parties.Produit;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -77,6 +77,16 @@ public abstract class Entreprise {
         this.partie = partie;
     }
     
+    public void addUsine(Usine u){
+        this.listeUsines.add(u);
+    }
 //------------------------------------------------------------------------------
-    
+        public void afficheRessources(){
+        for(MatierePremiere mp : this.MatieresPremieres.keySet()){
+            System.out.println("key :" + mp + " nb : " + this.MatieresPremieres.get(mp));
+        }
+        for(Produit p : this.Produits.keySet()){
+            System.out.println("key :" + p + " nb : " +this.Produits.get(p));
+        }
+    }
 }

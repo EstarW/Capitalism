@@ -8,11 +8,12 @@ package capitalism.IHM.Cases;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import capitalism.Metier.Parties.Carte.Cases.Case;
-import capitalism.Metier.Parties.MatierePremiere;
-import capitalism.Metier.Parties.Produit;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
 import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,9 +34,10 @@ public class CaseEmplacementIHM extends CaseIHM {
     private ImageView imgv;
     private Image img2;
     private ImageView imgv2;
-    
+    private boolean state;
     public CaseEmplacementIHM(Case c) throws IOException {
         super(c);
+        state = false;
         rec = new Rectangle(50,50,Color.GREY);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
@@ -69,26 +71,26 @@ public class CaseEmplacementIHM extends CaseIHM {
         
         
         
-        /*this.setOnMouseClicked((MouseEvent me) -> {
+        this.setOnMouseClicked((MouseEvent me) -> {
             if(state){
                 try {
-                    m = new MenuContextuel(this, j, map, this.g);
+                    m = new MenuContextuel(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
                 } catch (IOException ex) {
-                    Logger.getLogger(CaseEmplacementIHM.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("m ioexception");
                 }
             }
             else{
                 try {
-                    m2 = new MenuCreationUsine(this, j, map, this.g);
+                    m2 = new MenuCreationUsine(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
                 } catch (IOException ex) {
-                    Logger.getLogger(CaseEmplacementIHM.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("m2 ioexception");
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(CaseEmplacementIHM.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("m2 interruptedexception");
                 }
 
             }
 
-        });*/
+        });
     }
     
     
@@ -98,7 +100,22 @@ public class CaseEmplacementIHM extends CaseIHM {
     }   
     
     public void construireUsineMatierePremiere(MatierePremiere p, String nom){
+        System.out.println("coucou");
         UsineMatierePremiere up = new UsineMatierePremiere(nom,this.getC().getMap().getPartie().getJoueurCourant(),this.getC(),p);
         this.getCc().construireUsine(up);
+    }
+
+    public void setState() throws FileNotFoundException {
+        this.state= true;
+        this.onSetState();
+    }
+    
+    public void onSetState() throws FileNotFoundException{
+        FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\UsineRouge1.png"); 
+        img2 = new Image(inputstream2); 
+        imgv2 = new ImageView(img2);
+        imgv2.setX(this.getX()*50);
+        imgv2.setY(this.getY()*50);
+        this.getChildren().add(imgv2);
     }
 }

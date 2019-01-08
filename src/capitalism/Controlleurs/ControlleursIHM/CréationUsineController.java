@@ -12,8 +12,8 @@ import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
-import capitalism.Metier.Parties.MatierePremiere;
-import capitalism.Metier.Parties.Produit;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 import capitalism.Metier.Parties.Usines.Usine;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -50,12 +50,9 @@ public class CréationUsineController implements Initializable {
     private RadioButton button_matiere;
     
     private Usine usine;
-    private Case c;
     private boolean check;
     private Entreprise e;
     private Joueur j;
-    private Game g;
-    private CaseEmplacement c2;
     private CaseEmplacementIHM cIHM;
 
     /**
@@ -88,19 +85,6 @@ public class CréationUsineController implements Initializable {
         this.e = e;
     }
     
-    
-    public void setCase(Case c)
-    {
-        this.c = c;
-        this.c2 = (CaseEmplacement) c;
-        NecessaireDeSurvieCreationUsineController.setCasee(c);
-    }
-    
-    public Case getCase()
-    {
-        return c;
-    }
-    
     public void AddProd(Produit p){
         comboBox_produit.getItems().add(p);       
     }
@@ -126,16 +110,6 @@ public class CréationUsineController implements Initializable {
         return this.textField_nom.getCharacters().toString();
     }
     
-    public void setGame(Game g)
-    {
-        this.g = g;
-        NecessaireDeSurvieCreationUsineController.setGame(g);
-    }
-    
-    public Game getGame()
-    {
-        return g;
-    }
     
     public void setCaseIHM(CaseEmplacementIHM c)
     {
@@ -172,7 +146,6 @@ public class CréationUsineController implements Initializable {
     @FXML
     private void handleValiderActionButton(ActionEvent event) throws FileNotFoundException {
         
-        Game game = NecessaireDeSurvieCreationUsineController.getGame();
         CaseEmplacementIHM cIHM2 =  NecessaireDeSurvieCreationUsineController.getCaseIHM();
         
         if(!this.textField_nom.getCharacters().toString().isEmpty())
@@ -181,16 +154,16 @@ public class CréationUsineController implements Initializable {
             {
                 //Creation de l'usine ressource
                 cIHM2.construireUsineMatierePremiere(this.comboBox_matiere.getValue(), this.textField_nom.getText());
-                
+                cIHM2.setState();
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
                 cIHM2.construireUsineProduit(this.comboBox_produit.getValue(), this.textField_nom.getText());
-
+                cIHM2.setState();
             }
-            System.out.println("Coord : Ligne : " + c2.getLigne() + " Colonne : " + c2.getColonne());
+            System.out.println("Coord : Ligne : " + cIHM2.getCase().getLigne() + " Colonne : " +  cIHM2.getCase().getColonne());
             Stage stage = (Stage) textField_nom.getScene().getWindow();
             
             stage.close();

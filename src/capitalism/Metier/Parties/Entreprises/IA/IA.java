@@ -6,7 +6,7 @@
 package capitalism.Metier.Parties.Entreprises.IA;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
-import capitalism.Metier.Parties.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
 
