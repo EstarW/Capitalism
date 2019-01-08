@@ -5,15 +5,24 @@
         <group>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Map.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/Cases/CaseVilleIHM.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/Usine.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/Cases/CaseEmplacementIHM.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Cases/CaseEmplacement.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Comparateur_Coordonnees.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/MenuContextuel.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Parseur/ParseurMap.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/GererUsine.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Parseur/Fabrique_Cases.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Jeu.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Controlleurs/Controlleur_Case.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/UsineProduit.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Entreprises/Entreprise.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/Usine.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Entreprises/IA/IA.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Coordonnee.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/Cases/CaseEmplacementIHM.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Partie.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Cases/CaseEmplacement.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Entreprises/Joueur.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/Cases/CaseIHM.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/UsineMatierePremiere.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/UsineProduit.java</file>
         </group>
     </open-files>
 </project-private>

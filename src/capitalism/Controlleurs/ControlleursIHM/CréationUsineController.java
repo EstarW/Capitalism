@@ -180,13 +180,15 @@ public class CréationUsineController implements Initializable {
             if(this.matiereCheck() && !this.produitCheck())
             {
                 //Creation de l'usine ressource
+                cIHM2.construireUsineMatierePremiere(this.comboBox_matiere.getValue(), this.textField_nom.getText());
                 
                 
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
-                
+                cIHM2.construireUsineProduit(this.comboBox_produit.getValue(), this.textField_nom.getText());
+
             }
             System.out.println("Coord : Ligne : " + c2.getLigne() + " Colonne : " + c2.getColonne());
             Stage stage = (Stage) textField_nom.getScene().getWindow();
