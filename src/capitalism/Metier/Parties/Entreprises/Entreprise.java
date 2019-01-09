@@ -9,6 +9,7 @@ import capitalism.Metier.Parties.Usines.Usine;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Usines.Enum.Produit;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
  * @author Damien
  * Classe représentant les entreprises du jeu
  */
-public abstract class Entreprise {
+public abstract class Entreprise implements Serializable{
 
     protected String nom;
     protected int argent;

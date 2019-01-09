@@ -1,10 +1,11 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package capitalism.Controlleurs.ControlleursIHM;
 
+import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieSauvegarde;
 import capitalism.IHM.WindowsCode.Accueil;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Jeu;
@@ -74,8 +75,8 @@ public class CreationPartieController implements Initializable {
             }
             else
             {
-                Jeu jeu = this.getJeu();
                 game = new Game(getEntreprise(), getPseudo(), j);
+                NecessaireDeSurvieSauvegarde.setJ(j);
                 Stage stage = (Stage) bouton_valider.getScene().getWindow();
                 stage.close();
             }

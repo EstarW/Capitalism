@@ -8,6 +8,7 @@ package capitalism.IHM.Cases;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Usines.Enum.Produit;
 import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
@@ -37,7 +38,13 @@ public class CaseEmplacementIHM extends CaseIHM {
     private boolean state;
     public CaseEmplacementIHM(Case c) throws IOException {
         super(c);
-        state = false;
+        CaseEmplacement cEmp = (CaseEmplacement) c;
+        if(cEmp.estOccupe()){
+            state = true;
+        }
+        else {
+            state = false;
+        }
         rec = new Rectangle(50,50,Color.GREY);
         rec.setStroke(Color.rgb(0,0,0, 0.5));
         rec.setStrokeWidth(1);
@@ -51,13 +58,18 @@ public class CaseEmplacementIHM extends CaseIHM {
         imgv.setX(this.getX()*50);
         imgv.setY(this.getY()*50);
         this.getChildren().add(imgv);
+        if(state){
+            this.onSetState();
+        }
+        else {
+            FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\EmplacementUsine.png"); 
+            img2 = new Image(inputstream2); 
+            imgv2 = new ImageView(img2);
+            imgv2.setX(this.getX()*50);
+            imgv2.setY(this.getY()*50);
+            this.getChildren().add(imgv2);
+        }
         
-        FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\EmplacementUsine.png"); 
-        img2 = new Image(inputstream2); 
-        imgv2 = new ImageView(img2);
-        imgv2.setX(this.getX()*50);
-        imgv2.setY(this.getY()*50);
-        this.getChildren().add(imgv2);
         
            
                     

@@ -5,12 +5,14 @@
  */
 package capitalism.Metier.Parties.Carte;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author Damien
  */
-public class Ville {
+public class Ville implements Serializable{
 
     private String nom;
     private int nbEmplacements;

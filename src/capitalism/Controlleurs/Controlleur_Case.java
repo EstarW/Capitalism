@@ -4,15 +4,16 @@ import capitalism.IHM.Cases.CaseIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Usines.Usine;
+import java.io.Serializable;
 
 /**
  *
  * @author Damien
  */
-public class Controlleur_Case {
+public class Controlleur_Case implements Serializable{
     
-    Case modele;
-    CaseIHM view;
+    private Case modele;
+    private transient CaseIHM view;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
 

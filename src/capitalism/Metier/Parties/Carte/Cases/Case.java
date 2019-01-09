@@ -7,18 +7,19 @@ package capitalism.Metier.Parties.Carte.Cases;
 
 import capitalism.Controlleurs.Controlleur_Case;
 import capitalism.Metier.Parties.Carte.Map;
+import java.io.Serializable;
 
 /**
  *
  * @author Matthieu
  * @author Damien
  */
-public abstract class Case {
+public abstract class Case implements Serializable{
     
     private final int ligne;                                                          //ligne de la case
     private final int colonne;                                                        //colonne de la case 
     private final Map map;                                                            //Map du jeu
-    private Controlleur_Case controlleur;
+    private transient Controlleur_Case controlleur;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
     public Case(int _ligne,int _colonne,Map _map) {

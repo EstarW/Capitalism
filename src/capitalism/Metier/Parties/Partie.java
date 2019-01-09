@@ -9,12 +9,13 @@ import capitalism.Metier.Parties.Entreprises.IA.IA;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
 import capitalism.Metier.Parties.Usines.Usine;
+import java.io.Serializable;
 
 /**
  *
  * @author Damien
  */
-public class Partie {
+public class Partie implements Serializable{
 
     private int tour;
     private Map map;
@@ -94,6 +95,9 @@ public class Partie {
             for(Usine u : en.getListeUsines()){
                 u.produire();
             }
+            int a= en.getArgent();
+            a =- 5000;
+            System.out.println(en.getArgent());
         }
         this.joueurCourant.afficheRessources();
         this.tour++;

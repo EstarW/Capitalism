@@ -3,11 +3,13 @@
  */
 package capitalism.Metier.Parties.Carte;
 
+import java.io.Serializable;
+
 /**
  * Coordonnées
  * @author Matthieu
  */
-public class Coordonnee {
+public class Coordonnee implements Serializable{
 
     private final int ligne;                                                    //Numéro de la ligne
     private final int colonne;                                                  //Numéro de la colonne

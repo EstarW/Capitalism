@@ -9,15 +9,16 @@ package capitalism.Controlleurs;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Jeu;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  *
  * @author Damien
  */
-public class Controlleur_Jeu {
+public class Controlleur_Jeu implements Serializable{
     
-    Jeu modele;
-    Game view;
+    private Jeu modele;
+    private transient Game view;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
 

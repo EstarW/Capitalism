@@ -6,12 +6,13 @@
 package capitalism.Metier.Parties.Contrats;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
+import java.io.Serializable;
 
 /**
  *
  * @author Damien
  */
-public abstract class Contrat {
+public abstract class Contrat implements Serializable{
     
     private Entreprise entSource;
     private Entreprise entDestinataire;

@@ -5,13 +5,14 @@
  */
 package capitalism.Metier.Parties.Carte;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * Comparateur de coordonnées
  * @author Matthieu
  */
-public class Comparateur_Coordonnees implements Comparator<Coordonnee> {
+public class Comparateur_Coordonnees implements Comparator<Coordonnee>, Serializable {
 
     @Override
     public int compare(Coordonnee o1, Coordonnee o2) {

@@ -8,12 +8,13 @@ package capitalism.Metier.Parties.Usines;
 import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import java.io.Serializable;
 
 /**
  *
  * @author Damien
  */
-public abstract class Usine {
+public abstract class Usine implements Serializable{
 
     protected String nom;
     protected Entreprise proprietaire;

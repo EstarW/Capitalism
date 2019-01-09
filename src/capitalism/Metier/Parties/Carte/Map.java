@@ -10,6 +10,7 @@ import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Carte.Parseur.ParseurMap;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
  *
  * @author Damien
  */
-public class Map {
+public class Map implements Serializable{
 
     private HashMap<Coordonnee,Case> hashMapCases;
     private ArrayList<Case> listeCases;

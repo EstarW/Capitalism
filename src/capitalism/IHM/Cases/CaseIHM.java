@@ -7,13 +7,14 @@ package capitalism.IHM.Cases;
 
 import capitalism.Controlleurs.Controlleur_Case;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import java.io.Serializable;
 import javafx.scene.Parent;
 
 /**
  *
  * @author Corentin
  */
-public abstract class CaseIHM extends Parent {
+public abstract class CaseIHM extends Parent implements Serializable{
     
     private int X;
     private int Y;
