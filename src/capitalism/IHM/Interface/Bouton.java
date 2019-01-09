@@ -135,7 +135,7 @@ public class Bouton extends Parent {
         }*/
         if(type == MenuGestion)
         {
-            g = new Gestion();
+            g = new Gestion(this.game);
         }
         /*if(type == MenuContrat)
         {

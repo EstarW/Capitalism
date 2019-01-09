@@ -85,7 +85,15 @@ public class Partie implements Serializable{
         this.jeu = jeu;
     }
     
-    
+    public Entreprise getEntrepByName(String nom){
+        Entreprise e = new IA("test",this);
+        for(Entreprise ent:this.listeEnt){
+            if (ent.getNom().equals(nom)){
+                e = ent;
+            }
+        }
+        return e;
+    }
 //------------------------------------------------------------------------------
     
     public void newPlayer(String nom){

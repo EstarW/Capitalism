@@ -14,7 +14,7 @@ import capitalism.Metier.Parties.Usines.Enum.Produit;
  * @author Damien
  */
 public class Joueur extends Entreprise {
-
+    
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public Joueur(String nom, Partie partie) {

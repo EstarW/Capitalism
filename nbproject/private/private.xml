@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Entreprises/Entreprise.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/Usine.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Carte/Cases/CaseEmplacement.java</file>
-            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Controlleurs/Controlleur_Case.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/IHM/Cases/CaseEmplacementIHM.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/ListeUsineJoueur2Controller.java</file>
             <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/UsineMatierePremiere.java</file>
+            <file>file:/D:/ptut/Capitalism/Capitalism/src/capitalism/Metier/Parties/Usines/UsineProduit.java</file>
         </group>
     </open-files>
 </project-private>

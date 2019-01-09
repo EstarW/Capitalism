@@ -5,6 +5,8 @@
  */
 package capitalism.IHM.WindowsCode;
 
+import capitalism.Controlleurs.ControlleursIHM.ListeUsineJoueur2Controller;
+import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieGestion;
 import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -20,18 +22,23 @@ import javafx.stage.Stage;
 public class Gestion extends Parent {
  
     private final AnchorPane rootPane;
-    
-    public Gestion() throws IOException
+    private ListeUsineJoueur2Controller controller;
+    private Game g;
+    public Gestion(Game g) throws IOException
     {
         rootPane = new AnchorPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/listeUsineJoueur.fxml").toURI().toURL()); 
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/listeUsineJoueur2.fxml").toURI().toURL()); 
 
-        
+        this.g = g;
+        NecessaireDeSurvieGestion.setG(g);
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
         Stage stage = new Stage();
         stage.setTitle("Liste d'Usine");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();  
+        this.controller = new ListeUsineJoueur2Controller();
+        
+        
     }
 }

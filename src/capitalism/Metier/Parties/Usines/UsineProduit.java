@@ -98,7 +98,7 @@ public class UsineProduit extends Usine {
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Impossible de produire !");
                     alert.setHeaderText("Votre usine " + this.nom + " ne peut pas produire de " + this.production);
-                    alert.setContentText("Vous avez besoin de deux unités de métal pour produire un meuble!");
+                    alert.setContentText("Vous avez besoin de deux unités de bois pour produire un meuble!");
                     alert.show();
                 }
                 break;
@@ -119,7 +119,7 @@ public class UsineProduit extends Usine {
             case PC:
                 if(this.proprietaire.getMatieresPremieresPossedees().get(MatierePremiere.Metal)>=4){
                     this.proprietaire.ajouteProduit(Produit.PC, 1);
-                    this.proprietaire.ajouteMatierePremiere(MatierePremiere.Bois, -4);
+                    this.proprietaire.ajouteMatierePremiere(MatierePremiere.Metal, -4);
                 }
                 else {
                     Alert alert = new Alert(AlertType.INFORMATION);
@@ -147,5 +147,7 @@ public class UsineProduit extends Usine {
             
         }
     }
+    
+  
     
 }

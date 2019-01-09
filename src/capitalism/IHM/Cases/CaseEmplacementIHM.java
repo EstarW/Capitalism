@@ -105,7 +105,7 @@ public class CaseEmplacementIHM extends CaseIHM {
 
                 }                
             }
-            else {
+            else if (state){
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Impossible de construire");
                     alert.setHeaderText("Impossible de construire, vous n'avez pas assez d'argent ");

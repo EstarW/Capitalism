@@ -52,4 +52,5 @@ public class UsineMatierePremiere extends Usine {
     public void produire() {
         this.proprietaire.getMatieresPremieresPossedees().replace(production, this.proprietaire.getMatieresPremieresPossedees().get(production)+1);
     }
+    
 }

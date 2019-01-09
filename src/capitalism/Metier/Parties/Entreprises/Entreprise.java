@@ -20,6 +20,7 @@ import java.util.HashMap;
  */
 public abstract class Entreprise implements Serializable{
 
+    protected String bilanComptable;
     protected String nom;
     protected int argent;
     protected Partie partie;
@@ -30,6 +31,7 @@ public abstract class Entreprise implements Serializable{
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public Entreprise(String nom, Partie partie) {
+        this.bilanComptable = "";
         this.argent=10000;
         this.partie=partie;
         this.nom=nom;   
@@ -81,6 +83,17 @@ public abstract class Entreprise implements Serializable{
     public void addUsine(Usine u){
         this.listeUsines.add(u);
     }
+    
+    public Usine getUsineByName(String name){
+        Usine u = null;
+        for (Usine usi : this.getListeUsines()){
+            if (usi.getNom().equals(name)){
+                u = usi;
+            }
+        }
+        
+        return u;
+    }
 //------------------------------------------------------------------------------
         public void afficheRessources(){
             for(MatierePremiere mp : this.MatieresPremieres.keySet()){
@@ -105,5 +118,13 @@ public abstract class Entreprise implements Serializable{
         
         public void ajouteMatierePremiere(MatierePremiere mp, int qte){
             this.MatieresPremieres.replace(mp, this.MatieresPremieres.get(mp)+qte);
+        }
+        
+        public void addToBilan(String ligne){
+            this.bilanComptable += ligne + "\n";
+        }
+        
+        public String getBilan(){
+            return this.bilanComptable;
         }
 }
