@@ -9,6 +9,7 @@ import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
 import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
+import capitalism.Metier.Parties.ValeursDesChoses;
 
 /**
  *
@@ -25,10 +26,14 @@ public class IA extends Entreprise{
     public void joue(){
         boolean continuer = true;
         int i = 0;
+            
         while(continuer){
             if (this.partie.getMap().getListeCasesE().size()>i){
                 if (!this.partie.getMap().getListeCasesE().get(i).estOccupe()){
-                    this.partie.getMap().getListeCasesE().get(i).construireUsine(new UsineMatierePremiere("Nom",this,this.partie.getMap().getListeCasesE().get(i),MatierePremiere.Bois));
+                    if(this.argent>=ValeursDesChoses.getCoutUsine()){
+                        this.partie.getMap().getListeCasesE().get(i).construireUsine(new UsineMatierePremiere("Nom",this,this.partie.getMap().getListeCasesE().get(i),MatierePremiere.Bois));
+                    }
+                    continuer = false;
                 }
                 else {
                     i++;

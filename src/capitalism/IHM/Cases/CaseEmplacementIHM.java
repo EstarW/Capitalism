@@ -16,6 +16,8 @@ import capitalism.Metier.Parties.Usines.UsineProduit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -84,23 +86,33 @@ public class CaseEmplacementIHM extends CaseIHM {
         
         
         this.setOnMouseClicked((MouseEvent me) -> {
-            if(state){
+            if(this.getC().getMap().getPartie().getJoueurCourant().getArgent()>=5000){
+                if(state){
                 try {
                     m = new MenuContextuel(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
                 } catch (IOException ex) {
                     System.out.println("m ioexception");
                 }
-            }
-            else{
-                try {
-                    m2 = new MenuCreationUsine(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
-                } catch (IOException ex) {
-                    System.out.println("m2 ioexception");
-                } catch (InterruptedException ex) {
-                    System.out.println("m2 interruptedexception");
                 }
+                else{
+                    try {
+                        m2 = new MenuCreationUsine(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
+                    } catch (IOException ex) {
+                        System.out.println("m2 ioexception");
+                    } catch (InterruptedException ex) {
+                        System.out.println("m2 interruptedexception");
+                    }
 
+                }                
             }
+            else {
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Impossible de construire");
+                    alert.setHeaderText("Impossible de construire, vous n'avez pas assez d'argent ");
+                    alert.setContentText("( 5 000 $ nécessaires)");
+                    alert.show();
+            }
+            
 
         });
     }
@@ -130,4 +142,6 @@ public class CaseEmplacementIHM extends CaseIHM {
         imgv2.setY(this.getY()*50);
         this.getChildren().add(imgv2);
     }
+    
+
 }

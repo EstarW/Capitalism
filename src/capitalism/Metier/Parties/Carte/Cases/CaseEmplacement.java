@@ -5,9 +5,14 @@
  */
 package capitalism.Metier.Parties.Carte.Cases;
 
+import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Usines.Usine;
+import capitalism.Metier.Parties.ValeursDesChoses;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -54,6 +59,12 @@ public class CaseEmplacement extends Case {
     public void construireUsine(Usine u){
         this.usine= u;
         this.usine.setEmplacement(this);
-        
+        this.usine.getProprietaire().retireArgent(ValeursDesChoses.getCoutUsine());
+        CaseEmplacementIHM cEmp = (CaseEmplacementIHM)this.getControlleur().getView();
+        try {
+            cEmp.setState();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

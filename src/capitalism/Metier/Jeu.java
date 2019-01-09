@@ -1,5 +1,6 @@
 package capitalism.Metier;
 
+import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 public class Jeu implements Serializable{
     private Partie partie;
     private String eName;
+    private transient Controlleur_Jeu controlleur;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public Jeu() {
@@ -28,8 +30,9 @@ public class Jeu implements Serializable{
 //------------------------------------------------------------------------------
 
     public void nouvellePartie(String pseudo) throws IOException{
-        this.partie = new Partie();
+        this.partie = new Partie(this);
         this.partie.newPlayer(pseudo);
+        this.partie.addIA();
         this.partie.getMap().chargerFichier("Carte.txt");
     }
 
@@ -39,6 +42,14 @@ public class Jeu implements Serializable{
 
     public void seteName(String eName) {
         this.eName = eName;
+    }
+
+    public Controlleur_Jeu getControlleur() {
+        return controlleur;
+    }
+
+    public void setControlleur(Controlleur_Jeu controlleur) {
+        this.controlleur = controlleur;
     }
     
     

@@ -1,5 +1,6 @@
 package capitalism.Metier.Parties;
 
+import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Carte.Map;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.util.ArrayList;
@@ -22,18 +23,19 @@ public class Partie implements Serializable{
     private ArrayList<Entreprise> listeEnt;
     private ArrayList<IA> listeIA;
     private Entreprise joueurCourant;
-    
+    private transient Jeu jeu;
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
     /**
      * Constructeur pour créer une nouvelle partie
      */
-    public Partie(){
+    public Partie(Jeu j){
         this.listeEnt = new ArrayList();
         this.listeIA = new ArrayList();
         this.tour=0;
         this.map= new Map(this);
         this.joueurCourant=null;
+        this.jeu = j;
     }
 
 //------------------------------------------------------------------------------
@@ -74,6 +76,15 @@ public class Partie implements Serializable{
     public void setJoueurCourant(Entreprise joueurCourant) {
         this.joueurCourant = joueurCourant;
     }
+
+    public Jeu getJeu() {
+        return jeu;
+    }
+
+    public void setJeu(Jeu jeu) {
+        this.jeu = jeu;
+    }
+    
     
 //------------------------------------------------------------------------------
     

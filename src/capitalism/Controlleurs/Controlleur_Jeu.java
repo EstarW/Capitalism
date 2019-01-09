@@ -24,6 +24,7 @@ public class Controlleur_Jeu implements Serializable{
 
     public Controlleur_Jeu(Jeu _modele){
         this.modele=_modele;
+        this.modele.setControlleur(this);
     }
 
 //------------------------------------------------------------------------------

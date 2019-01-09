@@ -279,4 +279,20 @@ public class Game implements Serializable{
         infp.getChildren().add(infop);
         root.getChildren().add(infp);        
     }
+    
+    public void refreshAffichage(){
+        inft.getChildren().remove(infot);
+        root.getChildren().remove(inft);
+        
+        infot = new InfoTour(control.getModele().getPartie());
+        
+        inft.getChildren().add(infot);
+        root.getChildren().add(inft);
+        
+        infp.getChildren().remove(infop);
+        root.getChildren().remove(infp); 
+        infop = new InfoPartie(control.getModele().getPartie(), control.getModele().getPartie().getJoueurCourant());
+        infp.getChildren().add(infop);
+        root.getChildren().add(infp); 
+    }
 }

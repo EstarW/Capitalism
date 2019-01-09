@@ -55,6 +55,8 @@ public abstract class CaseIHM extends Parent implements Serializable{
     public Controlleur_Case getCc() {
         return cc;
     }
+
+
     
     
 }

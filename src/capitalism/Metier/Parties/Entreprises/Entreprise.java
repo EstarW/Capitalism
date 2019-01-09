@@ -30,7 +30,7 @@ public abstract class Entreprise implements Serializable{
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public Entreprise(String nom, Partie partie) {
-        this.argent=100000;
+        this.argent=10000;
         this.partie=partie;
         this.nom=nom;   
         this.MatieresPremieres = new HashMap();
@@ -83,11 +83,27 @@ public abstract class Entreprise implements Serializable{
     }
 //------------------------------------------------------------------------------
         public void afficheRessources(){
-        for(MatierePremiere mp : this.MatieresPremieres.keySet()){
-            System.out.println("key :" + mp + " nb : " + this.MatieresPremieres.get(mp));
+            for(MatierePremiere mp : this.MatieresPremieres.keySet()){
+                System.out.println("key :" + mp + " nb : " + this.MatieresPremieres.get(mp));
+            }
+            for(Produit p : this.Produits.keySet()){
+                System.out.println("key :" + p + " nb : " +this.Produits.get(p));
+            }
         }
-        for(Produit p : this.Produits.keySet()){
-            System.out.println("key :" + p + " nb : " +this.Produits.get(p));
+        
+        public void retireArgent(int qte){
+            this.argent -= qte;
         }
-    }
+        
+        public void addArgent(int qte){
+            this.argent+= qte;
+        }
+        
+        public void ajouteProduit(Produit p, int qte){
+            this.Produits.replace(p, this.Produits.get(p)+qte);
+        }
+        
+        public void ajouteMatierePremiere(MatierePremiere mp, int qte){
+            this.MatieresPremieres.replace(mp, this.MatieresPremieres.get(mp)+qte);
+        }
 }

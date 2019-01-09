@@ -155,17 +155,18 @@ public class CréationUsineController implements Initializable {
                 //Creation de l'usine ressource
                 cIHM2.construireUsineMatierePremiere(this.comboBox_matiere.getValue(), this.textField_nom.getText());
                 cIHM2.setState();
-                
+                CaseEmplacement cEmp = (CaseEmplacement) cIHM2.getC();
             }
             else if(this.produitCheck() && !this.matiereCheck())
             {
                 //Creation de l'usine produit
                 cIHM2.construireUsineProduit(this.comboBox_produit.getValue(), this.textField_nom.getText());
                 cIHM2.setState();
+                CaseEmplacement cEmp = (CaseEmplacement) cIHM2.getC();
             }
             System.out.println("Coord : Ligne : " + cIHM2.getCase().getLigne() + " Colonne : " +  cIHM2.getCase().getColonne());
             Stage stage = (Stage) textField_nom.getScene().getWindow();
-            
+            cIHM2.getC().getMap().getPartie().getJeu().getControlleur().getView().refreshAffichage();
             stage.close();
             
         }
