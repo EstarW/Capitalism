@@ -54,6 +54,13 @@ public class ListeUsineJoueur2Controller implements Initializable {
     @FXML
     private Button bouton_dissoudre;
 
+    private static Game ga;
+    
+    public static void  setGame(Game g){
+        ga = g;
+        NecessaireDeSurvieGestion.setG(ga);
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -97,8 +104,10 @@ public class ListeUsineJoueur2Controller implements Initializable {
 
     @FXML
     private void changerTout(ActionEvent event) {
-        Usine u = NecessaireDeSurvieGestion.getG().getP().getJoueurCourant().getUsineByName(this.comboxBox_usine.getSelectionModel().getSelectedItem());
-        this.label_nom.setText(u.getNom());
+        Game g = NecessaireDeSurvieGestion.getG();
+        if(g.getP().getJoueurCourant().getListeUsines().size()>0){
+            Usine u = g.getP().getJoueurCourant().getUsineByName(this.comboxBox_usine.getSelectionModel().getSelectedItem());
+             this.label_nom.setText(u.getNom());
         this.label_production.setText(u.getProdName());
         switch(u.type()){
             case Produit:
@@ -147,10 +156,32 @@ public class ListeUsineJoueur2Controller implements Initializable {
                 throw new AssertionError(u.type().name());
             
         }
+        }
+       
     }
 
     @FXML
     private void dissoudreUsine(ActionEvent event) {
+        Game g = NecessaireDeSurvieGestion.getG();
+        
+        Usine u = g.getP().getJoueurCourant().getUsineByName(this.comboxBox_usine.getSelectionModel().getSelectedItem());
+         u.dissoudre();
+        this.comboxBox_usine.getItems().remove(u.getNom());
+       
+        this.reload();
+    }
+
+    private void reload() {        
+        Game g = NecessaireDeSurvieGestion.getG();
+        this.label_nom.setText("");
+        this.label_production.setText("");
+        this.labelQteProduction.setText("");
+        this.label_necessaireProd.setText("");
+        this.comboxBox_usine = new ComboBox();
+        for(Usine u : g.getP().getJoueurCourant().getListeUsines()){
+            System.out.println(u.getNom());
+            this.comboxBox_usine.getItems().add(u.getNom());
+        }
     }
     
 }

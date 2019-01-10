@@ -20,6 +20,7 @@ public class NecessaireDeSurvieGestion {
 
     public static void setG(Game g) {
         NecessaireDeSurvieGestion.g = g;
+        System.out.println("salut");
     }
     
     

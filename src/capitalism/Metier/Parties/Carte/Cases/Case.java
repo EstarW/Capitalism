@@ -19,7 +19,7 @@ public abstract class Case implements Serializable{
     private final int ligne;                                                          //ligne de la case
     private final int colonne;                                                        //colonne de la case 
     private final Map map;                                                            //Map du jeu
-    private transient Controlleur_Case controlleur;
+    protected transient Controlleur_Case controlleur;
     
 //---------- CONSTRUCTEURS -----------------------------------------------------
     public Case(int _ligne,int _colonne,Map _map) {

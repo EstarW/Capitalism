@@ -145,5 +145,12 @@ public class CaseEmplacementIHM extends CaseIHM {
         this.getChildren().add(imgv2);
     }
     
-
+    public void dissoudre(){
+        this.state = false;
+        img2 = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/EmplacementUsine.png"));
+        imgv2 = new ImageView(img2);
+        imgv2.setX(this.getX()*50);
+        imgv2.setY(this.getY()*50);
+        this.getChildren().add(imgv2);
+    }
 }

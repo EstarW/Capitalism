@@ -33,6 +33,7 @@ public class Gestion extends Parent {
         Parent root = loader.load();
         this.g = g;
         NecessaireDeSurvieGestion.setG(g);
+        ListeUsineJoueur2Controller.setGame(g);
         Scene scene = new Scene(root, 630, 400);
         Stage stage = new Stage();
         stage.setTitle("Liste d'Usine");

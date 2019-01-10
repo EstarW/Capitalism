@@ -8,6 +8,7 @@ package capitalism.Metier.Parties.Usines;
 import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Carte.Cases.Case;
+import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import java.io.Serializable;
 
 /**
@@ -65,4 +66,10 @@ public abstract class Usine implements Serializable{
     public abstract TypeUsine type();
     
     public abstract void produire();
+
+    public void dissoudre() {
+        this.proprietaire.getListeUsines().remove(this);
+        CaseEmplacement c = (CaseEmplacement) this.emplacement;
+        c.dissoudreUsine();
+    }
 }

@@ -48,6 +48,12 @@ public class CaseEmplacement extends Case {
     
 //------------------------------------------------------------------------------
     
+    public void dissoudreUsine(){
+        this.usine.getProprietaire().addToBilan(" Dissolution de l'usine " + this.usine.getNom());
+        this.usine = null;
+        CaseEmplacementIHM c =(CaseEmplacementIHM) this.controlleur.getView();
+        c.dissoudre();
+    }
     /**
      * 
      * @return Vrai si une usine est déjà construite sur cette case et Faux dans le cas contraire
@@ -60,7 +66,7 @@ public class CaseEmplacement extends Case {
         this.usine= u;
         this.usine.setEmplacement(this);
         this.usine.getProprietaire().retireArgent(ValeursDesChoses.getCoutUsine());
-        this.usine.getProprietaire().addToBilan("Construction de l'usine : " + this.usine.getNom() + " Production : "+ this.usine.getProdName());
+        this.usine.getProprietaire().addToBilan(" Construction de l'usine : " + this.usine.getNom() + " Production : "+ this.usine.getProdName() + " Coût : 5 000 $");
         CaseEmplacementIHM cEmp = (CaseEmplacementIHM)this.getControlleur().getView();
         try {
             cEmp.setState();

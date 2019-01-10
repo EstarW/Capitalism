@@ -6,6 +6,7 @@
 package capitalism.IHM.Interface;
 
 import capitalism.Capitalism;
+import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieGestion;
 import capitalism.IHM.WindowsCode.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.Gestion;
@@ -135,7 +136,9 @@ public class Bouton extends Parent {
         }*/
         if(type == MenuGestion)
         {
+            NecessaireDeSurvieGestion.setG(this.game);
             g = new Gestion(this.game);
+                    
         }
         /*if(type == MenuContrat)
         {

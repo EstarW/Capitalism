@@ -7,6 +7,7 @@ package capitalism.IHM.WindowsCode;
 
 
 import capitalism.Controlleurs.Controlleur_Jeu;
+import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieGestion;
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieSauvegarde;
 import capitalism.IHM.Cases.ListeCase;
 import capitalism.IHM.Interface.Bandeau;
@@ -64,7 +65,7 @@ public class Game implements Serializable{
         control.nouvellePartie(pName);
         control.getModele().getPartie().setJoueurDefaut();
         control.getModele().getPartie().setTour(1);
-        
+        NecessaireDeSurvieGestion.setG(this);
         ListeCase liste = new ListeCase(this);
         BoutonMenuList bl = new BoutonMenuList(control.getModele().getPartie(), this);
         Bandeau b = new Bandeau();
@@ -159,7 +160,8 @@ public class Game implements Serializable{
          jeu = j;
         control = new Controlleur_Jeu(jeu);
         control.setView(this);
-        
+        NecessaireDeSurvieGestion.setG(this);
+
         NecessaireDeSurvieSauvegarde.setJ(j);
         ListeCase liste = new ListeCase(this);
         BoutonMenuList bl = new BoutonMenuList(control.getModele().getPartie(), this);
@@ -183,7 +185,6 @@ public class Game implements Serializable{
 
         Scene scene = new Scene(root, 1200, 800);
         Stage stage = new Stage();
-
         map.getChildren().add(liste);
         menu.getChildren().add(bl);
         bandeau.getChildren().add(b);
