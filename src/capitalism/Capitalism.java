@@ -12,6 +12,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.stage.Stage;
+import javax.swing.JFrame;
 
 /**
  *
@@ -28,8 +29,11 @@ public class Capitalism extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        JFrame test = new test();
+        test.setVisible(true);
         j = new Jeu();
         a = new Accueil(j);
+        
     }
     
     /**
@@ -37,6 +41,7 @@ public class Capitalism extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

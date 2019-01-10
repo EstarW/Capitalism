@@ -135,7 +135,7 @@ public class Game implements Serializable{
             if(event.getCode().equals(ESCAPE)) 
             {
                 try {
-                    MenuJeu mj = new MenuJeu();
+                    MenuJeu mj = new MenuJeu(this.jeu);
                 } catch (IOException ex) {
                     Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -231,7 +231,8 @@ public class Game implements Serializable{
             if(event.getCode().equals(ESCAPE)) 
             {
                 try {
-                    MenuJeu mj = new MenuJeu();
+                    MenuJeu mj = new MenuJeu(this.jeu);
+                    
                 } catch (IOException ex) {
                     Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -294,5 +295,10 @@ public class Game implements Serializable{
         infop = new InfoPartie(control.getModele().getPartie(), control.getModele().getPartie().getJoueurCourant());
         infp.getChildren().add(infop);
         root.getChildren().add(infp); 
+    }
+
+    public void close() {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
     }
 }

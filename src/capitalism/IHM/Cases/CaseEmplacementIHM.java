@@ -86,7 +86,7 @@ public class CaseEmplacementIHM extends CaseIHM {
         
         
         this.setOnMouseClicked((MouseEvent me) -> {
-            if(this.getC().getMap().getPartie().getJoueurCourant().getArgent()>=5000){
+            
                 if(state){
                 try {
                     m = new MenuContextuel(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
@@ -95,23 +95,27 @@ public class CaseEmplacementIHM extends CaseIHM {
                 }
                 }
                 else{
-                    try {
+                    if(this.getC().getMap().getPartie().getJoueurCourant().getArgent()>=5000){
+                        try {
                         m2 = new MenuCreationUsine(this, this.getCc().getModele().getMap().getPartie().getJoueurCourant(), this.getCc().getModele().getMap());
-                    } catch (IOException ex) {
-                        System.out.println("m2 ioexception");
-                    } catch (InterruptedException ex) {
-                        System.out.println("m2 interruptedexception");
+                        } catch (IOException ex) {
+                            System.out.println("m2 ioexception");
+                        } catch (InterruptedException ex) {
+                            System.out.println("m2 interruptedexception");
+                        }
+                    }
+                    else {
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("Impossible de construire");
+                        alert.setHeaderText("Impossible de construire, vous n'avez pas assez d'argent ");
+                        alert.setContentText("( 5 000 $ nécessaires)");
+                        alert.show();
                     }
 
+                    
+
                 }                
-            }
-            else if (state){
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Impossible de construire");
-                    alert.setHeaderText("Impossible de construire, vous n'avez pas assez d'argent ");
-                    alert.setContentText("( 5 000 $ nécessaires)");
-                    alert.show();
-            }
+            
             
 
         });

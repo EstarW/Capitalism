@@ -6,6 +6,7 @@
 package capitalism.IHM.WindowsCode;
 
 import capitalism.Controlleurs.ControlleursIHM.Menu_echapController;
+import capitalism.Metier.Jeu;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -25,13 +26,13 @@ public class MenuJeu extends Parent implements Serializable{
     @FXML
     private final AnchorPane rootPane;
     private Menu_echapController controller;
+    private Jeu jeu;
     
-    
-    public MenuJeu() throws IOException
+    public MenuJeu(Jeu jeu) throws IOException
     {
         rootPane = new AnchorPane();
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/menu_echap.fxml").toURI().toURL()); 
-
+        this.jeu = jeu;
         
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
         Stage stage = new Stage();
@@ -40,6 +41,13 @@ public class MenuJeu extends Parent implements Serializable{
         stage.setScene(scene);
         stage.show();
         controller = new Menu_echapController();
+        controller.setJeu(jeu);
         controller.setWindow(stage);
     }    
+
+    public Jeu getJeu() {
+        return jeu;
+    }
+
+    
 }

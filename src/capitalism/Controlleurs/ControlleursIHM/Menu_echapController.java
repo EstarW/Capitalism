@@ -6,8 +6,12 @@
 package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieSauvegarde;
+import capitalism.IHM.WindowsCode.Game;
+import capitalism.Metier.Jeu;
+import capitalism.Metier.Parties.Chargement;
 import capitalism.Metier.Parties.Sauvegarde;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**
@@ -26,7 +31,8 @@ import javafx.stage.Window;
  */
 public class Menu_echapController implements Initializable {
 
-    private Window fenetre;
+    private static Window fenetre;
+    private static Jeu jeu;
     /**
      * Initializes the controller class.
      */
@@ -35,6 +41,11 @@ public class Menu_echapController implements Initializable {
         // TODO
     }    
 
+    public void setJeu(Jeu jeu) {
+        this.jeu = jeu;
+    }
+
+    
     @FXML
     private void handleActionButtonSaveGame(ActionEvent event) {
         System.out.println("Sauvegarder");
@@ -55,19 +66,33 @@ public class Menu_echapController implements Initializable {
 
     @FXML
     private void handleActionButtonLoadGame(ActionEvent event) {
-        System.out.println("Charger");
-            final FileChooser dialog = new FileChooser(); 
-    final File file = dialog.showSaveDialog(fenetre);
-    if (file != null) { 
+        
+        //ChargementPartie c = new ChargementPartie(jeu);
+        Stage stage = (Stage) this.fenetre;
+        final FileChooser dialog = new FileChooser(); 
+        final File file = dialog.showOpenDialog(stage);
+         if (file != null) { 
         System.out.println(file.getAbsolutePath());
-        Sauvegarde save = new Sauvegarde(file.getAbsolutePath());
+        Chargement load;
+        load = new Chargement(file.getAbsolutePath());
             try {
-                save.saveMe();
+            try {
+                load.loadMe();
+                NecessaireDeSurvieSauvegarde.setJ(load.getJ());
+                jeu.getControlleur().getView().close();
+                
+                
+                jeu.getControlleur().setView(new Game(load.getJ().geteName(), load.getJ()));
                 // Effectuer la sauvegarde. 
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             } catch (IOException ex) {
                 Logger.getLogger(Menu_echapController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    } 
+            }        } 
+        stage.close();
     }
 
     @FXML
