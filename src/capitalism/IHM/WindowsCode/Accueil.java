@@ -25,7 +25,7 @@ public class Accueil {
     public Accueil(Jeu j) throws IOException{
         
         this.j = j;
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL()); 
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("../src/capitalism/IHM/Windows/Accueil.fxml").toURI().toURL()); 
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
         Stage stage = new Stage();
         stage.setTitle("Capitalism - Accueil");
