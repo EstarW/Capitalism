@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -37,8 +39,9 @@ public class ParseurMap {
     public void lecture() throws FileNotFoundException, IOException {
         
         //ouverture du fichier en lecture
-        File file = new File(this.adresseFichier);
-        BufferedReader fichier = new BufferedReader(new FileReader(file));
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream(adresseFichier);
+        InputStreamReader ir = new InputStreamReader(is);
+        BufferedReader fichier = new BufferedReader(ir);
         
         //Lecture ligne à ligne
         String ligne;

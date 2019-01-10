@@ -8,7 +8,6 @@ package capitalism.IHM.WindowsCode;
 import capitalism.Capitalism;
 import capitalism.Controlleurs.ControlleursIHM.AccueilController;
 import capitalism.Metier.Jeu;
-import capitalism.test;
 import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;

@@ -1,5 +1,6 @@
 package capitalism.Metier;
 
+import capitalism.Capitalism;
 import capitalism.Controlleurs.Controlleur_Jeu;
 import capitalism.Metier.Parties.Partie;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class Jeu implements Serializable{
         this.partie = new Partie(this);
         this.partie.newPlayer(pseudo);
         this.partie.addIA();
-        this.partie.getMap().chargerFichier("Carte.txt");
+        this.partie.getMap().chargerFichier("capitalism/Carte.txt");
     }
 
     public String geteName() {

@@ -6,7 +6,6 @@
 package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieSauvegarde;
-import capitalism.IHM.WindowsCode.ChargementPartie;
 import capitalism.IHM.WindowsCode.CreationPartie;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Jeu;

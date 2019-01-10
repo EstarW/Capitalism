@@ -30,8 +30,6 @@ public class Capitalism extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        JFrame test = new test();
-        test.setVisible(true);
         j = new Jeu();
         a = new Accueil(j);
         
@@ -41,8 +39,6 @@ public class Capitalism extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        FXMLLoader loader = new FXMLLoader(test.class.getResource("IHM/Windows/Accueil.fxml"));
-        loader.setLocation(Jeu.class.getResource("IHM/Windows/Accueil.fxml"));
         
         launch(args);
         

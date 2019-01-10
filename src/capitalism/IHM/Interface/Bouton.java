@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Interface;
 
+import capitalism.Capitalism;
 import capitalism.IHM.WindowsCode.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.Gestion;
@@ -61,8 +62,7 @@ public class Bouton extends Parent {
 
         if(type == MenuGestion)
         {
-            FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\picto_usine.png"); 
-            img = new Image(inputstream); 
+            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/picto_usine.png")); 
             imgv = new ImageView(img);
             imgv.setLayoutX(X);
             imgv.setLayoutY(Y);

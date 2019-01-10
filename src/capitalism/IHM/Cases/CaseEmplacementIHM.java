@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.Cases;
 
+import capitalism.Capitalism;
 import capitalism.IHM.WindowsCode.MenuContextuel;
 import capitalism.IHM.WindowsCode.MenuCreationUsine;
 import capitalism.Metier.Parties.Carte.Cases.Case;
@@ -54,8 +55,7 @@ public class CaseEmplacementIHM extends CaseIHM {
         rec.setY(this.getY()*50);
         this.getChildren().add(rec);
         
-        FileInputStream inputstream = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\Neige.png"); 
-        img = new Image(inputstream); 
+            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/Neige.png"));
         imgv = new ImageView(img);
         imgv.setX(this.getX()*50);
         imgv.setY(this.getY()*50);
@@ -64,8 +64,7 @@ public class CaseEmplacementIHM extends CaseIHM {
             this.onSetState();
         }
         else {
-            FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\EmplacementUsine.png"); 
-            img2 = new Image(inputstream2); 
+                img2 = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/EmplacementUsine.png"));
             imgv2 = new ImageView(img2);
             imgv2.setX(this.getX()*50);
             imgv2.setY(this.getY()*50);
@@ -139,8 +138,7 @@ public class CaseEmplacementIHM extends CaseIHM {
     }
     
     public void onSetState() throws FileNotFoundException{
-        FileInputStream inputstream2 = new FileInputStream("..\\Capitalism\\src\\capitalism\\Resources\\Sprites\\UsineRouge1.png"); 
-        img2 = new Image(inputstream2); 
+            img2 = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/UsineRouge1.png"));
         imgv2 = new ImageView(img2);
         imgv2.setX(this.getX()*50);
         imgv2.setY(this.getY()*50);
