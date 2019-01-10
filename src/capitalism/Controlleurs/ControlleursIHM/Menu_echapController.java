@@ -79,8 +79,7 @@ public class Menu_echapController implements Initializable {
             try {
                 load.loadMe();
                 NecessaireDeSurvieSauvegarde.setJ(load.getJ());
-                jeu.getControlleur().getView().close();
-                
+                jeu.getControlleur().getView().close();              
                 
                 jeu.getControlleur().setView(new Game(load.getJ().geteName(), load.getJ()));
                 // Effectuer la sauvegarde. 

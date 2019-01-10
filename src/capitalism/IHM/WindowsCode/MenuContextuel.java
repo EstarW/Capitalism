@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.WindowsCode;
 
+import capitalism.Capitalism;
 import capitalism.Controlleurs.ControlleursIHM.MenuContextuelInGameController;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
 import capitalism.Metier.Parties.Carte.Cases.Case;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -35,8 +37,10 @@ public class MenuContextuel {
     private final MenuContextuelInGameController cu;
     
     public MenuContextuel(CaseEmplacementIHM c, Entreprise j, Map m) throws IOException, MalformedURLException{
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/MenuContextuelInGame.fxml").toURI().toURL());
-        menuContextuel = new Scene(fxmlLoader.load(), 630, 400);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Capitalism.class.getResource("IHM/Windows/MenuContextuelInGame.fxml"));
+        Parent root = loader.load();
+        menuContextuel = new Scene(root, 630, 400);
         s1 = new Stage();
         s1.setTitle("Capitalism - Visualisation d'usine");
         s1.setResizable(false);

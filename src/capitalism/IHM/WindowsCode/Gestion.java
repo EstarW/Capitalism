@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.WindowsCode;
 
+import capitalism.Capitalism;
 import capitalism.Controlleurs.ControlleursIHM.ListeUsineJoueur2Controller;
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieGestion;
 import java.io.File;
@@ -27,11 +28,12 @@ public class Gestion extends Parent {
     public Gestion(Game g) throws IOException
     {
         rootPane = new AnchorPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/listeUsineJoueur2.fxml").toURI().toURL()); 
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Capitalism.class.getResource("IHM/Windows/listeUsineJoueur2.fxml"));
+        Parent root = loader.load();
         this.g = g;
         NecessaireDeSurvieGestion.setG(g);
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Scene scene = new Scene(root, 630, 400);
         Stage stage = new Stage();
         stage.setTitle("Liste d'Usine");
         stage.setResizable(false);

@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.WindowsCode;
 
+import capitalism.Capitalism;
 import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -26,10 +27,12 @@ public class GererUsine extends Parent{
     public GererUsine() throws IOException
     {
         rootPane = new AnchorPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/GererUsine.fxml").toURI().toURL()); 
+                FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Capitalism.class.getResource("IHM/Windows/GererUsine.fxml"));
+        Parent root = loader.load();
 
         
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Scene scene = new Scene(root, 630, 400);
         Stage stage = new Stage();
         stage.setTitle("Gestion d'Usine");
         stage.setResizable(false);

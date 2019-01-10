@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javax.swing.JFrame;
 
@@ -39,7 +40,10 @@ public class Capitalism extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        FXMLLoader loader = new FXMLLoader(test.class.getResource("IHM/Windows/Accueil.fxml"));
+        loader.setLocation(Jeu.class.getResource("IHM/Windows/Accueil.fxml"));
+        
         launch(args);
         
     }

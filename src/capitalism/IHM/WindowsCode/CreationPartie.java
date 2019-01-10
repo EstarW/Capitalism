@@ -5,11 +5,13 @@
  */
 package capitalism.IHM.WindowsCode;
 
+import capitalism.Capitalism;
 import capitalism.Controlleurs.ControlleursIHM.CreationPartieController;
 import capitalism.Metier.Jeu;
 import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -25,8 +27,10 @@ public class CreationPartie {
     public CreationPartie(Jeu j) throws IOException{
         
         this.j = j;
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/CreationPartie.fxml").toURI().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+                FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Capitalism.class.getResource("IHM/Windows/CreationPartie.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 630, 400);
         Stage s = new Stage();
         s.setTitle("Capitalism - Création de partie");
         s.setResizable(false);

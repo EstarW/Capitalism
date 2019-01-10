@@ -5,6 +5,7 @@
  */
 package capitalism.IHM.WindowsCode;
 
+import capitalism.Capitalism;
 import capitalism.Controlleurs.ControlleursIHM.Menu_echapController;
 import capitalism.Metier.Jeu;
 import java.io.File;
@@ -31,10 +32,12 @@ public class MenuJeu extends Parent implements Serializable{
     public MenuJeu(Jeu jeu) throws IOException
     {
         rootPane = new AnchorPane();
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/capitalism/IHM/Windows/menu_echap.fxml").toURI().toURL()); 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Capitalism.class.getResource("IHM/Windows/menu_echap.fxml"));
+        Parent root = loader.load();
         this.jeu = jeu;
         
-        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Scene scene = new Scene(root, 630, 400);
         Stage stage = new Stage();
         stage.setTitle("Menu");
         stage.setResizable(false);
