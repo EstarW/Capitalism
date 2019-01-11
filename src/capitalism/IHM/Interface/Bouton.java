@@ -11,6 +11,7 @@ import capitalism.IHM.WindowsCode.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.Gestion;
 import capitalism.IHM.WindowsCode.MenuJeu;
+import capitalism.IHM.WindowsCode.MenuVente;
 import capitalism.Metier.Parties.Partie;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -129,11 +130,10 @@ public class Bouton extends Parent {
             System.out.println("Tour: "+p.getTour());
             game.refreshTour();
         }
-        /*if(type == MenuListe)
+       if(type == MenuListe)
         {
-            m.afficherMenu(type);
-            System.out.println(type);
-        }*/
+            MenuVente mv = new MenuVente(this.game);
+        }
         if(type == MenuGestion)
         {
             NecessaireDeSurvieGestion.setG(this.game);

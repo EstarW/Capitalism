@@ -6,9 +6,7 @@
 package capitalism.IHM.WindowsCode;
 
 import capitalism.Capitalism;
-import capitalism.Controlleurs.ControlleursIHM.AccueilController;
-import capitalism.Metier.Jeu;
-import java.io.File;
+import capitalism.Controlleurs.ControlleursIHM.EcranVenteController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,27 +15,26 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Azelat
+ * @author yv066840
  */
-public class Accueil {
+public class MenuVente {
+
+    private Game g;
+    private EcranVenteController controller;
     
-    private Jeu j;
-    private AccueilController a;
-    
-    public Accueil(Jeu j) throws IOException{
-        
-        this.j = j;
+    public MenuVente(Game game) throws IOException {
+        this.g = g;
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Capitalism.class.getResource("IHM/Windows/Accueil.fxml"));
+        loader.setLocation(Capitalism.class.getResource("IHM/Windows/EcranVente.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 630, 400);
+        Scene scene = new Scene(root, 700, 500);
         Stage stage = new Stage();
-        stage.setTitle("Capitalism - Accueil");
+        stage.setTitle("Menu de vente");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         
-        a = new AccueilController();
-        a.setJeu(j);
+        this.controller = new EcranVenteController();
     }
+    
 }
