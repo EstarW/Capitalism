@@ -9,15 +9,19 @@ import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSu
 import capitalism.IHM.WindowsCode.Accueil;
 import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Jeu;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -71,7 +75,11 @@ public class CreationPartieController implements Initializable {
         {
             if(textField_pseudo.getCharacters().toString().length() > 16)
             {
-                System.out.println("Trop long");
+                    Alert alertName = new Alert(Alert.AlertType.INFORMATION);
+                    alertName.setTitle("Erreur de création de partie !");
+                    alertName.setHeaderText("Nom trop long !");
+                    alertName.setContentText("Votre pseudonyme et votre nom d'Entreprise ne peuvent pas excéder 16 caractères.");
+                    alertName.show();
             }
             else
             {
@@ -83,8 +91,36 @@ public class CreationPartieController implements Initializable {
         }
         else
         {
-            System.out.println("Nope");
+                    Alert alertCrea = new Alert(Alert.AlertType.INFORMATION);
+                    alertCrea.setTitle("Erreur de création de partie !");
+                    alertCrea.setHeaderText("Champ texte invalide !");
+                    alertCrea.setContentText("Assurez vous d'avoir bien saisie vos noms dans chaque champ disponible.");
+                    alertCrea.show();
         }        
+    }
+    
+    @FXML
+    private void handleButtonSelectImage(ActionEvent event) throws IOException{    
+        Stage s = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Sélection d'image");
+        File f = fileChooser.showOpenDialog(s);   
+
+        if (f != null){
+            if(f.getAbsolutePath().endsWith(".png") || f.getAbsolutePath().endsWith(".jpg") || f.getAbsolutePath().endsWith(".jpeg")){
+                Image image = new Image(f.toURI().toString());
+                imageView_logo.setImage(image);
+                j.seteImage(f.toURI().toString());
+            }
+            else{
+                    Alert alertExtension = new Alert(Alert.AlertType.INFORMATION);
+                    alertExtension.setTitle("Erreur de chargement !");
+                    alertExtension.setHeaderText("Extension de fichier invalide !");
+                    alertExtension.setContentText("Vous ne pouvez charger que des fichiers .png, .jpg ou .jpeg");
+                    alertExtension.show();
+            }
+        }
+        
     }
    
     @FXML    

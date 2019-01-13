@@ -6,9 +6,7 @@
 package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieCreationUsineController;
-import capitalism.IHM.WindowsCode.Game;
 import capitalism.IHM.Cases.CaseEmplacementIHM;
-import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Cases.CaseEmplacement;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Entreprises.Joueur;
@@ -21,6 +19,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
@@ -174,7 +173,11 @@ public class CréationUsineController implements Initializable {
         }
         else
         {
-            System.out.println("Nope");
+            Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+            alertProd.setTitle("Erreur de création d'usine !");
+            alertProd.setHeaderText("Nom d'usine non saisie !");
+            alertProd.setContentText("Assurez vous d'avoir bien sélectionné un nom pour votre usine.");
+            alertProd.show();
         }
     }
 

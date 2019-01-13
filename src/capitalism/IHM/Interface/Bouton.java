@@ -61,26 +61,13 @@ public class Bouton extends Parent {
         c.setFill(Color.rgb(0,0,0,0.7));
         c.setStroke(Color.BLACK);
         c.setStrokeWidth(2);
-
-        if(type == MenuGestion)
-        {
-            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/picto_usine.png")); 
-            imgv = new ImageView(img);
-            imgv.setLayoutX(X);
-            imgv.setLayoutY(Y);
-            this.getChildren().add(imgv);
-        }
-
-
         this.setLayoutX(posX);
         this.setLayoutY(posY+650);
         this.getChildren().add(c);
-
-        
-        
+        this.addImage(type);
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent me){
-                c.setFill(Color.LIGHTGREY);
+                c.setFill(Color.GREY);
             }
         });
         
@@ -88,7 +75,43 @@ public class Bouton extends Parent {
             public void handle(MouseEvent me){
                 c.setFill(Color.rgb(0,0,0,0.7));
             }
-        });
+        });   
+    }
+  
+    
+    private void addImage(Type type){
+        if(type == MenuGestion)
+        {
+            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/picto_usine.png")); 
+            imgv = new ImageView(img);
+            imgv.setLayoutX(-25);
+            imgv.setLayoutY(-25);
+            this.getChildren().add(imgv);
+        }
+        if(type == PasserTour)
+        {
+            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/PassTour.png")); 
+            imgv = new ImageView(img);
+            imgv.setLayoutX(-25);
+            imgv.setLayoutY(-25);
+            this.getChildren().add(imgv);            
+        }
+        if(type == MenuListe)
+        {
+            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/VentePicto.png")); 
+            imgv = new ImageView(img);
+            imgv.setLayoutX(-25);
+            imgv.setLayoutY(-25);
+            this.getChildren().add(imgv);               
+        }
+        if(type == MenuContrat)
+        {
+            img = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/ContratPicto.png")); 
+            imgv = new ImageView(img);
+            imgv.setLayoutX(-25);
+            imgv.setLayoutY(-25);
+            this.getChildren().add(imgv);                
+        }     
     }
     
     public Type getType(){
@@ -122,11 +145,6 @@ public class Bouton extends Parent {
         if(type == PasserTour)
         {
             p.getTour();
-            //PASSE PAR UN CONTROLLEUR BORDEL
-            //FAUDRAIT DEJA QU'IL SOIT BIEN ECRIT MDR !
-            //p.augmenterTour();
-            //p.passerTour();
-            //PASSE PAR UN CONTROLLEUR BORDEL
             System.out.println("Tour: "+p.getTour());
             game.refreshTour();
         }
