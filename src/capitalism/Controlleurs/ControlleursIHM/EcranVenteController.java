@@ -17,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.input.SwipeEvent;
 
 /**
  * FXML Controller class
@@ -140,9 +142,13 @@ public class EcranVenteController implements Initializable {
         this.lQteConserves.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Conserves)));
         this.lQteMeubles.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Meubles)));
         
-        
+        initSpin();
     }    
 
+    private void initSpin(){
+        this.CBAcier.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10));
+    }
+    
     @FXML
     private void VenteBois(ActionEvent event) {
     }
@@ -190,6 +196,7 @@ public class EcranVenteController implements Initializable {
     public static void setG(Game g) {
         EcranVenteController.g = g;
     }
+
     
     
 }

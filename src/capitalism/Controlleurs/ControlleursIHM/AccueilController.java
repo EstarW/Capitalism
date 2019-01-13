@@ -76,6 +76,7 @@ public class AccueilController implements Initializable {
                 load.loadMe();
                 NecessaireDeSurvieSauvegarde.setJ(load.getJ());
                 Game game = new Game(load.getJ().geteName(), load.getJ());
+                stage.close();
                 // Effectuer la sauvegarde. 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);

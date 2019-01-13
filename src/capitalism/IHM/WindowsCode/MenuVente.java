@@ -23,7 +23,7 @@ public class MenuVente {
     private EcranVenteController controller;
     
     public MenuVente(Game game) throws IOException {
-        this.g = g;
+        this.g = game;
         EcranVenteController.setG(g);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Capitalism.class.getResource("IHM/Windows/EcranVente.fxml"));

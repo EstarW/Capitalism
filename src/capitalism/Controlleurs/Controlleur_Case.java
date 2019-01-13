@@ -26,7 +26,7 @@ public class Controlleur_Case implements Serializable{
     public Controlleur_Case(Case _modele, CaseIHM _view) {
         this.modele = _modele;
         this.view = _view;
-                this.modele.setControlleur(this);
+        this.modele.setControlleur(this);
 
     }
 

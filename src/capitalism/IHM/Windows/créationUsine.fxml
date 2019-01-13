@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="capitalism.Controlleurs.ControlleursIHM.CréationUsineController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="capitalism.Controlleurs.ControlleursIHM.CréationUsineController">
    <children>
       <BorderPane layoutX="174.0" layoutY="72.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -36,16 +35,16 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <RadioButton text="Produit :" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <RadioButton fx:id="bProduit" onAction="#btnProduit" text="Produit :" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </RadioButton>
-                  <RadioButton text="Matière première :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="bMP" onAction="#btnMP" text="Matière première :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                     <buttons>
-                      <Button fx:id="bouton_valider" mnemonicParsing="false" text="Valider" onAction = "#handleValiderActionButton" />
-                        <Button fx:id="bouton_annuler" mnemonicParsing="false" text="Annuler" onAction = "#handleAnnulerActionButton" />
+                      <Button fx:id="bouton_valider" mnemonicParsing="false" onAction="#handleValiderActionButton" text="Valider" />
+                        <Button fx:id="bouton_annuler" mnemonicParsing="false" onAction="#handleAnnulerActionButton" text="Annuler" />
                     </buttons>
                      <GridPane.margin>
                         <Insets right="200.0" />

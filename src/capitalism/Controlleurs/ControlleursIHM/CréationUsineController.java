@@ -44,16 +44,16 @@ public class CréationUsineController implements Initializable {
     private ComboBox<Produit> comboBox_produit;
     @FXML
     private ComboBox<MatierePremiere> comboBox_matiere;
-    @FXML 
-    private RadioButton button_produit;
-    @FXML
-    private RadioButton button_matiere;
     
     private Usine usine;
     private boolean check;
     private Entreprise e;
     private Joueur j;
     private CaseEmplacementIHM cIHM;
+    @FXML
+    private RadioButton bProduit;
+    @FXML
+    private RadioButton bMP;
 
     /**
      * Initializes the controller class.
@@ -183,5 +183,20 @@ public class CréationUsineController implements Initializable {
         Stage s = (Stage) bouton_annuler.getScene().getWindow();
         s.close();
     }     
+
+    @FXML
+    private void btnProduit(ActionEvent event) {
+        if(this.bProduit.isArmed())
+        {
+           this.bProduit = new RadioButton(bProduit.getText());
+        }
+    }
+
+    @FXML
+    private void btnMP(ActionEvent event) {
+        if(this.bMP.isArmed()){
+            this.bMP.disarm();
+        }
+    }
     
 }

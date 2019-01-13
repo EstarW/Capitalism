@@ -6,13 +6,13 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="capitalism.Controlleurs.ControlleursIHM.EcranVenteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="capitalism.Controlleurs.ControlleursIHM.EcranVenteController">
    <children>
       <Label layoutX="14.0" layoutY="30.0" text="Matières premières" underline="true" />
       <Label layoutX="58.0" layoutY="75.0" text="Bois" />
       <Separator layoutX="145.0" layoutY="4.0" orientation="VERTICAL" prefHeight="494.0" prefWidth="6.0" />
       <Separator layoutY="107.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteBois" fx:id="CBBois" editable="true" layoutX="476.0" layoutY="70.0" prefWidth="73.0" />
+      <Spinner id="QteVenteBois" fx:id="CBBois" layoutX="476.0" layoutY="70.0" prefWidth="73.0" />
       <Button id="BVenteBois" fx:id="BVenteBois" layoutX="604.0" layoutY="70.0" mnemonicParsing="false" onAction="#VenteBois" text="Vendre" />
       <Separator layoutY="67.0" prefHeight="3.0" prefWidth="697.0" />
       <Label layoutX="169.0" layoutY="30.0" text="Quantité possédée" underline="true" />
@@ -25,19 +25,19 @@
       <Label id="PrixUBois" fx:id="labelPrixBois" layoutX="353.0" layoutY="75.0" text="Label" />
       <Label layoutX="44.0" layoutY="115.0" text="Céréales" />
       <Separator layoutY="147.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteCereales" fx:id="CBCereales" editable="true" layoutX="476.0" layoutY="110.0" prefWidth="73.0" />
+      <Spinner id="QteVenteCereales" fx:id="CBCereales" layoutX="476.0" layoutY="110.0" prefWidth="73.0" />
       <Button id="BVenteCereales" fx:id="BVenteCereales" layoutX="604.0" layoutY="110.0" mnemonicParsing="false" onAction="#VenteCereales" text="Vendre" />
       <Label id="qteCereales" fx:id="lQteCereales" layoutX="208.0" layoutY="115.0" text="Label" />
       <Label id="PrixUCereales" fx:id="labelPrixCereale" layoutX="353.0" layoutY="115.0" text="Label" />
       <Label layoutX="53.0" layoutY="154.0" text="Métal" />
       <Separator layoutY="186.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteMetal" fx:id="CBMetal" editable="true" layoutX="476.0" layoutY="149.0" prefWidth="73.0" />
+      <Spinner id="QteVenteMetal" fx:id="CBMetal" layoutX="476.0" layoutY="149.0" prefWidth="73.0" />
       <Button id="BVenteMetal" fx:id="BVenteMetal" layoutX="604.0" layoutY="149.0" mnemonicParsing="false" onAction="#VenteMetal" text="Vendre" />
       <Label id="qteMetal" fx:id="lQteMetal" layoutX="208.0" layoutY="154.0" text="Label" />
       <Label id="PrixUMetal" fx:id="labelPrixMetal" layoutX="353.0" layoutY="154.0" text="Label" />
       <Label layoutX="37.0" layoutY="193.0" text="Nourriture" />
       <Separator layoutY="225.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteNourriture" fx:id="CBNourriture" editable="true" layoutX="476.0" layoutY="188.0" prefWidth="73.0" />
+      <Spinner id="QteVenteNourriture" fx:id="CBNourriture" layoutX="476.0" layoutY="188.0" prefWidth="73.0" />
       <Button id="BVenteNourriture" fx:id="BVenteNourriture" layoutX="604.0" layoutY="188.0" mnemonicParsing="false" onAction="#VenteNourriture" text="Vendre" />
       <Label id="qteNourriture" fx:id="lQteNourriture" layoutX="208.0" layoutY="193.0" text="Label" />
       <Label id="PrixUNourriture" fx:id="labelPrixNourriture" layoutX="353.0" layoutY="193.0" text="Label" />
@@ -45,37 +45,37 @@
       <Separator layoutY="267.0" prefHeight="3.0" prefWidth="697.0" />
       <Label layoutX="54.0" layoutY="274.0" text="Acier" />
       <Separator layoutY="306.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteAcier" fx:id="CBAcier" editable="true" layoutX="476.0" layoutY="269.0" prefWidth="73.0" />
+      <Spinner id="QteVenteAcier" fx:id="CBAcier" layoutX="476.0" layoutY="269.0" prefWidth="73.0" />
       <Button id="BVenteAcier" fx:id="BVenteAcier" layoutX="604.0" layoutY="269.0" mnemonicParsing="false" onAction="#VenteAcier" text="Vendre" />
       <Label id="qteAcier" fx:id="lQteAcier" layoutX="208.0" layoutY="274.0" text="Label" />
       <Label id="PrixUAcier" fx:id="labelPrixAcier" layoutX="353.0" layoutY="274.0" text="Label" />
       <Label layoutX="42.0" layoutY="313.0" text="Cagettes" />
       <Separator layoutY="345.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteCagettes" fx:id="CBCagettes" editable="true" layoutX="476.0" layoutY="308.0" prefWidth="73.0" />
+      <Spinner id="QteVenteCagettes" fx:id="CBCagettes" layoutX="476.0" layoutY="308.0" prefWidth="73.0" />
       <Button id="BVenteCagettes" fx:id="BVenteCagettes" layoutX="604.0" layoutY="308.0" mnemonicParsing="false" onAction="#VenteCagettes" text="Vendre" />
       <Label id="qteCagettes" fx:id="lQteCagettes" layoutX="208.0" layoutY="313.0" text="Label" />
       <Label id="PrixUCagettes" fx:id="labelPrixCagettes" layoutX="353.0" layoutY="313.0" text="Label" />
       <Label layoutX="38.0" layoutY="350.0" text="Conserves" />
       <Separator layoutY="382.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteConserves" fx:id="CBConserves" editable="true" layoutX="476.0" layoutY="345.0" prefWidth="73.0" />
+      <Spinner id="QteVenteConserves" fx:id="CBConserves" layoutX="476.0" layoutY="345.0" prefWidth="73.0" />
       <Button id="BVenteConserves" fx:id="BVenteConserves" layoutX="604.0" layoutY="345.0" mnemonicParsing="false" onAction="#VenteConserve" text="Vendre" />
       <Label id="qteConserves" fx:id="lQteConserves" layoutX="208.0" layoutY="350.0" text="Label" />
       <Label id="PrixUConserves" fx:id="labelPrixConserves" layoutX="353.0" layoutY="350.0" text="Label" />
       <Label layoutX="27.0" layoutY="389.0" text="Médicaments" />
       <Separator layoutY="421.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteMedicaments" fx:id="CBMedicaments" editable="true" layoutX="476.0" layoutY="384.0" prefWidth="73.0" />
+      <Spinner id="QteVenteMedicaments" fx:id="CBMedicaments" layoutX="476.0" layoutY="384.0" prefWidth="73.0" />
       <Button id="BVenteMedicaments" fx:id="BVenteMedicaments" layoutX="604.0" layoutY="384.0" mnemonicParsing="false" onAction="#VenteMedicaments" text="Vendre" />
       <Label id="qteMedicaments" fx:id="lQteMedicaments" layoutX="208.0" layoutY="389.0" text="Label" />
       <Label id="PrixUMedicaments" fx:id="labelPrixMedicaments" layoutX="353.0" layoutY="389.0" text="Label" />
       <Label layoutX="43.0" layoutY="428.0" text="Meubles" />
       <Separator layoutY="460.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVenteMeubles" fx:id="CBMeubles" editable="true" layoutX="476.0" layoutY="423.0" prefWidth="73.0" />
+      <Spinner id="QteVenteMeubles" fx:id="CBMeubles" layoutX="476.0" layoutY="423.0" prefWidth="73.0" />
       <Button id="BVenteMeubles" fx:id="BVenteMeubles" layoutX="604.0" layoutY="423.0" mnemonicParsing="false" onAction="#VenteMeubles" text="Vendre" />
       <Label id="qteMeubles" fx:id="lQteMeubles" layoutX="208.0" layoutY="428.0" text="Label" />
       <Label id="PrixUMeubles" fx:id="labelPrixMeubles" layoutX="353.0" layoutY="428.0" text="Label" />
       <Label layoutX="62.0" layoutY="467.0" text="PC" />
       <Separator layoutY="499.0" prefHeight="3.0" prefWidth="697.0" />
-      <Spinner id="QteVentePC" fx:id="CBPC" editable="true" layoutX="476.0" layoutY="462.0" prefWidth="73.0" />
+      <Spinner id="QteVentePC" fx:id="CBPC" layoutX="476.0" layoutY="462.0" prefWidth="73.0" />
       <Button id="BVentePC" fx:id="BVentePC" layoutX="604.0" layoutY="462.0" mnemonicParsing="false" onAction="#VentePC" text="Vendre" />
       <Label id="qtePc" fx:id="lQtePC" layoutX="208.0" layoutY="467.0" text="Label" />
       <Label id="PrixUPC" fx:id="labelPrixPC" layoutX="353.0" layoutY="467.0" text="Label" />
