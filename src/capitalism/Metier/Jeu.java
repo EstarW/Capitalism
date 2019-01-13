@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class Jeu implements Serializable{
     private Partie partie;
     private String eName;
+    private String eImage;
     private transient Controlleur_Jeu controlleur;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -43,6 +44,14 @@ public class Jeu implements Serializable{
 
     public void seteName(String eName) {
         this.eName = eName;
+    }
+    
+    public void seteImage(String Path){
+        this.eImage = Path;
+    }
+    
+    public String getImage(){
+        return eImage;
     }
 
     public Controlleur_Jeu getControlleur() {

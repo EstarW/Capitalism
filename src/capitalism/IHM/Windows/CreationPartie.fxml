@@ -51,7 +51,7 @@
                         <Insets bottom="50.0" left="25.0" right="50.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
                     <buttons>
                       <Button fx:id="bouton_retour" mnemonicParsing="false" text="Retour" onAction="#handleButtonGoBackAction">
                            <padding>
@@ -59,6 +59,11 @@
                            </padding>
                         </Button>
                         <Button fx:id="bouton_valider" mnemonicParsing="false" text="Valider" onAction="#handleButtonStartGameAction">
+                           <padding>
+                              <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="bouton_image" mnemonicParsing="false" text="Logo" onAction="#handleButtonSelectImage">
                            <padding>
                               <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
                            </padding>
