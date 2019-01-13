@@ -14,7 +14,6 @@ import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Usines.Enum.Produit;
 import capitalism.Metier.Parties.Usines.UsineMatierePremiere;
 import capitalism.Metier.Parties.Usines.UsineProduit;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.scene.control.Alert;
