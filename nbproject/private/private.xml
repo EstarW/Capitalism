@@ -3,15 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/EcranVenteController.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/Metier/Parties/Usines/Enum/Produit.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/WindowsCode/MenuContextuel.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/WindowsCode/MenuVente.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/Metier/Parties/Usines/UsineProduit.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/CréationUsineController.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/WindowsCode/Gestion.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/ListeUsineJoueur2Controller.java</file>
-            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/Windows/ApercuVille.fxml</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Contrats/ContratVenteMatierePremiere.java</file>
+            <file>file:/D:/Capitalism/Capitalism/nbproject/build-impl.xml</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Contrats/Contrat.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/MenuContrat.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Sauvegarde.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/MenuContratController.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/Menu_echapController.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/Accueil.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Chargement.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/Game.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/Cases/CaseEmplacementIHM.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/MenuJeu.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/ApercuVille.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/AccueilController.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/MenuCreationUsine.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Partie.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Entreprises/IA/IA.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Carte.txt</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/Metier/Parties/Entreprises/Entreprise.java</file>
+            <file>file:/D:/Capitalism/Capitalism/src/capitalism/IHM/WindowsCode/Options.java</file>
+            <file>file:/D:/Capitalism/Capitalism/nbproject/jfx-impl.xml</file>
         </group>
     </open-files>
 </project-private>

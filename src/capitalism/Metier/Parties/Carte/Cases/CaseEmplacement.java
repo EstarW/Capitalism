@@ -66,10 +66,16 @@ public class CaseEmplacement extends Case {
         this.usine= u;
         this.usine.setEmplacement(this);
         this.usine.getProprietaire().retireArgent(ValeursDesChoses.getCoutUsine());
-        this.usine.getProprietaire().addToBilan(" Construction de l'usine : " + this.usine.getNom() + " Production : "+ this.usine.getProdName() + " Coût : 5 000 $");
+        this.usine.getProprietaire().addToBilan(" Construction de l'usine : " + this.usine.getNom() + "- Production : "+ this.usine.getProdName() + "- Coût : 5 000 $");
         CaseEmplacementIHM cEmp = (CaseEmplacementIHM)this.getControlleur().getView();
         try {
-            cEmp.setState();
+            if(this.usine.getProprietaire().equals(this.getMap().getPartie().getJoueurCourant())){
+                cEmp.setState();
+            }
+            else {
+                cEmp.setStateIa();
+            }
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CaseEmplacement.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -15,11 +15,11 @@ import javafx.scene.control.Alert;
  */
 public abstract class Contrat implements Serializable{
     
-    private Entreprise entSource;
-    private Entreprise entDestinataire;
-    private int duree;
-    private String nom;
-    private int prix;
+    protected Entreprise entSource;
+    protected Entreprise entDestinataire;
+    protected int duree;
+    protected String nom;
+    protected int prix;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -105,6 +105,8 @@ public abstract class Contrat implements Serializable{
     public void accepter(){
         this.entDestinataire.addContrat(this);
         this.entSource.addContrat(this);
+        this.entDestinataire.getListeContratAttente().remove(this);
+        this.entSource.getListeContratAttente().remove(this);
         if(this.entSource.equals(this.entSource.getPartie().getJoueurCourant())){
             Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
             alertProd.setTitle("Contrat accepté ! ");
@@ -112,6 +114,13 @@ public abstract class Contrat implements Serializable{
             alertProd.setContentText("Votre contrat " + this.nom + " a été accepté par l'entreprise "+ this.entDestinataire + " !");
             alertProd.show();
         }
-        this.annuler();
+    }
+    
+    
+    public abstract void effectuer();
+
+    public void resilier() {
+        this.entDestinataire.getListeContrat().remove(this);
+        this.entSource.getListeContrat().remove(this);
     }
 }

@@ -101,9 +101,18 @@ public class Partie implements Serializable{
     }
     
     public void addIA(){
-        IA ent = new IA("Salut",this);
+        IA ent = new IA("PlantesVertesCorp",this);
+        IA ia2 = new IA("TiltMasterCoorp",this);
+        IA i3 = new IA("GreenPtutCorp",this);
+        IA ia4 = new IA("FloweyCorp",this);
         this.listeEnt.add(ent);
-        this.listeIA.add(ent);
+        this.listeIA.add(ent);        
+        this.listeEnt.add(ia2);
+        this.listeIA.add(ia2);       
+        this.listeEnt.add(i3);
+        this.listeIA.add(i3);
+        this.listeEnt.add(ia4);
+        this.listeIA.add(ia4);
     }
 
     public void passerTour() {

@@ -8,6 +8,7 @@ package capitalism.Controlleurs.ControlleursIHM;
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieSauvegarde;
 import capitalism.IHM.WindowsCode.CreationPartie;
 import capitalism.IHM.WindowsCode.Game;
+import capitalism.IHM.WindowsCode.Options;
 import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Chargement;
 import capitalism.Metier.Parties.Entreprises.Joueur;
@@ -91,8 +92,8 @@ public class AccueilController implements Initializable {
     }
   
     @FXML    
-    private void handleButtonOptionAction(ActionEvent event) {
-        System.out.println("Option");
+    private void handleButtonOptionAction(ActionEvent event) throws IOException {
+        Options m = new Options(); 
     }
     
     @FXML    

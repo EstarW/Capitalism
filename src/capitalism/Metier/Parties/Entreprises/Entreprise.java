@@ -43,7 +43,7 @@ public abstract class Entreprise implements Serializable{
         }
         this.Produits = new HashMap();
         for(Produit m : Produit.values()){
-            this.Produits.put(m, 1);
+            this.Produits.put(m, 0);
         }
         this.listeUsines = new ArrayList();
         this.listeContrat = new ArrayList();

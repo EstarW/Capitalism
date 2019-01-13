@@ -124,8 +124,8 @@ public class MenuContratController implements Initializable {
             this.cbContratAttente.getItems().add(c);
         }
         
-        for(Contrat c : g.getJCourant().getListeContratAttente()){
-            this.cbContratAttente.getItems().add(c);
+        for(Contrat c : g.getJCourant().getListeContrat()){
+            this.cbContrat.getItems().add(c);
         }
         
 
@@ -133,7 +133,7 @@ public class MenuContratController implements Initializable {
         this.bAccepter.setVisible(false);
         this.bAnnuler.setVisible(false);
         this.bDecliner.setVisible(false);
-    
+        this.initAttente();
         this.initListe();
     }   
     
@@ -164,10 +164,13 @@ public class MenuContratController implements Initializable {
     
     @FXML
     private void annuler(ActionEvent event){
-        Contrat c =this.cbContratAttente.getSelectionModel().getSelectedItem();
-        c.annuler();
-        this.initAttente();
-        this.cbContratAttente.getItems().remove(c);
+        if (this.cbContratAttente.getSelectionModel().getSelectedItem()!=null){
+            Contrat c =this.cbContratAttente.getSelectionModel().getSelectedItem();
+            c.annuler();
+            this.initAttente();
+            this.cbContratAttente.getItems().remove(c);
+        }
+        
     }
     
     @FXML
@@ -211,7 +214,8 @@ public class MenuContratController implements Initializable {
 
     @FXML
     private void changeList(ActionEvent event){
-        Contrat c = this.cbContratAttente.getSelectionModel().getSelectedItem();
+        Contrat c = this.cbContrat.getSelectionModel().getSelectedItem();
+        if(c !=null){
             if(c.getTypeContrat()== TypeContrat.VenteMatierePremiere){
                 ContratVenteMatierePremiere cmp = (ContratVenteMatierePremiere) c;
                 this.lMontant.setText(String.valueOf(cmp.getPrix()));
@@ -230,6 +234,8 @@ public class MenuContratController implements Initializable {
                 this.lQte.setText(String.valueOf(cp.getDuree()));
                 this.lRessource.setText(cp.getP().toString());
             }
+        }
+            
 
     }
     private void resetNewContrat(){
@@ -243,6 +249,7 @@ public class MenuContratController implements Initializable {
          for(Entreprise e : g.getP().getListeEnt()){
             this.cbEntrep.getItems().add(e);
         }
+         this.cbEntrep.getItems().remove(g.getJCourant());
         this.comboBox_matiere.getItems().removeAll(this.comboBox_matiere.getItems());
         this.comboBox_produit.getItems().removeAll(this.comboBox_produit.getItems());
         this.comboBox_matiere.getItems().add(MatierePremiere.Bois);
@@ -303,6 +310,9 @@ public class MenuContratController implements Initializable {
 
     @FXML
     private void accepter(ActionEvent event) {
+        Contrat c = this.cbContratAttente.getSelectionModel().getSelectedItem();
+        c.accepter();
+        this.cbContratAttente.getItems().remove(c);
     }
 
     @FXML
@@ -310,15 +320,15 @@ public class MenuContratController implements Initializable {
         Contrat c =this.cbContratAttente.getSelectionModel().getSelectedItem();
         c.annuler();
         this.cbContratAttente.getItems().remove(c);
-        Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
-        alertProd.setTitle("Un contrat a été décliné !");
-        alertProd.setHeaderText("");
-        alertProd.setContentText("Assurez vous d'avoir bien saisi tous les champs !");
-        alertProd.show();
+        
     }
 
     @FXML
     private void resilier(ActionEvent event) {
+        Contrat c = this.cbContrat.getSelectionModel().getSelectedItem();
+        c.resilier();
+        this.cbContrat.getItems().remove(c);
+        this.initListe();
     }
     
     public boolean estUnEntier(String chaine) {

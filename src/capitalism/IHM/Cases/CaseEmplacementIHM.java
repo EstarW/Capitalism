@@ -60,7 +60,14 @@ public class CaseEmplacementIHM extends CaseIHM {
         imgv.setY(this.getY()*50);
         this.getChildren().add(imgv);
         if(state){
-            this.onSetState();
+            CaseEmplacement cemp = (CaseEmplacement) this.getCase();
+            if(cemp.getUsine().getProprietaire().equals(cemp.getMap().getPartie().getJoueurCourant())){
+                 this.onSetState();
+            }           
+            else{
+                this.setStateIa();
+            }
+
         }
         else {
                 img2 = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/EmplacementUsine.png"));
@@ -152,4 +159,16 @@ public class CaseEmplacementIHM extends CaseIHM {
         imgv2.setY(this.getY()*50);
         this.getChildren().add(imgv2);
     }
+
+    public void setStateIa() {
+ this.state= true;
+        this.onSetStateIA();
+    }
+
+    private void onSetStateIA() {
+        img2 = new Image(Capitalism.class.getResourceAsStream("Resources/Sprites/UsineBleue1.png"));
+        imgv2 = new ImageView(img2);
+        imgv2.setX(this.getX()*50);
+        imgv2.setY(this.getY()*50);
+        this.getChildren().add(imgv2);    }
 }

@@ -7,6 +7,7 @@ package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSurvieSauvegarde;
 import capitalism.IHM.WindowsCode.Game;
+import capitalism.IHM.WindowsCode.Options;
 import capitalism.Metier.Jeu;
 import capitalism.Metier.Parties.Chargement;
 import capitalism.Metier.Parties.Sauvegarde;
@@ -95,8 +96,8 @@ public class Menu_echapController implements Initializable {
     }
 
     @FXML
-    private void handleActionButtonOption(ActionEvent event) {
-        System.out.println("Options");
+    private void handleActionButtonOption(ActionEvent event) throws IOException {
+        Options option = new Options();
     }
 
     @FXML
