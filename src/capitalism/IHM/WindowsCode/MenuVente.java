@@ -24,6 +24,7 @@ public class MenuVente {
     
     public MenuVente(Game game) throws IOException {
         this.g = g;
+        EcranVenteController.setG(g);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Capitalism.class.getResource("IHM/Windows/EcranVente.fxml"));
         Parent root = loader.load();
@@ -33,7 +34,7 @@ public class MenuVente {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-        
+
         this.controller = new EcranVenteController();
     }
     

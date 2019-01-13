@@ -11,7 +11,6 @@ package capitalism.Metier.Parties.Usines.Enum;
  */
 public enum Produit {
     Acier,
-    PlaqueMetal,
     Cagettes,
     Meubles,
     Conserves,

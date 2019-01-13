@@ -6,6 +6,8 @@
 package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.IHM.WindowsCode.Game;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
+import capitalism.Metier.Parties.Usines.Enum.Produit;
 import capitalism.Metier.Parties.ValeursDesChoses;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -112,16 +114,33 @@ public class EcranVenteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        this.labelPrixAcier.setText(String.valueOf(ValeursDesChoses.getpVenteAcier()));
-        this.labelPrixBois.setText(String.valueOf(ValeursDesChoses.getpVenteBois()));
-        this.labelPrixCereale.setText(String.valueOf(ValeursDesChoses.getpVenteCereales()));
-        this.labelPrixMetal.setText(String.valueOf(ValeursDesChoses.getpVenteMetal()));
-        this.labelPrixNourriture.setText(String.valueOf(ValeursDesChoses.getpVenteNourriture()));
-        this.labelPrixCagettes.setText(String.valueOf(ValeursDesChoses.getpVenteCagettes()));
-        this.labelPrixConserves.setText(String.valueOf(ValeursDesChoses.getpVenteConserves()));
-        this.labelPrixMedicaments.setText(String.valueOf(ValeursDesChoses.getpVenteMedicaments()));
-        this.labelPrixMeubles.setText(String.valueOf(ValeursDesChoses.getpVenteMeubles()));
-        this.labelPrixPC.setText(String.valueOf(ValeursDesChoses.getpVentePC()));
+        //init valeurs des choses
+        this.labelPrixAcier.setText(String.valueOf(ValeursDesChoses.getpVenteAcier()) + " $");
+        this.labelPrixBois.setText(String.valueOf(ValeursDesChoses.getpVenteBois())+ " $");
+        this.labelPrixCereale.setText(String.valueOf(ValeursDesChoses.getpVenteCereales())+ " $");
+        this.labelPrixMetal.setText(String.valueOf(ValeursDesChoses.getpVenteMetal())+ " $");
+        this.labelPrixNourriture.setText(String.valueOf(ValeursDesChoses.getpVenteNourriture())+ " $");
+        this.labelPrixCagettes.setText(String.valueOf(ValeursDesChoses.getpVenteCagettes())+ " $");
+        this.labelPrixConserves.setText(String.valueOf(ValeursDesChoses.getpVenteConserves())+ " $");
+        this.labelPrixMedicaments.setText(String.valueOf(ValeursDesChoses.getpVenteMedicaments())+ " $");
+        this.labelPrixMeubles.setText(String.valueOf(ValeursDesChoses.getpVenteMeubles())+ " $");
+        this.labelPrixPC.setText(String.valueOf(ValeursDesChoses.getpVentePC())+ " $");
+        
+        //init qte
+        
+        this.lQteBois.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois)));
+        this.lQteCereales.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Cereales)));
+        this.lQteMetal.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Metal)));
+        this.lQteNourriture.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Nourriture)));
+        
+        this.lQteAcier.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQteCagettes.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQteMedicaments.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQtePC.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.PC)));
+        this.lQteConserves.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Conserves)));
+        this.lQteMeubles.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Meubles)));
+        
+        
     }    
 
     @FXML
@@ -163,5 +182,14 @@ public class EcranVenteController implements Initializable {
     @FXML
     private void VentePC(ActionEvent event) {
     }
+
+    public static Game getG() {
+        return g;
+    }
+
+    public static void setG(Game g) {
+        EcranVenteController.g = g;
+    }
+    
     
 }

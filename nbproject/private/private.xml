@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/WindowsCode/Accueil.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/EcranVenteController.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/Windows/Accueil.fxml</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/Windows/EcranVente.fxml</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/WindowsCode/MenuVente.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/WindowsCode/MenuCreationUsine.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/Interface/Bouton.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/IHM/WindowsCode/Game.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/src/capitalism/Metier/Parties/ValeursDesChoses.java</file>
-            <file>file:/C:/Users/yv066840/Desktop/Capitalism/nbproject/jfx-impl.xml</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/EcranVenteController.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/Metier/Parties/Usines/Enum/Produit.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/WindowsCode/MenuContextuel.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/WindowsCode/MenuVente.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/Metier/Parties/Usines/UsineProduit.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/CréationUsineController.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/WindowsCode/Gestion.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/Controlleurs/ControlleursIHM/ListeUsineJoueur2Controller.java</file>
+            <file>file:/U:/yv066840/Capitalism/src/capitalism/IHM/Windows/ApercuVille.fxml</file>
         </group>
     </open-files>
 </project-private>

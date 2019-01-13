@@ -68,8 +68,10 @@ public class CréationUsineController implements Initializable {
         this.AddProd(Produit.Acier);
         this.AddProd(Produit.Cagettes);
         this.AddProd(Produit.Conserves);
+        
+        this.AddProd(Produit.Medicaments);
         this.AddProd(Produit.Meubles);
-        this.AddProd(Produit.PlaqueMetal);
+        this.AddProd(Produit.PC);
 
         check = false;
 

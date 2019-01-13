@@ -62,20 +62,7 @@ public class UsineProduit extends Usine {
                     alert.setContentText("Vous avez besoin d'une unité de métal pour produire de l'acier!");
                     alert.show();
                 }
-                break;
-            case PlaqueMetal:
-                if(this.proprietaire.getMatieresPremieresPossedees().get(MatierePremiere.Metal)>=2){
-                    this.proprietaire.ajouteProduit(Produit.PlaqueMetal, 1);
-                    this.proprietaire.ajouteMatierePremiere(MatierePremiere.Metal, -2);
-                }
-                else {
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Impossible de produire !");
-                    alert.setHeaderText("Votre usine " + this.nom + " ne peut pas produire de " + this.production);
-                    alert.setContentText("Vous avez besoin de deux unités de métal pour produire des plaques de métal!");
-                    alert.show();
-                }
-                break;
+                break;            
             case Cagettes:
                 if(this.proprietaire.getMatieresPremieresPossedees().get(MatierePremiere.Bois)>=1){
                     this.proprietaire.ajouteProduit(Produit.Cagettes, 2);

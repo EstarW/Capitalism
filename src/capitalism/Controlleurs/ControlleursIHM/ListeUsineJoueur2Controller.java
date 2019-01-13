@@ -88,6 +88,7 @@ public class ListeUsineJoueur2Controller implements Initializable {
         
         Entreprise e = NecessaireDeSurvieGestion.getG().getControl().getModele().getPartie().getEntrepByName(this.comboBoxEntrep.getSelectionModel().getSelectedItem());
         this.qteUsinesEntrep.setText(String.valueOf(e.getListeUsines().size()));
+        this.comboBox_lUsine.getItems().removeAll(comboBox_lUsine.getItems());
         for(Usine u : e.getListeUsines()){
             this.comboBox_lUsine.getItems().addAll(u.getNom());
         }
@@ -98,8 +99,11 @@ public class ListeUsineJoueur2Controller implements Initializable {
     @FXML
     private void changeProd(ActionEvent event) {
         Entreprise e = NecessaireDeSurvieGestion.getG().getControl().getModele().getPartie().getEntrepByName(this.comboBoxEntrep.getSelectionModel().getSelectedItem());
-        Usine u = e.getUsineByName(this.comboBox_lUsine.getSelectionModel().getSelectedItem());
-        this.label_Prod.setText(u.getProdName());
+        if(e.getListeUsines().size()>0){
+            Usine u = e.getUsineByName(this.comboBox_lUsine.getSelectionModel().getSelectedItem());
+            this.label_Prod.setText(u.getProdName());
+        }
+        
     }
 
     @FXML
@@ -117,10 +121,6 @@ public class ListeUsineJoueur2Controller implements Initializable {
                 case Acier:
                     this.labelQteProduction.setText("1");
                     this.label_necessaireProd.setText("Nécessite 1 unité de métal");
-                    break;
-                case PlaqueMetal:
-                    this.labelQteProduction.setText("1");
-                    this.label_necessaireProd.setText("Nécessite 2 unités de métal");
                     break;
                 case Cagettes:
                     this.labelQteProduction.setText("2");
