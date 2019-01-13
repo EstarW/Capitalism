@@ -10,6 +10,7 @@ import capitalism.Controlleurs.ControlleursIHM.NecessaireDeSurvie.NecessaireDeSu
 import capitalism.IHM.WindowsCode.Game;
 import static capitalism.IHM.Interface.Type.*;
 import capitalism.IHM.WindowsCode.Gestion;
+import capitalism.IHM.WindowsCode.MenuContrat;
 import capitalism.IHM.WindowsCode.MenuJeu;
 import capitalism.IHM.WindowsCode.MenuVente;
 import capitalism.Metier.Parties.Partie;
@@ -158,11 +159,11 @@ public class Bouton extends Parent {
             g = new Gestion(this.game);
                     
         }
-        /*if(type == MenuContrat)
+        if(type == MenuContrat)
         {
-            m.afficherMenu(type);
-            System.out.println(type);
-        }*/
+            MenuContrat mc = new MenuContrat(this.game);
+            
+        }
     }
     
 

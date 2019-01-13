@@ -189,17 +189,15 @@ public class CréationUsineController implements Initializable {
 
     @FXML
     private void btnProduit(ActionEvent event) {
-        if(this.bProduit.isArmed())
-        {
-           this.bProduit = new RadioButton(bProduit.getText());
-        }
+                
+        this.bMP.setSelected(false);
+        
     }
 
     @FXML
     private void btnMP(ActionEvent event) {
-        if(this.bMP.isArmed()){
-            this.bMP.disarm();
-        }
+        this.bProduit.setSelected(false);
+
     }
     
 }

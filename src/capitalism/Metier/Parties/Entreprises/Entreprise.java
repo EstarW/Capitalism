@@ -41,7 +41,7 @@ public abstract class Entreprise implements Serializable{
         }
         this.Produits = new HashMap();
         for(Produit m : Produit.values()){
-            this.Produits.put(m, 0);
+            this.Produits.put(m, 1);
         }
         this.listeUsines = new ArrayList();
         
@@ -127,4 +127,11 @@ public abstract class Entreprise implements Serializable{
         public String getBilan(){
             return this.bilanComptable;
         }
+
+    @Override
+    public String toString() {
+        return nom ;
+    }
+        
+        
 }

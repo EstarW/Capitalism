@@ -157,9 +157,9 @@ public class EcranVenteController implements Initializable {
             alert.setTitle("Impossible de vendre !");
             alert.setHeaderText("Vous ne pouvez pas vendre plus de bois que ce que vous possédez !");
             alert.setContentText("Vous essayez de vendre " + this.CBBois.getValue() + " unité(s) de bois alors que vous n'en possédez que "+ g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois) + " ! Diminuez un peu la quantité pour voir !");
-            alert.show();
+            alert.show(); 
         }
-        else {
+        else if(this.CBBois.getValue() > 0){
             g.getJCourant().getMatieresPremieresPossedees().replace(MatierePremiere.Bois, g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois)-this.CBBois.getValue());
             g.getJCourant().addArgent(this.CBBois.getValue() * ValeursDesChoses.getpVenteBois());
             
@@ -183,7 +183,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBCereales.getValue() + " unité(s) de cereales alors que vous n'en possédez que "+ g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Cereales) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBCereales.getValue() > 0){
             g.getJCourant().getMatieresPremieresPossedees().replace(MatierePremiere.Cereales, g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Cereales)-this.CBCereales.getValue());
             g.getJCourant().addArgent(this.CBCereales.getValue() * ValeursDesChoses.getpVenteCereales());
             
@@ -207,7 +207,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBMetal.getValue() + " unité(s) de metal alors que vous n'en possédez que "+ g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Metal) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBMetal.getValue() > 0){
             g.getJCourant().getMatieresPremieresPossedees().replace(MatierePremiere.Metal, g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Metal)-this.CBMetal.getValue());
             g.getJCourant().addArgent(this.CBMetal.getValue() * ValeursDesChoses.getpVenteMetal());
             
@@ -231,7 +231,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBNourriture.getValue() + " unité(s) de nourriture alors que vous n'en possédez que "+ g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Nourriture) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBNourriture.getValue() > 0){
             g.getJCourant().getMatieresPremieresPossedees().replace(MatierePremiere.Nourriture, g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Nourriture)-this.CBNourriture.getValue());
             g.getJCourant().addArgent(this.CBNourriture.getValue() * ValeursDesChoses.getpVenteNourriture());
             
@@ -255,7 +255,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBAcier.getValue() + " unité(s) de acier alors que vous n'en possédez que "+ g.getJCourant().getProduitsPossedees().get(Produit.Acier) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBAcier.getValue() > 0){
             g.getJCourant().getProduitsPossedees().replace(Produit.Acier, g.getJCourant().getProduitsPossedees().get(Produit.Acier)-this.CBAcier.getValue());
             g.getJCourant().addArgent(this.CBAcier.getValue() * ValeursDesChoses.getpVenteAcier());
             
@@ -279,7 +279,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBCagettes.getValue() + " unité(s) de cagettes alors que vous n'en possédez que "+ g.getJCourant().getProduitsPossedees().get(Produit.Cagettes) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBCagettes.getValue() > 0){
             g.getJCourant().getProduitsPossedees().replace(Produit.Cagettes, g.getJCourant().getProduitsPossedees().get(Produit.Cagettes)-this.CBCagettes.getValue());
             g.getJCourant().addArgent(this.CBCagettes.getValue() * ValeursDesChoses.getpVenteCagettes());
             
@@ -303,7 +303,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBConserves.getValue() + " unité(s) de conserves alors que vous n'en possédez que "+ g.getJCourant().getProduitsPossedees().get(Produit.Conserves) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBConserves.getValue() > 0){
             g.getJCourant().getProduitsPossedees().replace(Produit.Conserves, g.getJCourant().getProduitsPossedees().get(Produit.Conserves)-this.CBConserves.getValue());
             g.getJCourant().addArgent(this.CBConserves.getValue() * ValeursDesChoses.getpVenteConserves());
             
@@ -327,7 +327,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBMedicaments.getValue() + " unité(s) de medicaments alors que vous n'en possédez que "+ g.getJCourant().getProduitsPossedees().get(Produit.Medicaments) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBMedicaments.getValue() > 0){
             g.getJCourant().getProduitsPossedees().replace(Produit.Medicaments, g.getJCourant().getProduitsPossedees().get(Produit.Medicaments)-this.CBMedicaments.getValue());
             g.getJCourant().addArgent(this.CBMedicaments.getValue() * ValeursDesChoses.getpVenteMedicaments());
             
@@ -351,7 +351,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBMeubles.getValue() + " unité(s) de meubles alors que vous n'en possédez que "+ g.getJCourant().getProduitsPossedees().get(Produit.Meubles) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBMeubles.getValue() > 0){
             g.getJCourant().getProduitsPossedees().replace(Produit.Meubles, g.getJCourant().getProduitsPossedees().get(Produit.Meubles)-this.CBMeubles.getValue());
             g.getJCourant().addArgent(this.CBMeubles.getValue() * ValeursDesChoses.getpVenteMeubles());
             
@@ -375,7 +375,7 @@ public class EcranVenteController implements Initializable {
             alert.setContentText("Vous essayez de vendre " + this.CBPC.getValue() + " unité(s) de PC alors que vous n'en possédez que "+ g.getJCourant().getProduitsPossedees().get(Produit.PC) + " ! Diminuez un peu la quantité pour voir !");
             alert.show();
         }
-        else {
+        else if(this.CBPC.getValue() > 0){
             g.getJCourant().getProduitsPossedees().replace(Produit.PC, g.getJCourant().getProduitsPossedees().get(Produit.PC)-this.CBPC.getValue());
             g.getJCourant().addArgent(this.CBPC.getValue() * ValeursDesChoses.getpVentePC());
             
@@ -405,8 +405,8 @@ public class EcranVenteController implements Initializable {
         this.lQteNourriture.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Nourriture)));
         
         this.lQteAcier.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
-        this.lQteCagettes.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
-        this.lQteMedicaments.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQteCagettes.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Cagettes)));
+        this.lQteMedicaments.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Medicaments)));
         this.lQtePC.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.PC)));
         this.lQteConserves.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Conserves)));
         this.lQteMeubles.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Meubles)));
