@@ -102,7 +102,7 @@ public class Game implements Serializable{
         root.getChildren().add(menu);  
         root.getChildren().add(infp);
         root.getChildren().add(inft);
-        
+
         map.setTranslateX(-3000);
         map.setTranslateY(-2000);
 
@@ -155,6 +155,105 @@ public class Game implements Serializable{
                 map.setTranslateX(event.getScreenX() + xOffset);
                 map.setTranslateY(event.getScreenY() + yOffset);
         });        
+    }
+    
+
+    public Game(String eName, Jeu j) throws IOException{
+        
+        jeu = j;
+        control = new Controlleur_Jeu(jeu);
+        control.setView(this);
+        NecessaireDeSurvieGestion.setG(this);
+
+        NecessaireDeSurvieSauvegarde.setJ(j);
+        ListeCase liste = new ListeCase(this);
+        BoutonMenuList bl = new BoutonMenuList(control.getModele().getPartie(), this);
+        Bandeau b = new Bandeau();
+        infop = new InfoPartie(control.getModele().getPartie(), control.getModele().getPartie().getJoueurCourant());
+        infot = new InfoTour(control.getModele().getPartie());
+
+
+        root = new Pane(); 
+        StackPane bandeau = new StackPane();
+        StackPane menu = new StackPane();
+        map = new StackPane();
+        infp = new StackPane();
+        inft = new StackPane();
+        
+        infp.setPickOnBounds(false);
+        inft.setPickOnBounds(false);
+        menu.setPickOnBounds(false);
+        bandeau.setPickOnBounds(false);
+
+
+        Scene scene = new Scene(root, 1200, 800);
+        Stage stage = new Stage();
+        map.getChildren().add(liste);
+        menu.getChildren().add(bl);
+        bandeau.getChildren().add(b);
+        infp.getChildren().add(infop);
+        inft.getChildren().add(infot);
+
+        
+        root.getChildren().add(map);
+        root.getChildren().add(bandeau);
+        root.getChildren().add(menu);  
+        root.getChildren().add(infp);
+        root.getChildren().add(inft);
+        
+        map.setTranslateX(-3000);
+        map.setTranslateY(-2000);
+
+        stage.setTitle("Capitalisme - "+eName);
+        this.jeu.seteName(eName);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+
+        scene.setOnKeyPressed(event -> {
+            if(event.getCode().equals(E))
+            {
+                if(scaleX < 3 && scaleY < 3)
+                {
+                    scaleX += 0.2;
+                    scaleY += 0.2;
+                    map.setScaleX(scaleX);
+                    map.setScaleY(scaleY);
+                }
+            }
+            if(event.getCode().equals(A))
+            {
+                if(scaleX > 0.3 && scaleY > 0.3)
+                {
+                    scaleX -= 0.2;
+                    scaleY -= 0.2;
+                    map.setScaleX(scaleX);
+                    map.setScaleY(scaleY);
+                }
+            }
+            
+            if(event.getCode().equals(ESCAPE)) 
+            {
+                try {
+                    MenuJeu mj = new MenuJeu(this.jeu);
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });    
+        
+        
+            map.setOnMousePressed((MouseEvent event) -> {
+                xOffset = map.getTranslateX() - event.getScreenX();
+                yOffset = map.getTranslateY() - event.getScreenY();
+        });  
+            
+            map.setOnMouseDragged((MouseEvent event) -> {
+                map.setTranslateX(event.getScreenX() + xOffset);
+                map.setTranslateY(event.getScreenY() + yOffset);
+        });       
     }
     
     public Controlleur_Jeu getControl(){
