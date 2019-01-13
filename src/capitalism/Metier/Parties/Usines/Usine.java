@@ -72,4 +72,11 @@ public abstract class Usine implements Serializable{
         CaseEmplacement c = (CaseEmplacement) this.emplacement;
         c.dissoudreUsine();
     }
+
+    @Override
+    public String toString() {
+        return this.nom;
+    }
+    
+    
 }

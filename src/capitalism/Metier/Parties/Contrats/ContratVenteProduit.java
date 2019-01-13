@@ -15,14 +15,12 @@ import capitalism.Metier.Parties.Usines.Enum.Produit;
  */
 public class ContratVenteProduit extends Contrat{
 
-    private int prix;
     //private Ressources ressourceSource;
     private int qteSource;
     private Produit p;
 
     public ContratVenteProduit(String nom,int prix, int qteSource, Produit p, Entreprise entSource, Entreprise entDestinataire, int duree) {
-        super(nom, entSource, entDestinataire, duree);
-        this.prix = prix;
+        super(nom, entSource, entDestinataire, duree, prix);
         this.qteSource = qteSource;
         this.p = p;
     }
@@ -32,5 +30,14 @@ public class ContratVenteProduit extends Contrat{
     public TypeContrat getTypeContrat() {
         return TypeContrat.VenteProduit;
     }
+
+    public int getQteSource() {
+        return qteSource;
+    }
+
+    public Produit getP() {
+        return p;
+    }
+    
     
 }

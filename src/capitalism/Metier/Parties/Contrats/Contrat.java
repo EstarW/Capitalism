@@ -7,6 +7,7 @@ package capitalism.Metier.Parties.Contrats;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.io.Serializable;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -18,6 +19,7 @@ public abstract class Contrat implements Serializable{
     private Entreprise entDestinataire;
     private int duree;
     private String nom;
+    private int prix;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -27,8 +29,9 @@ public abstract class Contrat implements Serializable{
     * @param entDestinataire
     * @param duree
     */
-    public Contrat(String nom, Entreprise entSource, Entreprise entDestinataire, int duree) {       
+    public Contrat(String nom, Entreprise entSource, Entreprise entDestinataire, int duree, int p) {       
        this.duree=duree;
+       this.prix = p;
        this.entDestinataire=entDestinataire;
        this.entSource=entSource;
        this.entSource.addContratEnAttente(this);
@@ -42,6 +45,15 @@ public abstract class Contrat implements Serializable{
     
     public abstract TypeContrat getTypeContrat();
 
+    public String getNom() {
+        return nom;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    
     public Entreprise getEntSource() {
         return entSource;
     }
@@ -72,5 +84,34 @@ public abstract class Contrat implements Serializable{
     public String toString() {
         return nom;
     }
+
+    public void annuler() {
+        this.entDestinataire.annulerContrat(this);
+        this.entSource.annulerContrat(this);
+    }
     
+    public void refuser(){
+        this.annuler();
+        if(this.entSource.equals(this.entSource.getPartie().getJoueurCourant())){
+            Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+            alertProd.setTitle("Contrat refusé ! ");
+            alertProd.setHeaderText("Un de vos contrats a été refusé");
+            alertProd.setContentText("Votre contrat " + this.nom + " a été refusé par l'entreprise "+ this.entDestinataire + " !");
+            alertProd.show();
+        }
+       
+    }
+    
+    public void accepter(){
+        this.entDestinataire.addContrat(this);
+        this.entSource.addContrat(this);
+        if(this.entSource.equals(this.entSource.getPartie().getJoueurCourant())){
+            Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+            alertProd.setTitle("Contrat accepté ! ");
+            alertProd.setHeaderText("Un de vos contrats a été accepté");
+            alertProd.setContentText("Votre contrat " + this.nom + " a été accepté par l'entreprise "+ this.entDestinataire + " !");
+            alertProd.show();
+        }
+        this.annuler();
+    }
 }

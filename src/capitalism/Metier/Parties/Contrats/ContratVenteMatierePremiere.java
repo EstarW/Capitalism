@@ -14,7 +14,6 @@ import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
  */
 public class ContratVenteMatierePremiere extends Contrat {
 
-    private int prix;
     //private Ressources ressourceSource;
     private int qteSource;
     private MatierePremiere mp;
@@ -22,8 +21,7 @@ public class ContratVenteMatierePremiere extends Contrat {
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
     public ContratVenteMatierePremiere(String nom,int prix, int qteSource, Entreprise entSource, Entreprise entDestinataire, int duree, MatierePremiere mp) {
-        super(nom, entSource, entDestinataire, duree);
-        this.prix = prix;
+        super(nom, entSource, entDestinataire, duree,prix);
         this.qteSource = qteSource;
         this.mp = mp;
        
@@ -40,13 +38,7 @@ public class ContratVenteMatierePremiere extends Contrat {
         return TypeContrat.VenteMatierePremiere;
     }
 
-    public int getPrix() {
-        return prix;
-    }
 
-    public void setPrix(int prix) {
-        this.prix = prix;
-    }
     public int getQteSource() {
         return qteSource;
     }
@@ -55,6 +47,11 @@ public class ContratVenteMatierePremiere extends Contrat {
         this.qteSource = qteSource;
     }
 
+    
 //------------------------------------------------------------------------------
+
+    public MatierePremiere getMp() {
+        return mp;
+    }
     
 }

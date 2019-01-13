@@ -157,5 +157,9 @@ public abstract class Entreprise implements Serializable{
         this.listeContratAttente.remove(c);
         this.listeContrat.add(c);
     }
+    
+    public void annulerContrat(Contrat c){
+        this.listeContratAttente.remove(c);
+    }
         
 }

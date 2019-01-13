@@ -9,6 +9,7 @@ import capitalism.IHM.WindowsCode.Game;
 import capitalism.Metier.Parties.Contrats.Contrat;
 import capitalism.Metier.Parties.Contrats.ContratVenteMatierePremiere;
 import capitalism.Metier.Parties.Contrats.ContratVenteProduit;
+import capitalism.Metier.Parties.Contrats.TypeContrat;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Usines.Enum.Produit;
@@ -127,25 +128,31 @@ public class MenuContratController implements Initializable {
             this.cbContratAttente.getItems().add(c);
         }
         
+
+        
+        this.bAccepter.setVisible(false);
+        this.bAnnuler.setVisible(false);
+        this.bDecliner.setVisible(false);
+    
+        this.initListe();
+    }   
+    
+    private void initListe(){
+        this.lDest.setText("");
+        this.lDuree.setText("");
+        this.lMontant.setText("");
+        this.lProprio.setText("");
+        this.lQte.setText("");
+        this.lRessource.setText("");
+    }
+    
+    private void initAttente(){
         this.lProprioAttente.setText("");
         this.LMontatAttente.setText("");
         this.lDestAttente.setText("");
         this.lDureeAttente.setText("");
         this.lQteAttente.setText("");
         this.lRessourceAttente.setText("");
-        
-        this.bAccepter.setVisible(false);
-        this.bAnnuler.setVisible(false);
-        this.bDecliner.setVisible(false);
-    
-    }    
-
-    private void initAttente(){
-        
-    }
-    
-    private void initListe(){
-        
     }
     
     @FXML
@@ -154,6 +161,47 @@ public class MenuContratController implements Initializable {
         this.bMP.setSelected(false);
         
     }
+    
+    @FXML
+    private void annuler(ActionEvent event){
+        Contrat c =this.cbContratAttente.getSelectionModel().getSelectedItem();
+        c.annuler();
+        this.initAttente();
+        this.cbContratAttente.getItems().remove(c);
+    }
+    
+    @FXML
+    private void listContratChange(ActionEvent event){
+        if (this.cbContratAttente.getSelectionModel().getSelectedItem() !=null){
+            Contrat c = this.cbContratAttente.getSelectionModel().getSelectedItem();
+            if(c.getTypeContrat()== TypeContrat.VenteMatierePremiere){
+                ContratVenteMatierePremiere cmp = (ContratVenteMatierePremiere) c;
+                this.LMontatAttente.setText(String.valueOf(cmp.getPrix()));
+                this.lDestAttente.setText(cmp.getEntDestinataire().getNom());
+                this.lDureeAttente.setText(String.valueOf(cmp.getDuree()));
+                this.lProprioAttente.setText(cmp.getEntSource().toString());
+                this.lQteAttente.setText(String.valueOf(cmp.getDuree()));
+                this.lRessourceAttente.setText(cmp.getMp().toString());
+            }
+            else {
+                ContratVenteProduit cp = (ContratVenteProduit) c;
+                this.LMontatAttente.setText(String.valueOf(cp.getPrix()));
+                this.lDestAttente.setText(cp.getEntDestinataire().getNom());
+                this.lDureeAttente.setText(String.valueOf(cp.getDuree()));
+                this.lProprioAttente.setText(cp.getEntSource().toString());
+                this.lQteAttente.setText(String.valueOf(cp.getDuree()));
+                this.lRessourceAttente.setText(cp.getP().toString());
+            }
+            
+            if (this.lProprioAttente.getText().equals(g.getJCourant().getNom())){
+                this.bAnnuler.setVisible(true);
+            }
+            else {
+                this.bAccepter.setVisible(true);
+                this.bDecliner.setVisible(true);
+            }
+        }
+    }
 
     @FXML
     private void btnMP(ActionEvent event) {
@@ -161,13 +209,36 @@ public class MenuContratController implements Initializable {
 
     }
 
+    @FXML
+    private void changeList(ActionEvent event){
+        Contrat c = this.cbContratAttente.getSelectionModel().getSelectedItem();
+            if(c.getTypeContrat()== TypeContrat.VenteMatierePremiere){
+                ContratVenteMatierePremiere cmp = (ContratVenteMatierePremiere) c;
+                this.lMontant.setText(String.valueOf(cmp.getPrix()));
+                this.lDest.setText(cmp.getEntDestinataire().getNom());
+                this.lDuree.setText(String.valueOf(cmp.getDuree()));
+                this.lProprio.setText(cmp.getEntSource().toString());
+                this.lQte.setText(String.valueOf(cmp.getDuree()));
+                this.lRessource.setText(cmp.getMp().toString());
+            }
+            else {
+                ContratVenteProduit cp = (ContratVenteProduit) c;
+                this.lMontant.setText(String.valueOf(cp.getPrix()));
+                this.lDest.setText(cp.getEntDestinataire().getNom());
+                this.lDuree.setText(String.valueOf(cp.getDuree()));
+                this.lProprio.setText(cp.getEntSource().toString());
+                this.lQte.setText(String.valueOf(cp.getDuree()));
+                this.lRessource.setText(cp.getP().toString());
+            }
+
+    }
     private void resetNewContrat(){
         this.tfDuree.setText("");
         this.tfNom.setText("");
         this.tfPrix.setText("");
         this.tfQuantite.setText("");
         this.bMP.setSelected(false);
-        this.bMP.setSelected(false);
+        this.bProduit.setSelected(false);
         this.cbEntrep.getItems().removeAll(this.cbEntrep.getItems());
          for(Entreprise e : g.getP().getListeEnt()){
             this.cbEntrep.getItems().add(e);
@@ -202,7 +273,7 @@ public class MenuContratController implements Initializable {
                     this.resetNewContrat();                    
                 }
                 else{
-                   c = new ContratVenteProduit(this.tfNom.getText(),Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), this.comboBox_produit.getSelectionModel().getSelectedItem(),g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.lDuree.getText()));
+                   c = new ContratVenteProduit(this.tfNom.getText(),Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), this.comboBox_produit.getSelectionModel().getSelectedItem(),g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.tfDuree.getText()));
                    this.cbContratAttente.getItems().add(c);                
                    this.resetNewContrat();
                 }
@@ -236,6 +307,14 @@ public class MenuContratController implements Initializable {
 
     @FXML
     private void decliner(ActionEvent event) {
+        Contrat c =this.cbContratAttente.getSelectionModel().getSelectedItem();
+        c.annuler();
+        this.cbContratAttente.getItems().remove(c);
+        Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+        alertProd.setTitle("Un contrat a été décliné !");
+        alertProd.setHeaderText("");
+        alertProd.setContentText("Assurez vous d'avoir bien saisi tous les champs !");
+        alertProd.show();
     }
 
     @FXML

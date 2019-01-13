@@ -30,13 +30,13 @@ import javafx.scene.layout.Pane;
 public class ListeUsineJoueur2Controller implements Initializable {
 
     @FXML
-    private ComboBox<String> comboBoxEntrep;
+    private ComboBox<Entreprise> comboBoxEntrep;
     @FXML
     private Pane panel_affichage;
     @FXML
     private Label qteUsinesEntrep;
     @FXML
-    private ComboBox<String> comboBox_lUsine;
+    private ComboBox<Usine> comboBox_lUsine;
     @FXML
     private Label label_Prod;
     @FXML
@@ -70,7 +70,7 @@ public class ListeUsineJoueur2Controller implements Initializable {
         Game g = NecessaireDeSurvieGestion.getG();
         this.tfComptabilité.setText(g.getJCourant().getBilan());
         for(Entreprise e : g.getControl().getModele().getPartie().getListeEnt()){
-            this.comboBoxEntrep.getItems().addAll(e.getNom());
+            this.comboBoxEntrep.getItems().addAll(e);
         }
         this.label_nom.setText("");
         this.label_production.setText("");
@@ -86,11 +86,11 @@ public class ListeUsineJoueur2Controller implements Initializable {
     @FXML
     private void changeNom(ActionEvent event) {
         
-        Entreprise e = NecessaireDeSurvieGestion.getG().getControl().getModele().getPartie().getEntrepByName(this.comboBoxEntrep.getSelectionModel().getSelectedItem());
+        Entreprise e =this.comboBoxEntrep.getSelectionModel().getSelectedItem();
         this.qteUsinesEntrep.setText(String.valueOf(e.getListeUsines().size()));
         this.comboBox_lUsine.getItems().removeAll(comboBox_lUsine.getItems());
         for(Usine u : e.getListeUsines()){
-            this.comboBox_lUsine.getItems().addAll(u.getNom());
+            this.comboBox_lUsine.getItems().addAll(u);
         }
         this.label_Prod.setText("");
         this.panel_affichage.setVisible(true);
@@ -98,9 +98,9 @@ public class ListeUsineJoueur2Controller implements Initializable {
 
     @FXML
     private void changeProd(ActionEvent event) {
-        Entreprise e = NecessaireDeSurvieGestion.getG().getControl().getModele().getPartie().getEntrepByName(this.comboBoxEntrep.getSelectionModel().getSelectedItem());
+        Entreprise e = this.comboBoxEntrep.getSelectionModel().getSelectedItem();
         if(e.getListeUsines().size()>0){
-            Usine u = e.getUsineByName(this.comboBox_lUsine.getSelectionModel().getSelectedItem());
+            Usine u = this.comboBox_lUsine.getSelectionModel().getSelectedItem();
             this.label_Prod.setText(u.getProdName());
         }
         

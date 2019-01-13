@@ -29,7 +29,7 @@
                               <Label layoutX="28.0" layoutY="61.0" text="Nombre d'usines de l'entreprise :" />
                               <Label fx:id="qteUsinesEntrep" layoutX="367.0" layoutY="61.0" text="Label" />
                               <Label layoutX="28.0" layoutY="111.0" prefHeight="21.0" prefWidth="109.0" text="Liste d'usines :" />
-                              <ComboBox fx:id="comboBox_lUsine" layoutX="309.0" layoutY="106.0" onAction="#changeProd" prefWidth="150.0" />
+                              <ComboBox fx:id="comboBox_lUsine" layoutX="309.0" layoutY="106.0" onAction="#changeProd" prefWidth="250" />
                               <Label layoutX="28.0" layoutY="160.0" text="Production :" />
                               <Label fx:id="label_Prod" layoutX="367.0" layoutY="160.0" text="Label" />
                            </children>

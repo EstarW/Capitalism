@@ -31,12 +31,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Pseudo">
+                  <Label text="Nom de l'entreprise ">
                      <GridPane.margin>
                         <Insets left="25.0" top="45.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Nom de l'entreprise" GridPane.rowIndex="2">
+                  <Label text="Pseudo" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="25.0" top="45.0" />
                      </GridPane.margin>

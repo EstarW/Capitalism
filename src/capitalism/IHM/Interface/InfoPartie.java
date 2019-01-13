@@ -30,7 +30,7 @@ public class InfoPartie extends Parent {
         l2.setTextFill(Color.WHITESMOKE);
         l2.setScaleX(3);
         l2.setScaleY(3);
-        l2.setLayoutX(550);
+        l2.setLayoutX(500);
         
         argent = new Label("Argent: "+j.getArgent()+"$");
         argent.setTextFill(Color.WHITESMOKE);
