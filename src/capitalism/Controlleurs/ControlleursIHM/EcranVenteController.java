@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
@@ -130,18 +131,8 @@ public class EcranVenteController implements Initializable {
         
         //init qte
         
-        this.lQteBois.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois)));
-        this.lQteCereales.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Cereales)));
-        this.lQteMetal.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Metal)));
-        this.lQteNourriture.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Nourriture)));
-        
-        this.lQteAcier.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
-        this.lQteCagettes.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
-        this.lQteMedicaments.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
-        this.lQtePC.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.PC)));
-        this.lQteConserves.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Conserves)));
-        this.lQteMeubles.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Meubles)));
-        
+
+        this.updateQte();
         initSpin();
     }    
 
@@ -161,6 +152,26 @@ public class EcranVenteController implements Initializable {
     
     @FXML
     private void VenteBois(ActionEvent event) {
+        if(this.CBBois.getValue() > g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois)){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Impossible de vendre !");
+            alert.setHeaderText("Vous ne pouvez pas vendre plus de bois que ce que vous possédez !");
+            alert.setContentText("Vous essayez de vendre " + this.CBBois.getValue() + " unité(s) de bois alors que vous n'en possédez que "+ g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois) + " ! Diminuez un peu la quantité pour voir !");
+            alert.show();
+        }
+        else {
+            g.getJCourant().getMatieresPremieresPossedees().replace(MatierePremiere.Bois, g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois)-this.CBBois.getValue());
+            g.getJCourant().addArgent(this.CBBois.getValue() * ValeursDesChoses.getpVenteBois());
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Vente effectuée !");
+            alert.setHeaderText("Vous avez vendu pour " + this.CBBois.getValue() * ValeursDesChoses.getpVenteBois() + " $ de bois !");
+            alert.setContentText("Vous avez vendu " + this.CBBois.getValue() + " unités de bois, il vous en reste " + g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois));
+            alert.show();
+            this.updateQte();
+            this.CBBois.getValueFactory().setValue(0);
+            g.refreshAffichage();
+        }
     }
 
     @FXML
@@ -205,6 +216,20 @@ public class EcranVenteController implements Initializable {
 
     public static void setG(Game g) {
         EcranVenteController.g = g;
+    }
+
+    private void updateQte() {
+                this.lQteBois.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Bois)));
+        this.lQteCereales.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Cereales)));
+        this.lQteMetal.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Metal)));
+        this.lQteNourriture.setText(String.valueOf(g.getJCourant().getMatieresPremieresPossedees().get(MatierePremiere.Nourriture)));
+        
+        this.lQteAcier.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQteCagettes.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQteMedicaments.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Acier)));
+        this.lQtePC.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.PC)));
+        this.lQteConserves.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Conserves)));
+        this.lQteMeubles.setText(String.valueOf(g.getJCourant().getProduitsPossedees().get(Produit.Meubles)));
     }
 
     
