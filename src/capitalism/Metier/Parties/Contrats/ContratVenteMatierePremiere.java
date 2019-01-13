@@ -6,37 +6,47 @@
 package capitalism.Metier.Parties.Contrats;
 
 import capitalism.Metier.Parties.Entreprises.Entreprise;
+import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 
 /**
  *
  * @author Damien
  */
-public class ContratEchange extends Contrat{
-    
+public class ContratVenteMatierePremiere extends Contrat {
+
+    private int prix;
     //private Ressources ressourceSource;
     private int qteSource;
-    //private Ressources ressourceDest;
-    private int qteDest;
+    private MatierePremiere mp;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
-    
-    public ContratEchange(Entreprise entSource, Entreprise entDestinataire, int duree, int qteDest) {
+
+    public ContratVenteMatierePremiere(int prix, int qteSource, Entreprise entSource, Entreprise entDestinataire, int duree, MatierePremiere mp) {
         super(entSource, entDestinataire, duree);
-        this.qteDest=qteDest;
-        this.qteSource=qteSource;
-        //this.ressourceDest=ressourceDest;
-        //this.ressourceSource=ressourceSource;
+        this.prix = prix;
+        this.qteSource = qteSource;
+        this.mp = mp;
+       
     }
     
+
+
 //------------------------------------------------------------------------------
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
     
     @Override
     public TypeContrat getTypeContrat() {
-        return TypeContrat.Echange;
+        return TypeContrat.VenteMatierePremiere;
     }
 
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
     public int getQteSource() {
         return qteSource;
     }
@@ -45,14 +55,6 @@ public class ContratEchange extends Contrat{
         this.qteSource = qteSource;
     }
 
-    public int getQteDest() {
-        return qteDest;
-    }
-
-    public void setQteDest(int qteDest) {
-        this.qteDest = qteDest;
-    }
-    
 //------------------------------------------------------------------------------
-
+    
 }

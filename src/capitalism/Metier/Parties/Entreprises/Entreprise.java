@@ -5,6 +5,7 @@
  */
 package capitalism.Metier.Parties.Entreprises;
 
+import capitalism.Metier.Parties.Contrats.Contrat;
 import capitalism.Metier.Parties.Usines.Usine;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Partie;
@@ -27,7 +28,8 @@ public abstract class Entreprise implements Serializable{
     protected HashMap<MatierePremiere,Integer> MatieresPremieres;
     protected HashMap<Produit, Integer> Produits;
     protected ArrayList<Usine> listeUsines;
-
+    protected ArrayList<Contrat> listeContrat;
+    protected ArrayList<Contrat> listeContratAttente;
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
     public Entreprise(String nom, Partie partie) {
@@ -44,7 +46,8 @@ public abstract class Entreprise implements Serializable{
             this.Produits.put(m, 1);
         }
         this.listeUsines = new ArrayList();
-        
+        this.listeContrat = new ArrayList();
+        this.listeContratAttente = new ArrayList();
         
     }
 
@@ -52,6 +55,20 @@ public abstract class Entreprise implements Serializable{
 
 //---------- GETEUR/SETEUR -----------------------------------------------------
 
+    public String getBilanComptable() {
+        return bilanComptable;
+    }
+
+    public ArrayList<Contrat> getListeContrat() {
+        return listeContrat;
+    }
+
+    public ArrayList<Contrat> getListeContratAttente() {
+        return listeContratAttente;
+    }
+
+    
+    
     public String getNom() {
         return nom;
     }
@@ -133,5 +150,12 @@ public abstract class Entreprise implements Serializable{
         return nom ;
     }
         
+    public void addContratEnAttente(Contrat c){
+        this.listeContratAttente.add(c);
+    }
+    public void addContrat(Contrat c){
+        this.listeContratAttente.remove(c);
+        this.listeContrat.add(c);
+    }
         
 }

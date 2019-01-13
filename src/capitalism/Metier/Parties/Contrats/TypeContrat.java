@@ -10,6 +10,6 @@ package capitalism.Metier.Parties.Contrats;
  * @author Damien
  */
 public enum TypeContrat {
-    Echange,
-    Vente
+    VenteMatierePremiere,
+    VenteProduit
 }

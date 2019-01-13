@@ -6,6 +6,9 @@
 package capitalism.Controlleurs.ControlleursIHM;
 
 import capitalism.IHM.WindowsCode.Game;
+import capitalism.Metier.Parties.Contrats.Contrat;
+import capitalism.Metier.Parties.Contrats.ContratVenteMatierePremiere;
+import capitalism.Metier.Parties.Contrats.ContratVenteProduit;
 import capitalism.Metier.Parties.Entreprises.Entreprise;
 import capitalism.Metier.Parties.Usines.Enum.MatierePremiere;
 import capitalism.Metier.Parties.Usines.Enum.Produit;
@@ -14,6 +17,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -48,7 +52,7 @@ public class MenuContratController implements Initializable {
     @FXML
     private TextField tfDuree;
     @FXML
-    private ComboBox<?> cbContratAttente;
+    private ComboBox<Contrat> cbContratAttente;
     @FXML
     private Label lDestAttente;
     @FXML
@@ -68,7 +72,7 @@ public class MenuContratController implements Initializable {
     @FXML
     private Button bAnnuler;
     @FXML
-    private ComboBox<?> cbContrat;
+    private ComboBox<Contrat> cbContrat;
     @FXML
     private Label lProprio;
     @FXML
@@ -114,8 +118,36 @@ public class MenuContratController implements Initializable {
         this.comboBox_produit.getItems().add(Produit.Medicaments);
         this.comboBox_produit.getItems().add(Produit.Meubles);
         this.comboBox_produit.getItems().add(Produit.PC);
+    
+        for(Contrat c : g.getJCourant().getListeContratAttente()){
+            this.cbContratAttente.getItems().add(c);
+        }
+        
+        for(Contrat c : g.getJCourant().getListeContratAttente()){
+            this.cbContratAttente.getItems().add(c);
+        }
+        
+        this.lProprioAttente.setText("");
+        this.LMontatAttente.setText("");
+        this.lDestAttente.setText("");
+        this.lDureeAttente.setText("");
+        this.lQteAttente.setText("");
+        this.lRessourceAttente.setText("");
+        
+        this.bAccepter.setVisible(false);
+        this.bAnnuler.setVisible(false);
+        this.bDecliner.setVisible(false);
+    
     }    
 
+    private void initAttente(){
+        
+    }
+    
+    private void initListe(){
+        
+    }
+    
     @FXML
     private void btnProduit(ActionEvent event) {
                 
@@ -131,6 +163,34 @@ public class MenuContratController implements Initializable {
 
     @FXML
     private void proposerContrat(ActionEvent event) {
+        boolean a;
+        a = ((this.comboBox_matiere.getSelectionModel().getSelectedItem() != null && this.bMP.isSelected()) || (this.comboBox_produit.getSelectionModel().getSelectedItem() !=null && this.bProduit.isSelected()));
+        if(this.cbEntrep.getSelectionModel().getSelectedItem()!=null && !tfNom.getText().isEmpty() && ! this.tfPrix.getText().isEmpty() && !this.tfQuantite.getText().isEmpty() && !this.tfDuree.getText().isEmpty() && (a)){
+            if (this.estUnEntier(this.tfDuree.getText())&& this.estUnEntier(this.tfPrix.getText()) &&this.estUnEntier(this.tfQuantite.getText())){
+                if(this.bMP.isSelected()){
+                    Contrat c = new ContratVenteMatierePremiere(Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.lDuree.getText()), this.comboBox_matiere.getSelectionModel().getSelectedItem());
+                    this.cbContratAttente.getItems().add(c);
+                }
+                else{
+                   Contrat c = new ContratVenteProduit(Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), this.comboBox_produit.getSelectionModel().getSelectedItem(),g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.lDuree.getText()));
+                   this.cbContratAttente.getItems().add(c);
+                }
+            }
+            else {
+            Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+            alertProd.setTitle("Champs non entier !");
+            alertProd.setHeaderText("Un des champs numériques a mal été renseigné !");
+            alertProd.setContentText("Assurez vous d'avoir bien saisi un entier pour le prix d'achat, la quantité et la durée !");
+            alertProd.show();
+            }
+        }
+        else {
+            Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+            alertProd.setTitle("Champs non renseignés !");
+            alertProd.setHeaderText("Un champ n'a pas été renseigné !");
+            alertProd.setContentText("Assurez vous d'avoir bien saisi tous les champs !");
+            alertProd.show();
+        }
     }
 
     @FXML
@@ -145,4 +205,13 @@ public class MenuContratController implements Initializable {
     private void resilier(ActionEvent event) {
     }
     
+    public boolean estUnEntier(String chaine) {
+        try {
+            Integer.parseInt(chaine);
+        } catch (NumberFormatException e){
+            return false;
+        }
+
+        return true;
+    }
 }

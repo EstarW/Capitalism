@@ -26,10 +26,12 @@ public abstract class Contrat implements Serializable{
     * @param entDestinataire
     * @param duree
     */
-    public Contrat(Entreprise entSource, Entreprise entDestinataire, int duree) {
+    public Contrat(Entreprise entSource, Entreprise entDestinataire, int duree) {       
        this.duree=duree;
        this.entDestinataire=entDestinataire;
        this.entSource=entSource;
+       this.entSource.addContratEnAttente(this);
+       this.entDestinataire.addContratEnAttente(this);
     }
 
 //------------------------------------------------------------------------------
