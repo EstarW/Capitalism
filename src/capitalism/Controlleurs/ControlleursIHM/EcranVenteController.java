@@ -146,7 +146,17 @@ public class EcranVenteController implements Initializable {
     }    
 
     private void initSpin(){
-        this.CBAcier.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10));
+        this.CBAcier.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBBois.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBCagettes.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBCereales.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBConserves.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBMedicaments.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBMetal.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBMeubles.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBNourriture.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+        this.CBPC.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100));
+
     }
     
     @FXML
