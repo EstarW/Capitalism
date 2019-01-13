@@ -161,26 +161,63 @@ public class MenuContratController implements Initializable {
 
     }
 
+    private void resetNewContrat(){
+        this.tfDuree.setText("");
+        this.tfNom.setText("");
+        this.tfPrix.setText("");
+        this.tfQuantite.setText("");
+        this.bMP.setSelected(false);
+        this.bMP.setSelected(false);
+        this.cbEntrep.getItems().removeAll(this.cbEntrep.getItems());
+         for(Entreprise e : g.getP().getListeEnt()){
+            this.cbEntrep.getItems().add(e);
+        }
+        this.comboBox_matiere.getItems().removeAll(this.comboBox_matiere.getItems());
+        this.comboBox_produit.getItems().removeAll(this.comboBox_produit.getItems());
+        this.comboBox_matiere.getItems().add(MatierePremiere.Bois);
+        this.comboBox_matiere.getItems().add(MatierePremiere.Cereales);
+        this.comboBox_matiere.getItems().add(MatierePremiere.Metal);
+        this.comboBox_matiere.getItems().add(MatierePremiere.Nourriture);
+        
+        this.comboBox_produit.getItems().add(Produit.Acier);
+        
+        this.comboBox_produit.getItems().add(Produit.Cagettes);
+        this.comboBox_produit.getItems().add(Produit.Conserves);
+        this.comboBox_produit.getItems().add(Produit.Medicaments);
+        this.comboBox_produit.getItems().add(Produit.Meubles);
+        this.comboBox_produit.getItems().add(Produit.PC);
+         
+    }
     @FXML
     private void proposerContrat(ActionEvent event) {
         boolean a;
         a = ((this.comboBox_matiere.getSelectionModel().getSelectedItem() != null && this.bMP.isSelected()) || (this.comboBox_produit.getSelectionModel().getSelectedItem() !=null && this.bProduit.isSelected()));
         if(this.cbEntrep.getSelectionModel().getSelectedItem()!=null && !tfNom.getText().isEmpty() && ! this.tfPrix.getText().isEmpty() && !this.tfQuantite.getText().isEmpty() && !this.tfDuree.getText().isEmpty() && (a)){
+            
             if (this.estUnEntier(this.tfDuree.getText())&& this.estUnEntier(this.tfPrix.getText()) &&this.estUnEntier(this.tfQuantite.getText())){
+                Contrat c;
                 if(this.bMP.isSelected()){
-                    Contrat c = new ContratVenteMatierePremiere(Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.lDuree.getText()), this.comboBox_matiere.getSelectionModel().getSelectedItem());
+                    c = new ContratVenteMatierePremiere(this.tfNom.getText(),Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.tfDuree.getText()), this.comboBox_matiere.getSelectionModel().getSelectedItem());
                     this.cbContratAttente.getItems().add(c);
+                    this.resetNewContrat();                    
                 }
                 else{
-                   Contrat c = new ContratVenteProduit(Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), this.comboBox_produit.getSelectionModel().getSelectedItem(),g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.lDuree.getText()));
-                   this.cbContratAttente.getItems().add(c);
+                   c = new ContratVenteProduit(this.tfNom.getText(),Integer.parseInt(this.tfPrix.getText()), Integer.parseInt(this.tfQuantite.getText()), this.comboBox_produit.getSelectionModel().getSelectedItem(),g.getJCourant(), this.cbEntrep.getSelectionModel().getSelectedItem(), Integer.parseInt(this.lDuree.getText()));
+                   this.cbContratAttente.getItems().add(c);                
+                   this.resetNewContrat();
                 }
+                Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
+                alertProd.setTitle("Contrat créé ");
+                alertProd.setHeaderText("Le contrat a bien été envoyé !");
+                alertProd.setContentText("L'entreprise "+ c.getEntDestinataire() + " a bien reçu votre contrat ! ");
+                alertProd.show();
+                
             }
             else {
             Alert alertProd = new Alert(Alert.AlertType.INFORMATION);
             alertProd.setTitle("Champs non entier !");
             alertProd.setHeaderText("Un des champs numériques a mal été renseigné !");
-            alertProd.setContentText("Assurez vous d'avoir bien saisi un entier pour le prix d'achat, la quantité et la durée !");
+            alertProd.setContentText("Assurez vous d'avoir bien saisi un entier supérieur à 0 pour le prix d'achat, la quantité et la durée !");
             alertProd.show();
             }
         }
@@ -206,12 +243,19 @@ public class MenuContratController implements Initializable {
     }
     
     public boolean estUnEntier(String chaine) {
+        boolean rez;
         try {
             Integer.parseInt(chaine);
+            if(Integer.parseInt(chaine)>0){
+                rez = true;
+            }
+            else {
+                rez = false;
+            }
         } catch (NumberFormatException e){
-            return false;
+            rez = false;
         }
 
-        return true;
+        return rez;
     }
 }

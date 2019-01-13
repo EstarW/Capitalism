@@ -20,8 +20,8 @@ public class ContratVenteProduit extends Contrat{
     private int qteSource;
     private Produit p;
 
-    public ContratVenteProduit(int prix, int qteSource, Produit p, Entreprise entSource, Entreprise entDestinataire, int duree) {
-        super(entSource, entDestinataire, duree);
+    public ContratVenteProduit(String nom,int prix, int qteSource, Produit p, Entreprise entSource, Entreprise entDestinataire, int duree) {
+        super(nom, entSource, entDestinataire, duree);
         this.prix = prix;
         this.qteSource = qteSource;
         this.p = p;

@@ -17,6 +17,7 @@ public abstract class Contrat implements Serializable{
     private Entreprise entSource;
     private Entreprise entDestinataire;
     private int duree;
+    private String nom;
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
     
@@ -26,11 +27,12 @@ public abstract class Contrat implements Serializable{
     * @param entDestinataire
     * @param duree
     */
-    public Contrat(Entreprise entSource, Entreprise entDestinataire, int duree) {       
+    public Contrat(String nom, Entreprise entSource, Entreprise entDestinataire, int duree) {       
        this.duree=duree;
        this.entDestinataire=entDestinataire;
        this.entSource=entSource;
        this.entSource.addContratEnAttente(this);
+       this.nom = nom;
        this.entDestinataire.addContratEnAttente(this);
     }
 
@@ -65,5 +67,10 @@ public abstract class Contrat implements Serializable{
     }
     
 //------------------------------------------------------------------------------
+
+    @Override
+    public String toString() {
+        return nom;
+    }
     
 }

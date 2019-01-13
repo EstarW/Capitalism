@@ -21,8 +21,8 @@ public class ContratVenteMatierePremiere extends Contrat {
 
 //---------- CONSTRUCTEURS -----------------------------------------------------
 
-    public ContratVenteMatierePremiere(int prix, int qteSource, Entreprise entSource, Entreprise entDestinataire, int duree, MatierePremiere mp) {
-        super(entSource, entDestinataire, duree);
+    public ContratVenteMatierePremiere(String nom,int prix, int qteSource, Entreprise entSource, Entreprise entDestinataire, int duree, MatierePremiere mp) {
+        super(nom, entSource, entDestinataire, duree);
         this.prix = prix;
         this.qteSource = qteSource;
         this.mp = mp;
