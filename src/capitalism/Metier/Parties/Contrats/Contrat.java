@@ -88,6 +88,7 @@ public abstract class Contrat implements Serializable{
     public void annuler() {
         this.entDestinataire.annulerContrat(this);
         this.entSource.annulerContrat(this);
+        this.entSource.getPartie().getListeContrat().remove(this);
     }
     
     public void refuser(){

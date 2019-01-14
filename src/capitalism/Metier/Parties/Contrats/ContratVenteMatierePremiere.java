@@ -85,7 +85,7 @@ public class ContratVenteMatierePremiere extends Contrat {
         else {
             this.duree --;
             this.getEntDestinataire().addArgent(this.prix);
-            this.getEntSource().addArgent(-this.prix);
+            this.getEntSource().addArgent(-1*this.prix);
             this.getEntDestinataire().getMatieresPremieresPossedees().replace(mp,this.getEntDestinataire().getMatieresPremieresPossedees().get(this.mp)-this.qteSource);
             this.getEntSource().getMatieresPremieresPossedees().replace(mp,this.getEntSource().getMatieresPremieresPossedees().get(this.mp)+this.qteSource);
             if(duree == 0){
