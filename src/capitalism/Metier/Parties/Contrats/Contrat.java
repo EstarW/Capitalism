@@ -103,6 +103,7 @@ public abstract class Contrat implements Serializable{
     }
     
     public void accepter(){
+        this.entSource.getPartie().getListeContrat().add(this);
         this.entDestinataire.addContrat(this);
         this.entSource.addContrat(this);
         this.entDestinataire.getListeContratAttente().remove(this);
@@ -120,6 +121,7 @@ public abstract class Contrat implements Serializable{
     public abstract void effectuer();
 
     public void resilier() {
+        this.entDestinataire.getPartie().getListeContrat().remove(this);
         this.entDestinataire.getListeContrat().remove(this);
         this.entSource.getListeContrat().remove(this);
     }

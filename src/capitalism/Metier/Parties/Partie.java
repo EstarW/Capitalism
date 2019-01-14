@@ -6,6 +6,7 @@ import capitalism.Metier.Parties.Entreprises.Entreprise;
 import java.util.ArrayList;
 import capitalism.Metier.Parties.Carte.Cases.Case;
 import capitalism.Metier.Parties.Carte.Coordonnee;
+import capitalism.Metier.Parties.Contrats.Contrat;
 import capitalism.Metier.Parties.Entreprises.IA.IA;
 import capitalism.Metier.Parties.Entreprises.Joueur;
 import capitalism.Metier.Parties.Usines.Enum.TypeUsine;
@@ -22,6 +23,7 @@ public class Partie implements Serializable{
     private Map map;
     private ArrayList<Entreprise> listeEnt;
     private ArrayList<IA> listeIA;
+    private ArrayList<Contrat> listeContrat;
     private Entreprise joueurCourant;
     private transient Jeu jeu;
 //---------- CONSTRUCTEURS -----------------------------------------------------
@@ -36,6 +38,7 @@ public class Partie implements Serializable{
         this.map= new Map(this);
         this.joueurCourant=null;
         this.jeu = j;
+        this.listeContrat = new ArrayList();
     }
 
 //------------------------------------------------------------------------------
@@ -127,7 +130,16 @@ public class Partie implements Serializable{
             a =- 5000;
             System.out.println(en.getArgent());
         }
+        for(Contrat c : this.listeContrat){
+            c.effectuer();
+        }
         this.joueurCourant.afficheRessources();
         this.tour++;
     }
+
+    public ArrayList<Contrat> getListeContrat() {
+        return listeContrat;
+    }
+    
+    
 }
